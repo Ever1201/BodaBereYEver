@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/descarga.jpeg'); /* Reemplaza con la ruta de tu imagen de fondo */
+    background-size: cover; /* Cubrir toda el área del fondo */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    color: #333;
+}
+
+.container {
+    max-width: 100vh;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6); /* Fondo blanco semitransparente para mejor legibilidad */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #244f3d;
+    margin-top: -10px;
+}
+
+.title-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.map {
+    width: 100%;
+    height: 400px;
+    border: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+/* Animación para el título */
+h1 {
+    text-align: center;
+    color: #244f3d;
+    opacity: 0; /* Inicia invisible */
+    transform: translateY(-20px); /* Desplazado hacia arriba */
+    animation: fadeInUp 1s forwards; /* Llama a la animación */
+    animation-delay: 0.5s; /* Retraso para el efecto */
+}
+
+/* Animación para la imagen del título */
+.title-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0; /* Inicia invisible */
+    transform: scale(0.8); /* Escalado inicial */
+    animation: scaleIn 1s forwards; /* Llama a la animación */
+    animation-delay: 1s; /* Retraso para el efecto */
+}
+
+/* Animación para el pie de página */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0; /* Inicia invisible */
+    transform: translateY(20px); /* Desplazado hacia abajo */
+    animation: fadeInUp 1s forwards; /* Llama a la animación */
+    animation-delay: 1.5s; /* Retraso para el efecto */
+}
+
+/* Definición de las animaciones */
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Se hace visible */
+        transform: translateY(0); /* Regresa a su posición original */
+    }
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1; /* Se hace visible */
+        transform: scale(1); /* Regresa a su tamaño original */
+    }
+}
+.location-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0; /* Margen para separación */
+}
+
+.map-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #244f3d; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.map-button:hover {
+    background-color: #31644b; /* Color al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+.location-container {
+    display: flex; /* Usa flexbox para organizar los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+.location-image {
+    width: 50%; /* Ocupa el 50% del ancho */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px;
+    margin-right: 20px; /* Espacio entre la imagen y el botón */
+}
+
+.map-button {
+    padding: 10px 20px;
+    background-color: #244f3d; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.map-button:hover {
+    background-color: #31644b; /* Color al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+p{
+    text-align: center;
+}
+h2{    
+    color: #244f3d;
+    text-align: center;
+}
+
+.music-button {
+    position: fixed; /* Fijo en la pantalla */
+    top: 20px; /* Distancia desde la parte superior */
+    left: 20px; /* Distancia desde el lado izquierdo */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    background-color: #244f3d; /* Color de fondo */
+    display: flex; /* Centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.music-button:hover {
+    background-color: #31644b; /* Color al pasar el mouse */
+}
+
+.music-icon {
+    width: 60%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    filter: invert(1); /* Invierte los colores */
+}
