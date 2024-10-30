@@ -6,7 +6,6 @@
     <title>Tornaboda Bere y Ever</title>
     <link rel="icon" href="img/bye.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css"> <!-- Vincular el archivo CSS -->
-    <audio id="background-music" src="audio/Desvelado.mp3" autoplay></audio> <!-- Cambia la ruta a tu archivo de música -->
 </head>
 <body>
     <div class="container">
@@ -33,27 +32,7 @@
             <h2>Esperamos verte allí.</h2>
         </footer>
     </div>
-    <script>
-        const audio = document.getElementById('background-music');
-        const musicIcon = document.getElementById('music-icon');
-    
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play(); // Reproduce la música
-                musicIcon.src = "img/pause.svg"; // Cambia a la imagen de reproducir
-            } else {
-                audio.pause(); // Pausa la música
-                musicIcon.src = "img/play.svg"; // Cambia a la imagen inicial
-            }
-        }
-    
-        // Reproduce la música automáticamente al cargar la página
-        window.onload = function() {
-            audio.play().catch(error => {
-                console.log('Reproducción automática fallida:', error);
-            });
-        };
-    </script>
+    <script src="js/Script.js"></script>
     
 </body>
 </html>
