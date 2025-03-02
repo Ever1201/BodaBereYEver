@@ -23,6 +23,7 @@ body {
     background-size: cover; /* La imagen cubrirá todo el contenedor */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
+    overflow: hidden; /* Evita desplazamientos inesperados */
 }
 .section2 {
     width: 100%;
@@ -43,8 +44,26 @@ body {
     height: auto;
     object-fit: contain;
     border-radius: 10px;
-    margin-top: -200px;
+    margin-top: 0;
 }
+#img2 {
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: 0;
+}
+
+#img3 {
+    width: 100%;
+    max-width: 3000px;
+    height: 50vh;
+    object-fit: contain;
+    object-fit: cover; /* Ajusta la imagen para que cubra toda la sección */
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
 .section2 img {
     width: 50%;
     height: auto;
@@ -60,8 +79,9 @@ body {
 }
 
 .section p {
-    font-size: 16px;
-    text-align: center;
+    font-size: 24px;
+    color: #b246f2;
+    font-weight: bold;
 }
 
 /* Modal estilos */
@@ -83,24 +103,29 @@ body {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    background-color: #ffd0e77e;
+    background-color: #d58cfc85;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1001;
-    background-image: url("../../../content/img/sello3.png");
+}
+
+.modal-content h3 {
+    font-size: 80px;
+    margin-bottom: 15px;
+    color: #b246f2;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.modal-content h3 img {
+    width: 80%;
+    max-width: 400px;
     background-size: contain; /* La imagen se ajusta al tamaño del modal */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
 }
 
-.modal-content h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
 .modal-content button {
     padding: 10px 20px;
-    background-color: #ff6f91;
+    background-color: #e5b3fe;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -109,7 +134,7 @@ body {
 }
 
 .modal-content button:hover {
-    background-color: #ff4f6d;
+    background-color: #d58cfc;
 }
 
 /* Deshabilitar el fondo mientras el modal está activo */
@@ -131,7 +156,6 @@ body {
     }
 }
 
-
 #musica{
 float: left;
 right: 0px;
@@ -142,7 +166,7 @@ position: fixed;
 -ms-transform-origin: 0 0;
 -o-transform-origin: 0 0;
 transform-origin: 0 0;
-background-color: #f69d9b63;
+background-color: #8f1fcf7c;
 letter-spacing: 3px;
 font-family: montserrat;
 color: #fff;
@@ -165,7 +189,7 @@ position: fixed;
 -ms-transform-origin: 0 0;
 -o-transform-origin: 0 0;
 transform-origin: 0 0;
-background-color: #f69d9b63;
+background-color: #8f1fcf7c;
 letter-spacing: 3px;
 font-family: montserrat;
 color: #fff;
@@ -188,7 +212,7 @@ position: fixed;
 -ms-transform-origin: 0 0;
 -o-transform-origin: 0 0;
 transform-origin: 0 0;
-background-color: #f69d9b63;
+background-color: #8f1fcf7c;
 letter-spacing: 3px;
 font-family: montserrat;
 color: #fff;
@@ -224,9 +248,6 @@ text-decoration: underline;
     font-family: 'Arial', sans-serif;
     color: #333;
     padding: 20px;
-    border-radius: 15px;
-    background: linear-gradient(135deg, #ffe5ec, #ffc1d6);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1.5s ease-in-out; /* Animación al cargar */
     width: 90%;
 }
@@ -234,7 +255,7 @@ text-decoration: underline;
 h3 {
     font-size: 80px;
     margin-bottom: 15px;
-    color: #ab6b51;
+    color: #b246f2;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -256,10 +277,12 @@ h3 {
     justify-content: center;
     width: 100%; /* Tamaño reducido */
     height: 100%; /* Tamaño reducido */
+    max-width: 200px;
+    max-height: 200px;
     aspect-ratio: 1; /* Hace que cada elemento sea un cuadrado */
-    background-color: #ff6f9163;
+    background-color: #e5b3fec5;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 500px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     animation: popIn 1.5s ease-in-out; /* Animación de entrada */
 }
@@ -351,8 +374,8 @@ h3 {
 }
 
 .column p {
-    font-size: 16px;
-    color: #444;
+    font-size: 24px;
+    color: #b246f2;
     font-weight: bold;
 }
 
@@ -360,7 +383,7 @@ h3 {
 .map-button {
     margin-top: 10px;
     padding: 10px 15px;
-    background-color: #ff6f91;
+    background-color: #d58cfc;
     color: #fff;
     border: none;
     cursor: pointer;
