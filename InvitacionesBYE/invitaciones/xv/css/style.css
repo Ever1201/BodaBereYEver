@@ -12,6 +12,16 @@ body {
     overflow: hidden; /* Evita el scroll mientras el modal está activo */
 }
 
+/* Aplica el estilo al body cuando el modal está activo */
+body .modal-active {
+    overflow: hidden;
+}
+/* Fondo desenfocado cuando el modal está activo */
+body.modal-active .section, body.modal-active .section2 {
+    filter: blur(5px);
+}
+
+
 .section {
     width: 100%;
     min-height: 100vh;
@@ -36,6 +46,8 @@ body {
     background-size: cover; /* La imagen cubrirá todo el contenedor */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
+    overflow-y: scroll; /* Permite el scroll solo en esta sección */
+    position: relative;
 }
 
 .section img {
@@ -139,8 +151,8 @@ body {
 
 /* Deshabilitar el fondo mientras el modal está activo */
 .disabled {
-    filter: blur(5px);
-    pointer-events: none;
+    filter: blur(5px); /* Aplica el desenfoque */
+    pointer-events: none; /* Desactiva la interacción con el fondo */
 }
 
 /* Media queries para pantallas más pequeñas */
@@ -432,7 +444,7 @@ h3 {
     position: relative;
     width: 4px;
     background: #cb91f5;
-    height: 75vh; /* Que cubra toda la pantalla */
+    height: 75vh; /* Que cubra 75% de la pantalla */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -441,15 +453,16 @@ h3 {
     margin: 0 5%;
 }
 
-/* Línea de progreso */
+/* Línea de progreso (avanza de arriba hacia abajo) */
 .progress {
     top: 0;
     position: absolute;
     width: 5px;
     height: 0;
     background: #6a0dad;
-    transition: height 0.1s ease;
+    transition: height 0.1s linear;
 }
+
 
 /* Eventos */
 .event {
@@ -505,11 +518,7 @@ h3 {
     }
 }
 
-img {
-    animation: fadeIn 1s ease-out;
-    opacity: 0;
-    animation-delay: 0.3s;
-}
+
 
 /* Efecto cuando el cursor pasa sobre los botones */
 button {
@@ -523,7 +532,6 @@ button:hover {
 
 /* Efecto de pulso para el contador */
 #countdown {
-    display: flex;
     gap: 20px;
     justify-content: center;
     animation: pulse 1.5s infinite;
@@ -557,10 +565,19 @@ button:hover {
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+/* Animación de entrada de la sección */
 .section.visible {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+/* Animación de entrada para las imágenes */
+.timeline-container .images img.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 /* Animación suave para las imágenes del itinerario */
 .timeline-container .images img {
     opacity: 0;
@@ -571,23 +588,6 @@ button:hover {
 .timeline-container .images img.visible {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* Animación de movimiento suave en el timeline */
-.timeline {
-    position: relative;
-    height: 200px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.progress {
-    position: absolute;
-    width: 100%;
-    background-color: #b246f2;
-    height: 0;
-    transition: height 0.3s ease;
 }
 
 /* Hover en las imágenes */
