@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Invitaciones - Chidas</title>
         <link rel="stylesheet" href="../xv/css/style.css">
+        <link rel="stylesheet" href="../xv/css/style.scss">
         <link rel="stylesheet" href="../xv/css/effectsafc7.css">
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,12 +71,48 @@
         </div>
         <div class="section2"> 
             <img id="img2" src="../xv/img/Corona.png" alt="Corona">      
-            <h2>Intirenario</h2>
+            <h3 class="imperial-script-regular">Intirenario</h3>
+
+            <div class="timeline-container">
+              <div class="images left">
+                  <img src="../xv/img/Intirenario/iglesia.svg" alt="Imagen 1">  
+                  <p class="imperial-script-regular">Misa</p>
+                  <img src="../xv/img/Intirenario/camino.svg" alt="Imagen 2">  
+                  <p class="imperial-script-regular">Paseo</p>
+                  <img src="../xv/img/Intirenario/fotos.svg" alt="Imagen 3">  
+                  <p class="imperial-script-regular">Fotos</p>
+              </div>
+              <div class="timeline">
+                  <div class="progress"></div>
+                  <!--
+                  <div class="event" data-year="2000">Evento 1</div>
+                  <div class="event" data-year="2005">Evento 2</div>
+                  <div class="event" data-year="2010">Evento 3</div>
+                  <div class="event" data-year="2015">Evento 4</div>
+                  <div class="event" data-year="2020">Evento 5</div>
+                  <div class="event" data-year="2025">Evento 6</div>
+              -->
+              </div>
+              <div class="images right">
+                  <img src="../xv/img/Intirenario/baile.svg" alt="Imagen 4">  
+                  <p class="imperial-script-regular">Baile</p>
+                  <img src="../xv/img/Intirenario/vals.svg" alt="Imagen 5">  
+                  <p class="imperial-script-regular">vals</p>
+                  <img src="../xv/img/Intirenario/elotes.svg" alt="Imagen 6">  
+                  <p class="imperial-script-regular">Comida</p>
+              </div>
+          </div>
+            
+          </div>
         </div>
         <div class="section">
-            <img id="img2" src="../xv/img/2-3.png" alt="Corona">      
-            <h2>Mensaje</h2>            
+            <img id="img2" src="../xv/img/2-3.png" alt="Corona">       
             <img src="../xv/img/evento.png">
+            <p class="imperial-script-regular column">Hoy es un día que he esperado con mucha ilusión, un día que marca el inicio de una nueva etapa en mi vida. Pero este momento no sería tan especial sin cada uno de ustedes aquí.</p>
+            <p class="imperial-script-regular column">Primero, quiero dar gracias a Dios, porque sin Su amor y bendiciones, nada de esto sería posible. A mis papás, que han sido mi mayor apoyo, mi ejemplo y mi razón de ser. Gracias por su amor incondicional, por cada sacrificio, por cada consejo y por hacer posible este sueño. Los amo con todo mi corazón.</p>              
+            <p class="imperial-script-regular column">A mi familia y mis padrinos, gracias por acompañarme en este camino, por sus palabras, su cariño y por compartir este día tan especial conmigo.</p>              
+            <p class="imperial-script-regular column">Y a todos mis amigos e invitados, gracias por estar aquí, por celebrar conmigo y por hacer de esta noche un recuerdo inolvidable. Su presencia hace que este día sea aún más hermoso y especial.</p>              
+            <p class="imperial-script-regular column">Hoy, con el corazón lleno de gratitud y felicidad, les digo gracias por ser parte de mi historia. Espero que disfruten esta noche tanto como yo. ¡Los quiero mucho!"</p>
         </div>
         <div class="section2"> 
             <img id="img2" src="../xv/img/Corona.png" alt="Corona">      
@@ -202,6 +239,27 @@ const countdownInterval = setInterval(() => {
         document.getElementById("countdown").innerHTML = "¡El evento ha comenzado!";
     }
 }, 1000);
+
+document.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY;
+    let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Ajusta el porcentaje para que empiece antes
+    let scrollPercent = ((scrollTop + 500) / docHeight) * 100; 
+
+    document.querySelector(".progress").style.height = scrollPercent + "%";
+
+    // Efecto de movimiento en los eventos
+    let events = document.querySelectorAll(".event");
+    events.forEach((event, index) => {
+        let move = scrollPercent - index * 15;
+        if (move > 0) {
+            event.style.transform = `translateX(${move}px)`;
+        } else {
+            event.style.transform = "translateX(0)";
+        }
+    });
+});
     </script>
 </body>
 </html>

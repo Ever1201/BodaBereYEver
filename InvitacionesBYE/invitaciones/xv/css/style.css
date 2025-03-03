@@ -14,7 +14,7 @@ body {
 
 .section {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +27,7 @@ body {
 }
 .section2 {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -181,8 +181,7 @@ z-index: 1000;
 
 .musicaOff{
 float: left;
-right: 0px;
-top: 45%;
+top: 90%;
 position: fixed;
 -webkit-transform-origin: 0 0;
 -moz-transform-origin: 0 0;
@@ -204,8 +203,7 @@ z-index: 1000;
 
 .musicaOn{
 float: left;
-right: 0px;
-top: 45%;
+top: 90%;
 position: fixed;
 -webkit-transform-origin: 0 0;
 -moz-transform-origin: 0 0;
@@ -402,4 +400,95 @@ h3 {
         grid-template-columns: 1fr;
         gap: 15px;
     }
+}
+
+
+.timeline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+}
+
+.images.right {
+    margin-top: 100px; /* Ajusta este valor para mover el contenido hacia abajo */
+}
+
+.images img {
+    width: 100%;
+    filter: invert(30%) sepia(90%) saturate(500%) hue-rotate(250deg) brightness(95%) contrast(95%);
+}
+
+/* Timeline en el centro */
+.timeline {
+    position: relative;
+    width: 4px;
+    background: #cb91f5;
+    height: 75vh; /* Que cubra toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+    margin: 0 5%;
+}
+
+/* Línea de progreso */
+.progress {
+    top: 0;
+    position: absolute;
+    width: 5px;
+    height: 0;
+    background: #6a0dad;
+    transition: height 0.1s ease;
+}
+
+/* Eventos */
+.event {
+    position: relative;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 150px;
+    margin: 50px 0;
+    transition: transform 0.3s;
+}
+
+.event::before {
+    content: attr(data-year);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: #6a0dad;
+}
+
+/* Eventos a la izquierda y derecha */
+.event:nth-child(even) {
+    left: -170px;
+}
+
+.event:nth-child(odd) {
+    left: 30px;
+}
+
+.timeline-container .images p{
+    font-size: 40px;
+    color: #b246f2;
+    font-weight: bold;
+    text-align: center;
 }
