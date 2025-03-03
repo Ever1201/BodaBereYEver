@@ -123,3 +123,54 @@ document.addEventListener('scroll', function () {
         }
     });
 });
+
+document.getElementById("formulario").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    let datos = {
+        nombre: document.getElementById("nombre").value,
+        correo: document.getElementById("correo").value,
+        mensaje: document.getElementById("mensaje").value
+    };
+
+    fetch("TU_URL_DEL_SCRIPT", { // Pega aquí la URL del Apps Script
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(datos)
+    }).then(() => {
+        document.getElementById("respuesta").innerText = "¡Enviado con éxito!";
+    }).catch(() => {
+        document.getElementById("respuesta").innerText = "Error al enviar.";
+    });
+
+    // Limpiar el formulario
+    document.getElementById("formulario").reset();
+});
+let currentIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+const container = document.querySelector('.carousel-container');
+
+function moveSlide(step) {
+    currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const newTransform = -currentIndex * 100 + "%";
+    container.style.transform = `translateX(${newTransform})`;
+}
+
+// Auto-slide cada 3 segundos
+let interval = setInterval(() => moveSlide(1), 3000);
+
+// Pausar el autoplay cuando el usuario pase el mouse sobre el carrusel
+document.querySelector(".carousel").addEventListener("mouseenter", () => {
+    clearInterval(interval);
+});
+
+// Reanudar el autoplay cuando el usuario sale del carrusel
+document.querySelector(".carousel").addEventListener("mouseleave", () => {
+    interval = setInterval(() => moveSlide(1), 3000);
+});

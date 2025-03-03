@@ -78,6 +78,7 @@ body.modal-active .section, body.modal-active .section2 {
 
 .section2 img {
     width: 50%;
+    max-width: 600px;
     height: auto;
     object-fit: contain;
     border-radius: 10px;
@@ -599,3 +600,105 @@ button:hover {
     transform: scale(1.1);
     filter: brightness(1.2);
 }
+#formulario {
+    max-width: 100%;
+    padding: 20px;
+    background: #cb91f5; /* Fondo morado claro */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#formulario input,
+#formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #6a0dad; /* Borde morado oscuro */
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Cinzel', serif;
+    background: #fff;
+    color: #6a0dad;
+    outline: none;
+    transition: border 0.3s;
+}
+
+#formulario input:focus,
+#formulario textarea:focus {
+    border: 2px solid #9b30ff; /* Morado más intenso al hacer foco */
+}
+
+#formulario textarea {
+    height: 100px;
+    resize: none;
+}
+
+#formulario button {
+    background: #6a0dad;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#formulario button:hover {
+    background: #9b30ff;
+    transform: scale(1.05);
+}
+
+#formulario button:active {
+    background: #4b0082;
+    transform: scale(0.95);
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+}
+
+.carousel img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Botones de navegación */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(106, 13, 173, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(106, 13, 173, 1);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
