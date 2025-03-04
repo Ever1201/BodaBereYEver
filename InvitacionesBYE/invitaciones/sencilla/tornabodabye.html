@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tornaboda Bere y Ever</title>
+    <link rel="icon" href="img/bye.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css"> <!-- Vincular el archivo CSS -->
+</head>
+<body>
+    <div class="container">
+        <h1>TornaBoda!!!!</h1>
+        <img class="title-image" src="img/bye.png" alt="Imagen de Título">
+        <h2 class="title-image">Esto Aun No Termina!!!!</h2>
+        <p>Estas Invitado A Continuar Con El Festejo Al Dia Siguiente.</p>
+        <p>Fecha: 3 de Noviembre de 2024</p>
+        <p>Hora: A Partir de las 12:00 PM</p>
+        <p>Lugar: Casa Club De Tossa Residencial Presiona 9071# En El Interfón Para El acceso</p>
+        <div class="location-container title-image">
+            <img class="location-image" src="img/tossa.png" alt="Imagen de Ubicación">
+            <button class="map-button" onclick="window.open('https://maps.app.goo.gl/qeqdtLwbZ9CVBsVh6', '_blank')">Ver en Google Maps</button>
+        </div>
+
+        <div class="music-button" onclick="toggleMusic()">
+            <img id="music-icon" src="img/speaker.svg" alt="Icono de Música" class="music-icon" /> <!-- Imagen inicial -->
+        </div>
+        
+        <audio id="background-music" src="audio/Desvelado.mp3" autoplay></audio> <!-- Cambia la ruta a tu archivo de música -->
+        
+        <footer>
+            <h2>Esperamos verte allí.</h2>
+        </footer>
+    </div>
+    <script src="js/Script.js"></script>
+    
+</body>
+</html>
