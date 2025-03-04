@@ -54,3 +54,4 @@ checkboxes.forEach((checkbox) => {
         totalSumDisplay.textContent = `Total: $${total.toFixed(2)}`; // Mostrar con 2 decimales
     });
 });
+

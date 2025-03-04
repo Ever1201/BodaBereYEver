@@ -176,6 +176,11 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
+#phoneimg{
+    width: 150px; /* Tamaño más pequeño para móviles */
+    height: 300px;
+}
+
 .beneficio h3 {
     font-family: 'Cinzel', serif;
     font-size: 1.3rem; /* Tamaño más pequeño para móviles */
