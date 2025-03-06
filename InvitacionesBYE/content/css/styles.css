@@ -180,6 +180,10 @@ nav ul li a:hover {
     width: 150px; /* Tamaño más pequeño para móviles */
     height: 300px;
 }
+#phoneimg2{
+    width: 50%; /* Tamaño más pequeño para móviles */
+    height: 75%;
+}
 
 .beneficio h3 {
     font-family: 'Cinzel', serif;
