@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Hércules</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Imagen/css/style.css">    
+</head>
+<body>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>¡Bienvenido al Olimpo!</h2>
+            <button class="play-btn" onclick="startMusic()">Entrar</button>
+        </div>
+    </div>
+
+    <!-- Botón de Pausa/Reanudar (Fuera del modal) -->
+    <button class="pause-btn" id="pauseBtn"></button>
+
+    <!-- Audio -->
+    <audio id="audio" loop>
+        <source src="../Imagen/musica/Llegareamimeta.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="../Imagen/script/script.js"></script>
+</body>
+</html>
