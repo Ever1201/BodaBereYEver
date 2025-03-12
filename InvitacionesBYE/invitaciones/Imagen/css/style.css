@@ -74,7 +74,7 @@ p {
 
 /* Contenido del modal */
 .modal-content {
-    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.473);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -105,15 +105,14 @@ p {
     background-position: center; /* Asegura que la imagen se vea bien */
     background-size: cover;
     background-repeat: no-repeat;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     bottom: 10%;
     position: fixed;
     left: 0px;
-    background-color: #efba19;
+    background-color: #efb919b7;
     color: white;
     border: none;
-    border-radius: 5px;
     font-size: 1.2rem;
     cursor: pointer;
     box-shadow: 0px 0px 10px rgba(255, 223, 0, 0.5);
@@ -122,7 +121,7 @@ p {
 }
 
 .pause-btn:hover {
-    background-color: #d48a0e;
+    background-color: #efb919;
 }
 
 /* Estilo para el botón "Entrar" */
@@ -156,3 +155,29 @@ div div img {
     padding: 10px;
     border-radius: 10px;
 }
+
+.btn {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .btn {
+    width: 150px;
+    height: 60px;
+    background-image: linear-gradient(135deg, #efba19 0%, rgba(255, 223, 0, 0.5) 100%);
+    box-shadow: 0 20px 30px -6px rgba(252, 220, 16, 0.712);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-size: 24px;
+    color: white;
+  }
+  
+  .btn:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+  
+  .btn:active {
+    opacity: 0.5;
+  }
