@@ -30,7 +30,7 @@ body.modal-active .section, body.modal-active .section2 {
     justify-content: center;
     align-items: center;
     background-image: url("../img/bg2.png"); /* Imagen de fondo por defecto */
-    background-size: 100%, 100%; /* La imagen cubrirá todo el contenedor */
+    background-size: cover; /* La imagen cubrirá todo el contenedor */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
     overflow: hidden; /* Evita desplazamientos inesperados */
@@ -43,7 +43,7 @@ body.modal-active .section, body.modal-active .section2 {
     justify-content: center;
     align-items: center;
     background-image: url("../img/bg4.png"); /* Imagen de fondo por defecto */
-    background-size: 100%, 100%; /* La imagen cubrirá todo el contenedor */
+    background-size: cover; /* La imagen cubrirá todo el contenedor */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
     overflow-y: scroll; /* Permite el scroll solo en esta sección */
@@ -51,6 +51,15 @@ body.modal-active .section, body.modal-active .section2 {
 }
 
 .section img {
+    width: 75%;
+    max-width: 600px;
+    height: 50vh;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: 0;
+}
+#img3 {
     width: 100%;
     max-width: 600px;
     height: auto;
@@ -66,14 +75,19 @@ body.modal-active .section, body.modal-active .section2 {
     margin-top: 0;
 }
 
-#img3 {
-    width: 100%;
-    max-width: 3000px;
-    height: 50vh;
+.section2 img {
+    width: 50%;
+    max-width: 600px;
+    height: auto;
     object-fit: contain;
-    object-fit: cover; /* Ajusta la imagen para que cubra toda la sección */
-    border-radius: 0px;
-    margin-bottom: 0px;
+    border-radius: 10px;
+    
+}
+.section h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    text-align: center;
+    color: #444;
 }
 
 .section2 img {
@@ -93,7 +107,7 @@ body.modal-active .section, body.modal-active .section2 {
 
 .section p {
     font-size: 24px;
-    color: #b246f2;
+    color: #a4c2f9;
     font-weight: bold;
 }
 
@@ -124,7 +138,7 @@ body.modal-active .section, body.modal-active .section2 {
 .modal-content h3 {
     font-size: 80px;
     margin-bottom: 15px;
-    color: #b246f2;
+    color: #a4c2f9;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -138,7 +152,7 @@ body.modal-active .section, body.modal-active .section2 {
 
 .modal-content button {
     padding: 10px 20px;
-    background-color: #e5b3fe;
+    background-color: #a4c2f9;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -147,7 +161,7 @@ body.modal-active .section, body.modal-active .section2 {
 }
 
 .modal-content button:hover {
-    background-color: #d58cfc;
+    background-color: #85affd;
 }
 
 /* Deshabilitar el fondo mientras el modal está activo */
@@ -179,7 +193,7 @@ position: fixed;
 -ms-transform-origin: 0 0;
 -o-transform-origin: 0 0;
 transform-origin: 0 0;
-background-color: #8f1fcf7c;
+background-color: #a4c2f9;
 letter-spacing: 3px;
 font-family: montserrat;
 color: #fff;
@@ -201,7 +215,7 @@ position: fixed;
 -ms-transform-origin: 0 0;
 -o-transform-origin: 0 0;
 transform-origin: 0 0;
-background-color: #8f1fcf7c;
+background-color: #a4c2f9;
 letter-spacing: 3px;
 font-family: montserrat;
 color: #fff;
@@ -223,7 +237,7 @@ position: fixed;
 -ms-transform-origin: 0 0;
 -o-transform-origin: 0 0;
 transform-origin: 0 0;
-background-color: #8f1fcf7c;
+background-color: #a4c2f9;
 letter-spacing: 3px;
 font-family: montserrat;
 color: #fff;
@@ -266,7 +280,7 @@ text-decoration: underline;
 h3 {
     font-size: 80px;
     margin-bottom: 15px;
-    color: #b246f2;
+    color: #a4c2f9;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -291,7 +305,7 @@ h3 {
     max-width: 200px;
     max-height: 200px;
     aspect-ratio: 1; /* Hace que cada elemento sea un cuadrado */
-    background-color: #e5b3fec5;
+    background-color: #a4c2f9;
     color: #fff;
     border-radius: 500px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -386,7 +400,7 @@ h3 {
 
 .column p {
     font-size: 24px;
-    color: #b246f2;
+    color: #a4c2f9;
     font-weight: bold;
 }
 
@@ -394,7 +408,7 @@ h3 {
 .map-button {
     margin-top: 10px;
     padding: 10px 15px;
-    background-color: #d58cfc;
+    background-color: #a4c2f9;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -444,7 +458,7 @@ h3 {
 .timeline {
     position: relative;
     width: 4px;
-    background: #cb91f5;
+    background: #a4c2f9;
     height: 75vh; /* Que cubra 75% de la pantalla */
     display: flex;
     flex-direction: column;
@@ -460,7 +474,7 @@ h3 {
     position: absolute;
     width: 5px;
     height: 0;
-    background: #6a0dad;
+    background: #a4c2f9;
     transition: height 0.1s linear;
 }
 
@@ -488,7 +502,7 @@ h3 {
     transform: translateX(-50%);
     font-size: 12px;
     font-weight: bold;
-    color: #6a0dad;
+    color: #a4c2f9;
 }
 
 /* Eventos a la izquierda y derecha */
@@ -502,7 +516,7 @@ h3 {
 
 .timeline-container .images p{
     font-size: 40px;
-    color: #b246f2;
+    color: #a4c2f9;
     font-weight: bold;
     text-align: center;
 }
@@ -528,7 +542,7 @@ button {
 
 button:hover {
     transform: scale(1.1);
-    background-color: #b246f2; /* Color llamativo */
+    background-color: #a4c2f9; /* Color llamativo */
 }
 
 /* Efecto de pulso para el contador */
@@ -556,7 +570,7 @@ button:hover {
 .countdown-item {
     text-align: center;
     font-size: 2em;
-    color: #b246f2;
+    color: #a4c2f9;
 }
 
 /* Animación para mostrar las secciones */
@@ -603,7 +617,7 @@ button:hover {
 #formulario {
     max-width: 100%;
     padding: 20px;
-    background: #cb91f5; /* Fondo morado claro */
+    background: #a4c2f9; /* Fondo morado claro */
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -615,19 +629,19 @@ button:hover {
 #formulario textarea {
     width: 100%;
     padding: 10px;
-    border: 2px solid #6a0dad; /* Borde morado oscuro */
+    border: 2px solid #a4c2f9; /* Borde morado oscuro */
     border-radius: 5px;
     font-size: 16px;
     font-family: 'Cinzel', serif;
     background: #fff;
-    color: #6a0dad;
+    color: #a4c2f9;
     outline: none;
     transition: border 0.3s;
 }
 
 #formulario input:focus,
 #formulario textarea:focus {
-    border: 2px solid #9b30ff; /* Morado más intenso al hacer foco */
+    border: 2px solid #a4c2f9; /* Morado más intenso al hacer foco */
 }
 
 #formulario textarea {
@@ -636,7 +650,7 @@ button:hover {
 }
 
 #formulario button {
-    background: #6a0dad;
+    background: #a4c2f9;
     color: white;
     padding: 12px;
     border: none;
@@ -648,12 +662,12 @@ button:hover {
 }
 
 #formulario button:hover {
-    background: #9b30ff;
+    background: #a4c2f9;
     transform: scale(1.05);
 }
 
 #formulario button:active {
-    background: #4b0082;
+    background: #6194f3;
     transform: scale(0.95);
 }
 .carousel {
