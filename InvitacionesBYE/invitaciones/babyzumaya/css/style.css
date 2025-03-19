@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: tangerine;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
@@ -46,7 +46,6 @@ body.modal-active .section, body.modal-active .section2 {
     background-size: cover; /* La imagen cubrirá todo el contenedor */
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
-    overflow-y: scroll; /* Permite el scroll solo en esta sección */
     position: relative;
 }
 
@@ -68,11 +67,11 @@ body.modal-active .section, body.modal-active .section2 {
     margin-top: 0;
 }
 #img2 {
-    width: 50%;
+    width: 90%;
     height: auto;
     object-fit: contain;
     border-radius: 10px;
-    margin-top: 0;
+    margin-top: 0;    
 }
 
 .section2 img {
@@ -90,14 +89,6 @@ body.modal-active .section, body.modal-active .section2 {
     color: #444;
 }
 
-.section2 img {
-    width: 50%;
-    max-width: 600px;
-    height: auto;
-    object-fit: contain;
-    border-radius: 10px;
-    
-}
 .section h2 {
     font-size: 24px;
     margin: 10px 0;
@@ -130,7 +121,7 @@ body.modal-active .section, body.modal-active .section2 {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    background-color: #d58cfc85;
+    background-color: #a4c2f99c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1001;
 }
@@ -157,7 +148,7 @@ body.modal-active .section, body.modal-active .section2 {
     border: none;
     cursor: pointer;
     border-radius: 25px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .modal-content button:hover {
@@ -377,7 +368,12 @@ h3 {
     margin: 20px auto;
     padding: 20px;
 }
-
+.niconne-regular {
+    font-family: "Niconne", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 .column {
     background: #ffffff62;
     border-radius: 15px;
@@ -393,13 +389,13 @@ h3 {
 }
 
 .column img {
-    width: 80px;
+    width: 90%;
     height: auto;
     margin-bottom: 10px;
 }
 
 .column p {
-    font-size: 24px;
+    font-size: 30px;
     color: #a4c2f9;
     font-weight: bold;
 }
@@ -474,7 +470,7 @@ h3 {
     position: absolute;
     width: 5px;
     height: 0;
-    background: #a4c2f9;
+    background: #005aff;
     transition: height 0.1s linear;
 }
 
@@ -549,7 +545,7 @@ button:hover {
 #countdown {
     gap: 20px;
     justify-content: center;
-    animation: pulse 1.5s infinite;
+    font-family: serif;
 }
 
 @keyframes pulse {
@@ -570,7 +566,7 @@ button:hover {
 .countdown-item {
     text-align: center;
     font-size: 2em;
-    color: #a4c2f9;
+    font-family: serif;
 }
 
 /* Animación para mostrar las secciones */
@@ -716,3 +712,94 @@ button:hover {
 
 .prev { left: 10px; }
 .next { right: 10px; }
+
+.cabezasection {
+    position: absolute;
+    top: 0; /* Sin margen superior */
+    left: 0; /* Sin margen izquierdo */
+    width: 100%;
+    height: 10vh; /* Altura del 10% de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url("../img/2.png");
+    background-size: 33% 100%; /* Tamaño exacto de la imagen */
+    background-position: top; /* Alinea la imagen desde arriba */
+    background-repeat: repeat-x; /* Repite solo en la dirección horizontal */
+
+    overflow: hidden; /* Evita desbordamientos */
+}
+.cabezasection2 {
+    position: absolute;
+    top: 0; /* Sin margen superior */
+    left: 0; /* Sin margen izquierdo */
+    width: 100%;
+    height: 10vh; /* Altura del 10% de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url("../img/3.png");
+    background-size: 33% 100%; /* Tamaño exacto de la imagen */
+    background-position: top; /* Alinea la imagen desde arriba */
+    background-repeat: repeat-x; /* Repite solo en la dirección horizontal */
+
+    overflow: hidden; /* Evita desbordamientos */
+}
+.cabezasection3 {
+    position: absolute;
+    top: 0; /* Sin margen superior */
+    left: 0; /* Sin margen izquierdo */
+    width: 100%;
+    height: 10vh; /* Altura del 10% de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url("../img/1.png");
+    background-size: 33% 100%; /* Tamaño exacto de la imagen */
+    background-position: top; /* Alinea la imagen desde arriba */
+    background-repeat: repeat-x; /* Repite solo en la dirección horizontal */
+
+    overflow: hidden; /* Evita desbordamientos */
+}
+.pt-serif-regular {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .pt-serif-bold {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .pt-serif-regular-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .pt-serif-bold-italic {
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .tangerine-regular {
+    font-family: "Tangerine", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .tangerine-bold {
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  

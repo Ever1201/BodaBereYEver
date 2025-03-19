@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Fecha del evento
-const eventDate = new Date("2026-03-15T18:00:00").getTime();
+const eventDate = new Date("2025-05-25T18:00:00").getTime();
 
 // Actualiza el contador cada segundo
 const countdownInterval = setInterval(() => {
