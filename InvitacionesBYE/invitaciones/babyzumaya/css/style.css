@@ -34,11 +34,12 @@ body.modal-active .section, body.modal-active .section2 {
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
     overflow: hidden; /* Evita desplazamientos inesperados */
+    margin-top: 0px;
 }
 .section2 {
     width: 100%;
     min-height: 100vh;
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -47,6 +48,8 @@ body.modal-active .section, body.modal-active .section2 {
     background-position: center; /* Centrar la imagen */
     background-repeat: no-repeat; /* Evitar que se repita */
     position: relative;
+    margin-top: 0px;
+    overflow: hidden; /* Evita desplazamientos inesperados */
 }
 
 .section img {
@@ -431,15 +434,14 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     position: relative;
 }
 
 .images {
-    display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 30%;
+    width: 40%;
+    text-align: -webkit-center;
+    margin-top: 0px;
 }
 
 .images.right {
@@ -447,8 +449,8 @@ h3 {
 }
 
 .images img {
-    width: 100%;
-    filter: invert(30%) sepia(90%) saturate(500%) hue-rotate(250deg) brightness(95%) contrast(95%);
+    width: 75%;
+    filter: invert(63%) sepia(37%) saturate(508%) hue-rotate(192deg) brightness(101%) contrast(96%);
 }
 
 /* Timeline en el centro */
@@ -456,7 +458,7 @@ h3 {
     position: relative;
     width: 4px;
     background: #a4c2f9;
-    height: 75vh; /* Que cubra 75% de la pantalla */
+    height: 100vh; /* Que cubra 75% de la pantalla */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -473,6 +475,7 @@ h3 {
     height: 0;
     background: #005aff;
     transition: height 0.1s linear;
+    border-radius: 100px;
 }
 
 
