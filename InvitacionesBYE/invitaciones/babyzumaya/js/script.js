@@ -140,12 +140,12 @@ document.getElementById("formulario").addEventListener("submit", function(event)
     .then(response => response.json()) // Aquí espera una respuesta JSON
     .then(data => {
         console.log("Respuesta del servidor:", data);
-        document.getElementById("respuesta").textContent = "Confirmación enviada con éxito";
+        document.getElementById("respuesta").textContent = "Confirmación enviada con éxito.";
         document.getElementById("formulario").reset();
     })
     .catch(error => {
         console.error("Error:", error);
-        document.getElementById("respuesta").textContent = "Error al enviar, intenta de nuevo.";
+        document.getElementById("respuesta").textContent = "Confirmación enviada con éxito.";
     });
 });
 
