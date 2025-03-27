@@ -124,53 +124,48 @@ document.addEventListener('scroll', function () {
     });
 });
 
-document.getElementById("formulario").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    let datos = {
-        nombre: document.getElementById("nombre").value,
-        correo: document.getElementById("correo").value,
-        mensaje: document.getElementById("mensaje").value
-    };
+document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-    fetch("TU_URL_DEL_SCRIPT", { // Pega aquí la URL del Apps Script
+    let formData = new URLSearchParams();
+    formData.append("nombre", document.getElementById("nombre").value);
+    formData.append("acompañantes", document.getElementById("Acompañantes").value);
+    formData.append("mensaje", document.getElementById("mensaje").value);
+
+    fetch("https://script.google.com/macros/s/AKfycbyV-b1QJ4FB8F_szIRuDbEbisc7-bNcckJjJ2QT6rBJhSKASWR6zxcvHKLoqc8nCgR7UQ/exec", {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(datos)
-    }).then(() => {
-        document.getElementById("respuesta").innerText = "¡Enviado con éxito!";
-    }).catch(() => {
-        document.getElementById("respuesta").innerText = "Error al enviar.";
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData
+    })
+    .then(response => response.json()) // Aquí espera una respuesta JSON
+    .then(data => {
+        console.log("Respuesta del servidor:", data);
+        document.getElementById("respuesta").textContent = "Confirmación enviada con éxito";
+        document.getElementById("formulario").reset();
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("respuesta").textContent = "Error al enviar, intenta de nuevo.";
     });
-
-    // Limpiar el formulario
-    document.getElementById("formulario").reset();
-});
-let currentIndex = 0;
-const slides = document.querySelectorAll('.carousel-slide');
-const totalSlides = slides.length;
-const container = document.querySelector('.carousel-container');
-
-function moveSlide(step) {
-    currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-    updateCarousel();
-}
-
-function updateCarousel() {
-    const newTransform = -currentIndex * 100 + "%";
-    container.style.transform = `translateX(${newTransform})`;
-}
-
-// Auto-slide cada 3 segundos
-let interval = setInterval(() => moveSlide(1), 3000);
-
-// Pausar el autoplay cuando el usuario pase el mouse sobre el carrusel
-document.querySelector(".carousel").addEventListener("mouseenter", () => {
-    clearInterval(interval);
 });
 
-// Reanudar el autoplay cuando el usuario sale del carrusel
-document.querySelector(".carousel").addEventListener("mouseleave", () => {
-    interval = setInterval(() => moveSlide(1), 3000);
+document.addEventListener("DOMContentLoaded", function () {
+    const timeline = document.querySelector(".progress"); // Selecciona la barra de progreso
+    const section4 = document.querySelectorAll(".section2")[1]; // Selecciona la 4ta sección (segundo .section2)
+
+    function updateProgress() {
+        const rect = section4.getBoundingClientRect(); // Obtiene la posición de la sección
+        const windowHeight = window.innerHeight; // Altura de la ventana
+        const start = windowHeight / 5; // Punto medio de la pantalla
+        const end = rect.height + start; // Punto final de la sección
+
+        if (rect.top <= start && rect.bottom >= start) {
+            let progress = ((start - rect.top) / (end - start)) * 100;
+            progress = Math.max(0, Math.min(100, progress)); // Limita el valor entre 0 y 100
+            timeline.style.height = `${progress}%`;
+        }
+    }
+
+    window.addEventListener("scroll", updateProgress); // Detecta el scroll
+    updateProgress(); // Inicializa la barra si la sección ya está visible
 });

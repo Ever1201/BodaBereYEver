@@ -158,11 +158,11 @@ body.modal-active .section, body.modal-active .section2 {
     background-color: #85affd;
 }
 
-/* Deshabilitar el fondo mientras el modal está activo */
+/* Deshabilitar el fondo mientras el modal está activo 
 .disabled {
-    filter: blur(5px); /* Aplica el desenfoque */
-    pointer-events: none; /* Desactiva la interacción con el fondo */
-}
+    filter: blur(5px); /* Aplica el desenfoque 
+    pointer-events: none; /* Desactiva la interacción con el fondo 
+}*/
 
 /* Media queries para pantallas más pequeñas */
 @media (max-width: 768px) {
