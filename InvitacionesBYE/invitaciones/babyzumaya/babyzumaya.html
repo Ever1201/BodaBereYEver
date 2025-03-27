@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Invitaciones - Chidas</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../babyzumaya/css/style.css">
+        <link rel="stylesheet" href="../babyzumaya/css/effectsafc7.css">
+        <link rel="icon" type="image/png" href="../../content/img/sello3.png">
+        
+
+</head>
+<body>
+    <div id="content">
+        <!-- Sección 1 -->
+        <div class="section">
+            <img src="img/baby.png" class="effect-sparkle" alt="Imagen 1">
+            <img src="img/baby2.png" id="img3" alt="Imagen 2">
+        </div>        
+        <div class="section2">
+            <img id="img2" src="../babyzumaya/img/1.png" alt="Corona">  
+            <h2></h2>        
+            <div class="two-column-section effect-sparkle">
+                <div class="column">
+                    <img src="../babyzumaya/img/haciendaflordelnogal.jpg" alt="Ceremonia Religiosa">
+                    <p class="">Lugar Hacienda Flor Del Nogal</p>
+                    <p class="">Hora: <b>10:00 AM</b></p>
+                    <p class="">Priv. 2da, Ortiz Rubio 734, Las Arcadas, 32563 Juárez, Chih.</p>
+                    <a href="https://maps.app.goo.gl/CkiRgCYUu1wywLLb7" target="_blank">
+                        <button class="map-button">Ver Ubicación</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="section">            
+            <div class="cabezasection2"></div>
+            <h3 >¡Faltan!</h3>    
+            <div class="countdown-container">
+                <div id="countdown">
+                    <div class="countdown-item">
+                        <span id="days">0</span>
+                        <small>Días</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">0</span>
+                        <small>Horas</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">0</span>
+                        <small>Minutos</small>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">0</span>
+                        <small>Segundos</small>
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        <div class="section2">
+            <div class="cabezasection"></div>    
+          <h3 class="">Intinerario</h3>
+      
+          <div class="timeline-container">
+              <div class="images left">
+                <p class="">10:00 a 10:30</p>
+                  <img src="../babyzumaya/img/intinerario/1.png" alt="Imagen 1">                 
+                  <p class="">Recibimiento y Fotos</p>
+                  <p class="">11:30 a 12:00</p>
+                  <img src="../babyzumaya/img/intinerario/2.png" alt="Imagen 2"> 
+                  <p class="">Descanso</p>    
+                  <p class="">1:00 a 1:30</p>
+                  <img src="../babyzumaya/img/intinerario/3.png" alt="Imagen 3">  
+                  <p class="">Botana</p>
+              </div>
+              <div class="timeline">
+                  <div class="progress"></div>
+              </div>
+      
+              <div class="images right">  
+                <p class="">10:30 a 11:30</p>
+                  <img src="../babyzumaya/img/intinerario/4.png" alt="Imagen 4">  
+                  <p class="">Desayuno</p>  
+                  <p class="">12:00 a 1:00pm</p>
+                  <img src="../babyzumaya/img/intinerario/5.png" alt="Imagen 5">  
+                  <p class="">Juegos Animación</p>
+                  <p class="">1:30 a 2:00</p>
+                  <img src="../babyzumaya/img/intinerario/6.png" alt="Imagen 6">  
+                  <p class="">Despedida</p>
+              </div>
+          </div>
+      </div>  
+      
+        <div class="section">            
+            <img id="img2" src="../babyzumaya/img/1.png" alt="Corona">  
+            <h3>Confirmacion</h3>
+            <form id="formulario">
+              <input type="text" id="nombre" placeholder="Nombre" required>
+              <input type="text" id="Acompañantes" placeholder="Acompañantes" required>
+              <textarea id="mensaje" placeholder="Comparte un mensaje" required></textarea>
+              <button type="submit">Confirmar</button>
+          </form>
+          
+          <p id="respuesta"></p>
+        </div>
+    </div>
+    <!-- Musica -->
+    <audio id="musica" loop >
+        <source src="../babyzumaya/HereComesTheSun.mp3" type="audio/mp3">
+    </audio>
+    <div class="musicaOn" target="_blank" id="sonidoMusicaOn" style="cursor: pointer;">
+        <img src="../babyzumaya/img/musica-on.gif">
+    </div>
+    <div class="musicaOff" target="_blank" id="sonidomusicaOff" style="cursor: pointer;">
+        <img src="../babyzumaya/img/musica-on.gif">
+    </div>   
+
+    <!-- Modal Bienvenida -->
+    <div class="modal-overlay " id="modalBienvenida">
+        <div class="modal-content">
+            <h3><img src="../babyzumaya/img/Bienvenidos.png" alt="Corona"> </h3> 
+            <button id="btnIngresar" class="btn">Ingresar a la invitacion</button>
+        </div>
+    </div>   
+
+    <script src="../babyzumaya/js/script.js"></script>
+</body>
+</html>
