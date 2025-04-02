@@ -591,6 +591,7 @@ button:hover {
 .timeline-container .images img.visible {
     opacity: 1;
     transform: translateX(0);
+    width: 50%;
 }
 
 /* Animación suave para las imágenes del itinerario */
