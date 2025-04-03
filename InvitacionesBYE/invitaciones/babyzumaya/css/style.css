@@ -445,7 +445,16 @@ h3 {
 }
 
 .images.right {
-    margin-top: 100px; /* Ajusta este valor para mover el contenido hacia abajo */
+    margin-top: 50px; /* Ajusta este valor para mover el contenido hacia abajo */
+    display: flex;
+    gap: 20px; /* Ajusta el espacio entre columnas */
+    justify-content: center; /* Centrar las columnas */
+}
+.images.left {
+    margin-top: 50px; /* Ajusta este valor para mover el contenido hacia abajo */
+    display: flex;
+    gap: 20px; /* Ajusta el espacio entre columnas */
+    justify-content: center; /* Centrar las columnas */
 }
 
 .images img {
@@ -808,3 +817,17 @@ button:hover {
     font-style: normal;
   }
   
+  #iconozumaya {
+    width: 130%;   
+    align-items: center;
+    filter: none; /* Sin filtro */
+    margin-left: -60px; /* Ajusta el margen izquierdo */
+  }
+
+  .columnint {
+    background: #ffffff62;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
