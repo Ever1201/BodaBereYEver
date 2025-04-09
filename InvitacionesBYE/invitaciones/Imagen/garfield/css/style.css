@@ -1,0 +1,184 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Marcellus', serif;
+    text-align: center;
+    color: #f65803; /* Color dorado */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* Sombra para efecto épico */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vh;
+    max-width: 768px; /* Limita el ancho de la imagen */
+    margin-top: -50px;
+}
+
+/* Fondo de la imagen para todo el html */
+html {
+    background-image: url('../img/ivana.png'); /* Cambia la ruta a la imagen deseada */
+    background-color: #000; /* Color de fondo en caso de que la imagen no cargue */
+    background-size: 90% 95%; /* La imagen se ajusta proporcionalmente */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+    height: 100%; /* Asegura que ocupe toda la altura */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+/* Ajustes para pantallas grandes */
+@media screen and (min-width: 768px) {
+    body {
+        background-size: contain; /* Mantiene la imagen proporcional */
+        background-position: center; /* Centra la imagen */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    body {
+        background-size: contain; /* Mantiene la imagen proporcional en pantallas pequeñas */
+        background-position: center; /* Asegura que la imagen se vea bien */
+        background-attachment: scroll; /* Corrige errores en iOS */
+    }
+}
+
+.texto-invitacion {
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro transparente */
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #f65803;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: 'IM Fell Great Primer SC', serif;
+}
+
+p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+/* Estilos para el modal */
+.modal {
+    display: flex; /* Se muestra al cargar la página */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background: rgba(255, 255, 255, 0.473);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0px 0px 15px rgba(255, 102, 0, 0.5);
+}
+
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #d0a933;
+}
+
+/* Botón de pausa */
+.pause-btn {
+    background-image: url('../img/musica-on.gif');
+    background-position: center; /* Asegura que la imagen se vea bien */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    bottom: 10%;
+    position: fixed;
+    left: 0px;
+    background-color: #f6580363;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(255, 102, 0, 0.5);
+    transition: background 0.3s ease-in-out;
+
+}
+
+.pause-btn:hover {
+    background-color: #f65803;
+}
+
+/* Estilo para el botón "Entrar" */
+.play-btn {
+    background: linear-gradient(45deg, #f65803, rgba(255, 102, 0, 0.5)); /* Degradado dorado */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.5);
+    text-transform: uppercase;
+}
+
+.play-btn:hover {
+    background: linear-gradient(45deg, #f65803, rgba(255, 102, 0, 0.5));
+    transform: scale(1.05);
+}
+
+.play-btn:active {
+    transform: scale(0.95);
+}
+
+div div img {
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .btn {
+    width: 150px;
+    height: 60px;
+    background-image: linear-gradient(135deg, #f65803 0%, rgba(255, 102, 0, 0.5) 100%);
+    box-shadow: 0 20px 30px -6px rgba(252, 130, 16, 0.712);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-size: 24px;
+    color: white;
+  }
+  
+  .btn:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+  
+  .btn:active {
+    opacity: 0.5;
+  }
