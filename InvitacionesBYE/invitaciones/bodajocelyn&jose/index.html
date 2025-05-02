@@ -102,63 +102,10 @@
 								<li align="center"><div align="center"><span id="minutes"></span></div><p>MINUTOS</p></li>
 							</ul>
 						</div>
-	
-						<!--AGENDAR EVENTO
-
-						<a class="col-md-12 centrar m-40" target="_blank" href="event.ics">
-							<span class="btn-blue centrar wow fadeInDown" data-toggle="modal" data-target="#evento">
-								<img src="img/agregar.svg" style="margin-right: 20px;" alt="" width="30"/>
-							<p class="text-white m-0 sombra-texto wow fadeInDown font-18" align="center">Agendar Evento</p>
-							</span>
-						</a>-->
-
-						<!--AGENDAR EVENTO
-
-						<div class="col-11 col-center">
-							<h2 align="center" class="title-2 m-20 wow fadeInDown sombra-texto">Nuestros padres:</h2>
-						</div>
-
-						<div class="col-12 col-md-6">
-							<p class="text-black m-20 wow fadeInDown sombra-texto" align="center">Texto Texto Texto  <br> Texto Texto Texto </p>
-						</div>
-
-						<div class="col-12 col-md-6">
-							<div class="d-flex justify-content-center">
-								<p class="text-black m-0 wow fadeInDown sombra-texto" align="center">Texto Texto Texto  <br> Texto Texto Texto  </p>
-							</div>
-							
-						</div>-->
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	<!-- Info General -->
-
-	
-
-	<!-- Hotel
-	<section id="Hotel">
-		<div class="row">
-			<div class="col-lg-5 col-11 col-center">
-				<div class="cuadro-info wow fadeInUp">
-					<div class="row">
-						<div class="col-12 col-center m-40">
-							<h2 align="center" class="title-2 m-20 wow fadeInDown sombra-texto">Sugerencia de hospedaje</h2>
-							<div align="center" class="m-20 wow fadeInDown"><img src="img/hotel.svg" alt="" width="60"/></div>
-							<p class="text-black m-40 wow fadeInDown sombra-texto" align="center">Nombre Hotel <br>Dirección</p>
-							<div align="center" class="wow fadeInDown"><a class="btn-blue" href="https://maps.app.goo.gl/JYDJSAnDjmMfJ4ZJ6" target="_blank">Ver Ubicación</a></div>
-						</div>
-
-						
-					</div>
-				</div>
-			</div>
-		</div>	
-	</section>
-	Hotel -->
-
-
 
 	<!-- Ceremonia -->
 	<section>
@@ -402,44 +349,7 @@
 								<div align="center" class="m-40 wow fadeInDown gif"><img src="img/regalo.svg" alt="" width="85"/></div>
 								
 								<p class="text-black m-40 wow fadeInRight sombra-texto" align="center">Lo mas importante es tu presencia, pero si deseas hacernos un regalo aquí tienes nuestros datos.</p>
-								<!-- 
-								<div align="center" class="wow fadeInRight m-40">
-									<div class="m-20" align="center"><img src="img/hsbc-1.svg" width="150" alt=""></div>
-									<p class="text-black m-0 sombra-texto" align="center">Nombre beneficiario</p>
-									<p class="text-black m-0 sombra-texto" align="center">No. Tarjeta 00000000000000</p>
-									<p class="text-black m-0 sombra-texto" align="center">Clab Int. 0000000000000000000</p>
-								</div>
-
 								
-							</div>
-
-							<div class="col-12 col-md-6 col-center m-40">
-								<div align="center" class="m-0 wow fadeInDown"><img src="img/liverpool-logo-vector.svg" alt="" width="150"/></div>
-								<p class="text-black m-20 wow fadeInRight sombra-texto" align="center">Evento: 0000</p>
-								
-								<div align="center" class="wow fadeInRight m-40">
-									<a class="btn-blue" target="_blank" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/0000" >Ver mesa de regalos</a>
-								</div>
-								
-							</div>
-
-							<div class="col-12 col-md-6 col-center">
-								<div align="center" class="m-0 wow fadeInDown"><img src="img/el-palacio-de-hierro.svg" alt="" width="200"/></div>
-								<p class="text-black m-20 wow fadeInRight sombra-texto" align="center">Evento: 0000</p>
-								
-								<div align="center" class="wow fadeInRight m-40">
-									<a class="btn-blue" target="_blank" href="https://www.elpalaciodehierro.com/buscar?eventId=0000" >Ver mesa de regalos</a>
-								</div>
-							</div>
-	
-						</div>
-					</div>
-				</div>
-			</div>	
-		</section>
-        -- Regalos -->
-		<!-- Regalos -->
-
 
 		<!-- Confirmar Asistencia --> 
 		<section id="Confirmar Asistencia">
@@ -510,20 +420,27 @@
 					
                     <form id="boda-form">
                         <div class="m-20 wow fadeInLeft">
-                            <input class="form-campo" type="text" name="nombre" placeholder="Tu nombre" required><br>
+                          <input class="form-campo" type="text" name="nombre" placeholder="Tu nombre" required><br>
                         </div>
+                      
                         <div class="m-20 wow fadeInLeft">
-                            <select class="form-campo" name="asistencia" required><br>                        
-                                <option class="form-campo" value="">¿Asistirás?</option><br>
-                                <option class="form-campo" value="Sí">Sí</option><br>
-                                <option class="form-campo" value="No">No</option><br>
-                            </select><br>
+                          <select class="form-campo" name="asistencia" required>
+                            <option value="">¿Asistirás?</option>
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                          </select><br>
                         </div>
-						<div class="m-40 wow fadeInLeft">
-                        <textarea class="form-campo" name="mensaje" placeholder="Escribe un mensaje..."></textarea><br>
-                        </div>                        
-						<div class="m-0 wow fadeInLeft" align="center">
-                            <button class="btn-form" type="submit">Enviar</button>
+                      
+                        <div class="m-20 wow fadeInLeft">
+                          <input class="form-campo" type="text" name="acompanante" placeholder="¿Nombre del acompañante? (opcional)"><br>
+                        </div>
+                      
+                        <div class="m-40 wow fadeInLeft">
+                          <textarea class="form-campo" name="mensaje" placeholder="Escribe un mensaje..."></textarea><br>
+                        </div>
+                      
+                        <div class="m-0 wow fadeInLeft" align="center">
+                          <button class="btn-form" type="submit">Enviar</button>
                         </div>
                       </form>
                       
@@ -534,7 +451,7 @@
                         const form = e.target;
                         const data = new FormData(form);
                       
-                        fetch("https://script.google.com/macros/s/AKfycbyN9C65b6rwVpPkJCPe6wnfqO9bnSpJSzziM6woIULcwQPUntebniOftaapaFOx8ds_/exec", {
+                        fetch("https://script.google.com/macros/s/AKfycbwwXcqMoHLWFe-YVAZ_4nWEsTyLCDKkwQ9DWkXGaSfNSl2bYKR3JP7USYzyYrULdvo/exec", {
                           method: "POST",
                           body: data
                         }).then(response => {
@@ -547,6 +464,7 @@
                         });
                       });
                       </script>
+                      
 				</div>
 			</div>
 		</div>
