@@ -6,26 +6,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #fdf7f2;
       font-family: 'Quicksand', sans-serif;
-      padding: 40px;
+      background: #fdf7f2;
       color: #5a4a42;
+      margin: 0;
+      padding: 20px;
     }
 
     h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5em;
       text-align: center;
       color: #b19983;
+      font-family: 'Playfair Display', serif;
       margin-bottom: 20px;
     }
 
-    form {
+    #boda-form {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
       max-width: 500px;
       margin: 0 auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
@@ -33,10 +33,16 @@
       width: 100%;
       padding: 12px 15px;
       margin: 10px 0;
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
       border-radius: 12px;
-      font-size: 1em;
+      font-size: 16px;
       box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    .form-campo:focus {
+      border-color: #b19983;
+      outline: none;
     }
 
     .btn-form {
@@ -51,18 +57,34 @@
     }
 
     .btn-form:hover {
-      background: #9c816d;
+      background: #a1836b;
     }
 
-    textarea {
-      resize: vertical;
-    }
-
-    .thank-you {
-      text-align: center;
-      font-size: 1.2em;
-      color: green;
+    #respuesta-form {
       margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    #respuesta-form.green {
+      background-color: #d4edda;
+      color: #155724;
+      display: block;
+    }
+
+    #respuesta-form.red {
+      background-color: #f8d7da;
+      color: #721c24;
+      display: block;
+    }
+
+    #respuesta-form.gray {
+      background-color: #f3f3f3;
+      color: #666;
+      display: block;
     }
   </style>
 </head>
@@ -71,23 +93,32 @@
   <h2>Confirma tu Asistencia</h2>
 
   <form id="boda-form">
-    <input class="form-campo" type="text" name="nombre" placeholder="Tu nombre" required>
+    <div class="m-20 wow fadeInLeft">
+      <input class="form-campo" type="text" name="nombre" placeholder="Tu nombre" required><br>
+    </div>
 
-    <select class="form-campo" name="asistencia" required>
-      <option value="">¿Asistirás?</option>
-      <option value="Sí">Sí, con mucho gusto</option>
-      <option value="No">No podré asistir</option>
-    </select>
+    <div class="m-20 wow fadeInLeft">
+      <select class="form-campo" name="asistencia" required>
+        <option value="">¿Asistirás?</option>
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select><br>
+    </div>
 
-    <input class="form-campo" type="text" name="acompanante" placeholder="¿Nombre del acompañante? (opcional)">
+    <div class="m-20 wow fadeInLeft">
+      <input class="form-campo" type="text" name="acompanante" placeholder="¿Nombre del acompañante? (opcional)"><br>
+    </div>
 
-    <textarea class="form-campo" name="mensaje" placeholder="Déjanos un mensaje bonito..."></textarea>
+    <div class="m-40 wow fadeInLeft">
+      <textarea class="form-campo" name="mensaje" placeholder="Escribe un mensaje..."></textarea><br>
+    </div>
 
-    <div style="text-align: center; margin-top: 20px;">
+    <div class="m-0 wow fadeInLeft" align="center">
       <button class="btn-form" type="submit">Enviar</button>
     </div>
 
-    <div id="mensaje-confirmacion" class="thank-you" style="display: none;">¡Gracias por confirmar tu asistencia! 💌</div>
+    <!-- Mensaje dinámico -->
+    <div id="respuesta-form"></div>
   </form>
 
   <script>
@@ -96,17 +127,28 @@
 
       const form = e.target;
       const data = new FormData(form);
+      const mensajeDiv = document.getElementById("respuesta-form");
+
+      // Mostrar mensaje temporal mientras se envía
+      mensajeDiv.textContent = "Enviando...";
+      mensajeDiv.className = "gray";
 
       fetch("https://script.google.com/macros/s/AKfycbwwXcqMoHLWFe-YVAZ_4nWEsTyLCDKkwQ9DWkXGaSfNSl2bYKR3JP7USYzyYrULdvo/exec", {
         method: "POST",
         body: data
-      }).then(response => {
+      })
+      .then(response => {
         if (response.ok) {
-          document.getElementById("mensaje-confirmacion").style.display = "block";
+          mensajeDiv.textContent = "¡Gracias por confirmar tu asistencia! 💌";
+          mensajeDiv.className = "green";
           form.reset();
         } else {
-          alert("Ocurrió un error. Intenta de nuevo.");
+          throw new Error("Error al enviar");
         }
+      })
+      .catch(error => {
+        mensajeDiv.textContent = "Ocurrió un error. Por favor intenta nuevamente.";
+        mensajeDiv.className = "red";
       });
     });
   </script>

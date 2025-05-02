@@ -454,7 +454,15 @@
                           const form = e.target;
                           const data = new FormData(form);
                           const mensajeDiv = document.getElementById("respuesta-form");
-                      
+                            
+                        
+                          mensajeDiv.textContent = "Enviando...";                        
+                          mensajeDiv.className = "";
+                            mensajeDiv.style.color = "black";
+                            mensajeDiv.style.fontWeight = "bold";
+                            mensajeDiv.style.fontSize = "1.2em";
+                            mensajeDiv.style.textAlign = "center";
+                            
                           fetch("https://script.google.com/macros/s/AKfycbwwXcqMoHLWFe-YVAZ_4nWEsTyLCDKkwQ9DWkXGaSfNSl2bYKR3JP7USYzyYrULdvo/exec", {
                             method: "POST",
                             body: data
