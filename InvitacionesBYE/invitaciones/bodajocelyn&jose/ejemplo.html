@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmación de Asistencia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fdf7f2;
+      font-family: 'Quicksand', sans-serif;
+      padding: 40px;
+      color: #5a4a42;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      text-align: center;
+      color: #b19983;
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-campo {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    .btn-form {
+      background: #b19983;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-form:hover {
+      background: #9c816d;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .thank-you {
+      text-align: center;
+      font-size: 1.2em;
+      color: green;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Confirma tu Asistencia</h2>
+
+  <form id="boda-form">
+    <input class="form-campo" type="text" name="nombre" placeholder="Tu nombre" required>
+
+    <select class="form-campo" name="asistencia" required>
+      <option value="">¿Asistirás?</option>
+      <option value="Sí">Sí, con mucho gusto</option>
+      <option value="No">No podré asistir</option>
+    </select>
+
+    <input class="form-campo" type="text" name="acompanante" placeholder="¿Nombre del acompañante? (opcional)">
+
+    <textarea class="form-campo" name="mensaje" placeholder="Déjanos un mensaje bonito..."></textarea>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <button class="btn-form" type="submit">Enviar</button>
+    </div>
+
+    <div id="mensaje-confirmacion" class="thank-you" style="display: none;">¡Gracias por confirmar tu asistencia! 💌</div>
+  </form>
+
+  <script>
+    document.getElementById("boda-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbwwXcqMoHLWFe-YVAZ_4nWEsTyLCDKkwQ9DWkXGaSfNSl2bYKR3JP7USYzyYrULdvo/exec", {
+        method: "POST",
+        body: data
+      }).then(response => {
+        if (response.ok) {
+          document.getElementById("mensaje-confirmacion").style.display = "block";
+          form.reset();
+        } else {
+          alert("Ocurrió un error. Intenta de nuevo.");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
