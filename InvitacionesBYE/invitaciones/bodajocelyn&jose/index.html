@@ -40,6 +40,13 @@
 		</head>
 		
     <body>
+
+		
+	<div id="sobre">
+		<button id="logo-btn" aria-label="Abrir invitación"></button>
+  	</div>
+
+	<div id ="contenido">
 	<h1 style="display: none;"></h1>
 	
 	<!-- Foto -->
@@ -68,8 +75,8 @@
 					<div class="row">
 						<div class="col-11 col-md-12 col-center m-20">
 							<h2 align="center" class="title-2 m-20 wow fadeInLeft sombra-texto">Estás Invitado!</h2>
-							<p class="text-black m-40 wow fadeInLeft sombra-texto font-18" align="center">Les invitamos a celebrar el inicio de nuestra nueva vida juntos.
-                                ¡Acompáñennos en este día tan especial!</p>
+							<p class="text-black m-40 wow fadeInLeft sombra-texto font-18" align="center">Les invitamos a celebrar el inicio de nuestra nueva vida juntos. 
+								!Nos casamos! Y queremos celebrar este gran día con ustedes.</p>
 						
 							<div class="d-flex align-items-center m-40 wow fadeInDown" style="justify-content: space-evenly;">
 								<div >
@@ -271,7 +278,11 @@
 								<div align="center"><span class="linea"></span></div>
 
 								<div align="center" class="m-0 wow fadeInDown gif"><img src="img/Dresscode.gif" alt="" width="130"/></div>
-    								<h3 class="title-2 m-0 wow fadeInRight sombra-texto" align="center">Elegante</h3>
+    								<h3 class="title-2 m-0 wow fadeInRight sombra-texto" align="center">Formal</h3>
+									<br>
+									<h2 align="center" class="title-2 m-0 wow fadeInRight sombra-texto">Porfavor evita llevar</h2>
+									<br>
+    								<h3 class="title-2 m-0 wow fadeInRight sombra-texto" align="center"> Rojo ,Rosa y Blanco</h3>
 							</div>
 						</div>
 					</div>
@@ -279,23 +290,6 @@
 			</div>
 		</section>
 		<!-- Codigo Vestimenta -->
-
-
-		<!-- No niños -->
-		<section id="No niños">
-			<div class="row">
-				<div class="col-lg-5 col-11 col-center">
-					<div class="cuadro-info wow fadeInUp">
-						<div class="row">
-							<div class="col-12 col-center">
-								<h2 align="center" class="title-2 m-20 wow fadeInRight sombra-texto">Respetuosamente, <br> <span><u>no niños</u></span></h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- No niños -->
 
 
 
@@ -490,23 +484,6 @@
 	</section>
 	<!-- Buenos Deseos -->
 
-	<!-- Sobre -->
-	<section id="Frase" style="padding: 0;">
-	<div class="row">
-	<div class="col-lg-5 col-11 col-center">
-	<div class="cuadro-info wow fadeInUp">
-	<div class="row">
-	<div class="col-12 col-center">
-	<h2 align="center" class="title-2 m-0 wow fadeInLeft sombra-texto">Te esperamos</h2>
-	</div>
-	</div>
-	</div>
-	</div>
-	</section>
-	<!-- Sobre -->
-	
-	
-	
 	<!-- Footer -->
 	<section id="contenido-8" style="padding: 0;">
 	<div class="row">
@@ -530,7 +507,24 @@
 	</div>
 	</section>
 	<!-- Footer -->
+	</div></div>
+		<audio id="musica" src="../bodajocelyn&jose/assets/LadyGaga,BrunoMarsDieWithASmile.mp3"></audio>
 
+		<script>
+  			const btn = document.getElementById('logo-btn');
+  			const sobre = document.getElementById('sobre');
+  			const contenido = document.getElementById('contenido');
+  			const musica = document.getElementById('musica');
+
+  			btn.addEventListener('click', () => {
+    			sobre.style.opacity = 0;
+    			setTimeout(() => {
+      			sobre.style.display = 'none';
+      			contenido.style.display = 'block';
+      			musica.play();
+    			}, 1000);
+  		});
+		</script>
 
         <!-- Script -->
 		<script src="assets/vendors/jquery.min.js"></script>
