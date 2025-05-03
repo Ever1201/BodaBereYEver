@@ -438,43 +438,63 @@
                         </div>
                       
                         <!-- Aquí aparecerán los mensajes -->
-                        <div id="respuesta-form" style="text-align: center; margin-top: 15px; font-weight: bold;"></div>
+                        <div id="respuesta-form" style="text-align: center; margin-top: 15px; font-weight: bold;" class="respuesta"></div>
                       </form>
                       
                       <script>
-                        document.getElementById("boda-form").addEventListener("submit", function(e) {
-                          e.preventDefault();
-                      
-                          const form = e.target;
-                          const data = new FormData(form);
-                          const mensajeDiv = document.getElementById("respuesta-form");
-                            
-                        
-                          mensajeDiv.textContent = "Enviando...";                        
-                          mensajeDiv.className = "";
-                            mensajeDiv.style.color = "black";
-                            mensajeDiv.style.fontWeight = "bold";
-                            mensajeDiv.style.fontSize = "1.2em";
-                            mensajeDiv.style.textAlign = "center";
-                            
-                          fetch("https://script.google.com/macros/s/AKfycbwwXcqMoHLWFe-YVAZ_4nWEsTyLCDKkwQ9DWkXGaSfNSl2bYKR3JP7USYzyYrULdvo/exec", {
-                            method: "POST",
-                            body: data
-                          })
-                          .then(response => {
-                            if (response.ok) {
-                              mensajeDiv.textContent = "¡Gracias por confirmar tu asistencia! 💌";
-                              mensajeDiv.style.color = "green";
-                              form.reset();
-                            } else {
-                              throw new Error("Error al enviar");
-                            }
-                          })
-                          .catch(error => {
-                            mensajeDiv.textContent = "Ocurrió un error. Por favor intenta nuevamente.";
-                            mensajeDiv.style.color = "red";
-                          });
-                        });
+                         document.getElementById("boda-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+    const mensajeDiv = document.getElementById("respuesta-form");
+
+    function mostrarMensaje(clase, texto, iconoSVG) {
+      mensajeDiv.className = `mensaje-respuesta ${clase}`;
+      mensajeDiv.innerHTML = `${iconoSVG}<span>${texto}</span>`;
+
+      // Ocultar automáticamente después de 5 segundos
+      setTimeout(() => {
+        mensajeDiv.innerHTML = "";
+        mensajeDiv.className = "";
+      }, 5000);
+    }
+
+    const iconoEnviando = `
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-linecap="round">
+          <animate attributeName="stroke-dashoffset" values="60;0" dur="1s" repeatCount="indefinite" />
+        </circle>
+      </svg>`;
+
+    const iconoExito = `
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`;
+
+    const iconoError = `
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`;
+
+    mostrarMensaje("mensaje-enviando", "Enviando...", iconoEnviando);
+
+    fetch("https://script.google.com/macros/s/AKfycbwUa89o6Grrw5IazgNrRh2ulkVm_Ran4vgGk-GsnS9lGjrecIFh-hlt_BQQmt3IdD6u/exec", {
+      method: "POST",
+      body: data
+    })
+    .then(response => {
+      if (response.ok) {
+        mostrarMensaje("mensaje-exito", "¡Gracias por confirmar tu asistencia! 💌", iconoExito);
+        form.reset();
+      } else {
+        throw new Error("Error al enviar");
+      }
+    })
+    .catch(error => {
+      mostrarMensaje("mensaje-error", "Ocurrió un error. Por favor intenta nuevamente.", iconoError);
+    });
+  });
                       </script>
                       
                       

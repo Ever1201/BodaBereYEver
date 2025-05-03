@@ -1159,3 +1159,46 @@ font-size:20px;
       box-sizing: border-box;
       text-align: center;
     }
+    
+    .mensaje-respuesta {
+      max-width: 400px;
+      margin: 25px auto;
+      padding: 15px 20px;
+      background-color: #fff;
+      border: 2px solid #e69c9f;
+      border-left-width: 8px;
+      border-radius: 15px;
+      color: #e69c9f;
+      font-weight: 500;
+      font-size: 1.1em;
+      text-align: left;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+  
+    .mensaje-respuesta svg {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+    }
+  
+    .mensaje-error {
+      border-color: #d9534f;
+      color: #d9534f;
+    }
+  
+    .mensaje-enviando {
+      border-color: #ccc;
+      color: #666;
+    }
+  
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  
