@@ -1,0 +1,97 @@
+$champagne: #f7e7ce;
+$rose-dust: #e8b7b7;
+$dark-wood: #3e2c1c;
+
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: $champagne;
+  color: $dark-wood;
+  position: relative;
+  overflow-x: hidden;
+
+  .background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../xvcamila/assets/wood-pattern.jpg') repeat;
+    opacity: 0.1;
+    z-index: -2;
+    animation: scrollBackground 60s linear infinite;
+  }
+
+  @keyframes scrollBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 1000px 0;
+    }
+  }
+
+  .invitation {
+    text-align: center;
+    padding: 2rem;
+
+    .hero {
+      background: linear-gradient(to bottom, $rose-dust, $champagne);
+      padding: 3rem 1rem;
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        color: $dark-wood;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+    }
+
+    section {
+      margin: 2rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      border-left: 5px solid $rose-dust;
+      border-radius: 10px;
+    }
+
+    .event h4 {
+      color: $rose-dust;
+    }
+
+    .dress-code p {
+      font-weight: bold;
+      color: $dark-wood;
+    }
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: $rose-dust;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
