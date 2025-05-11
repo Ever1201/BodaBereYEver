@@ -8,9 +8,15 @@
   body {
     font-family: 'Playfair Display', serif;
     background: url('../img/fondo.jpg') no-repeat center center fixed;
+    background-size: contain; /* ⬅️ Evita que se escale o recorte */
+    background-attachment: fixed; /* ⬅️ Se mantiene fija al hacer scroll */
+    background-repeat: no-repeat;
+    background-position: center center;
     color: #3a3a3a;
     line-height: 1.6;
+    position: relative;
   }
+  
   
   /* Fondo translúcido para mayor legibilidad */
   body::before {
