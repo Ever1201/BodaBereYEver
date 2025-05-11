@@ -7,24 +7,21 @@
   
   body {
     font-family: 'Playfair Display', serif;
-    background: url('../img/fondo.jpg') no-repeat center center fixed;
-    background-size: contain; /* ⬅️ Evita que se escale o recorte */
-    background-attachment: fixed; /* ⬅️ Se mantiene fija al hacer scroll */
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: url('../img/fondo.jpg') center center no-repeat;
     color: #3a3a3a;
     line-height: 1.6;
     position: relative;
+    min-height: 100vh;
   }
   
-  
-  /* Fondo translúcido para mayor legibilidad */
   body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.15); /* Fondo suave tipo velo */
+    background: url('../img/fondo.jpg') center center no-repeat;
+    background-attachment: scroll; /* scroll en vez de fixed */
     z-index: -1;
+    pointer-events: none;
   }
   
   /* Bloques de texto centrado */
