@@ -10,6 +10,16 @@
     background: url('../img/fondo.jpg') no-repeat center center fixed;
     color: #3a3a3a;
     line-height: 1.6;
+    position: relative;
+  }
+  
+  /* Fondo translúcido para mayor legibilidad */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.15); /* Fondo suave tipo velo */
+    z-index: -1;
   }
   
   /* Bloques de texto centrado */
@@ -52,11 +62,12 @@
   .texto-final {
     color: #a14d72;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   /* Imágenes centradas */
   .imagen-full {
+    margin-top: 25%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -66,37 +77,34 @@
   }
   
   .imagen-full img {
-    width: 100%;
+    width: 75%;
     max-width: 600px;
     height: auto;
     border-radius: 16px;
   }
   
-  /* Bloque con imagen de fondo y texto encima */
-.bloque-con-imagen {
+  /* Imagen con texto encima */
+  .bloque-con-imagen {
     position: relative;
-    width: 100%;
+    width: 75%;
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto ;
     border-radius: 16px;
     overflow: hidden;
   }
   
   .bloque-con-imagen img {
-    margin-top: 25%;
     width: 100%;
     display: block;
     border-radius: 10px;
   }
   
   .texto-sobre-imagen {
-    margin-top: 25%;
     position: absolute;
-    top: 0%;
-    left: 50%;
     padding: 20px 30px;
     border-radius: 12px;
-    text-align: right;
+    text-align: center;
+    background-color: rgba(255,255,255,0.2); /* Opcional: ayuda en legibilidad */
   }
   
   .texto-sobre-imagen h2 {
@@ -115,5 +123,29 @@
   
   .texto-sobre-imagen h1 span {
     color: #a76c1a;
+  }
+  
+  /* Responsivo para móviles */
+  @media (max-width: 480px) {
+    .texto-bloque h1,
+    .texto-bloque h2 {
+      font-size: 2rem;
+    }
+  
+    .texto-bloque p {
+      font-size: 1.2rem;
+    }
+  
+    .texto-final {
+      font-size: 1rem;
+    }
+  
+    .texto-sobre-imagen h2 {
+      font-size: 2rem;
+    }
+  
+    .texto-sobre-imagen h1 {
+      font-size: 1.4rem;
+    }
   }
   
