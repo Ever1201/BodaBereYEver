@@ -18,7 +18,6 @@
     background-repeat: no-repeat;
     background-size: cover;         /* mantiene proporción y cubre pantalla */
     background-position: center;    /* centra la imagen */
-    background-attachment: fixed;   /* efecto fondo fijo */
   }
   
   /* Bloques de texto centrado */
@@ -243,3 +242,15 @@
 }
 
 
+.fondo-fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/fondo.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* se queda atrás del contenido */
+  pointer-events: none; /* no bloquea clics o scroll */
+}
