@@ -4,16 +4,22 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-body {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.6;
-  background-image: url(../img/fondo.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
+ html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    position: relative;
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;         /* mantiene proporción y cubre pantalla */
+    background-position: center;    /* centra la imagen */
+    background-attachment: fixed;   /* efecto fondo fijo */
+  }
   
   /* Bloques de texto centrado */
   .texto-bloque {
@@ -231,8 +237,10 @@ body {
 
 @media (max-width: 768px) {
   body {
-    background-attachment: scroll; /* fondo estático en móvil */
-    background-size: cover;
+    background-attachment: scroll; /* evita problemas en móviles */
     background-position: center;
+    background-size: cover;
   }
 }
+
+
