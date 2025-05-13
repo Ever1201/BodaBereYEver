@@ -10,23 +10,22 @@
     line-height: 1.6;
     position: relative;
   }
-  
   body::before {
-    position: fixed;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-image: url(../img/fondo.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    content: ''; 
-    transition-duration: .5s;
-    min-height: 100vh;
-  }
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/fondo.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  content: ''; 
+  transition-duration: .5s;
+}
+
   
   /* Bloques de texto centrado */
   .texto-bloque {
@@ -244,9 +243,10 @@
 
 @media (max-width: 768px) {
   body::before {
-    background-attachment: scroll; /* evita distorsión */
+    background-attachment: scroll; /* fondo estático en móvil */
     background-size: cover;
-    background-position: center center;
-    height: 100%; /* más seguro que 100vh en móviles */
+    background-position: center;
+    height: 100%; /* evita bugs de 100vh en móviles */
   }
 }
+
