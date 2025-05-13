@@ -25,6 +25,7 @@
     background-position: center;
     content: ''; 
     transition-duration: .5s;
+    min-height: 100vh;
   }
   
   /* Bloques de texto centrado */
@@ -238,5 +239,14 @@
 
   .esfera p {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body::before {
+    background-attachment: scroll; /* evita distorsión */
+    background-size: cover;
+    background-position: center center;
+    height: 100%; /* más seguro que 100vh en móviles */
   }
 }
