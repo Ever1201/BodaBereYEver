@@ -7,16 +7,15 @@
   
   body {
     font-family: 'Playfair Display', serif;
-    background: url('../img/fondo.jpg') center center no-repeat;
-    color: #3a3a3a;
     line-height: 1.6;
     position: relative;
-    min-height: 100vh;
   }
   
   body::before {
     content: "";
     position: fixed;
+    height: 100%;
+    width: 100%;
     top: 0; left: 0; right: 0; bottom: 0;
     background: url('../img/fondo.jpg') center center no-repeat;
     background-attachment: scroll; /* scroll en vez de fixed */
