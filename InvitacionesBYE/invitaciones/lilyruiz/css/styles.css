@@ -237,7 +237,6 @@
 
 @media (max-width: 768px) {
   body {
-    background-attachment: scroll; /* evita problemas en móviles */
     background-position: center;
     background-size: cover;
   }
