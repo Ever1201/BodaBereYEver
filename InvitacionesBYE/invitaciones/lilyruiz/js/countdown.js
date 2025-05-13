@@ -1,15 +1,10 @@
-// Fecha del evento: 21 junio 2025 21:00
-const fechaEvento = new Date("2025-06-21T21:00:00").getTime();
-
-const contador = document.getElementById("contador");
-
-const interval = setInterval(() => {
+function actualizarContador() {
+  const fechaEvento = new Date("2025-06-21T21:00:00").getTime();
   const ahora = new Date().getTime();
   const diferencia = fechaEvento - ahora;
 
   if (diferencia <= 0) {
-    clearInterval(interval);
-    contador.innerHTML = "¡Ha llegado el gran día!";
+    document.getElementById("contador-esferas").innerHTML = "¡Ha llegado el gran día!";
     return;
   }
 
@@ -18,5 +13,11 @@ const interval = setInterval(() => {
   const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
   const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
-  contador.innerHTML = `${dias} días ${horas}h ${minutos}m ${segundos}s`;
-}, 1000);
+  document.getElementById("dias").textContent = dias;
+  document.getElementById("horas").textContent = horas;
+  document.getElementById("minutos").textContent = minutos;
+  document.getElementById("segundos").textContent = segundos;
+}
+
+setInterval(actualizarContador, 1000);
+actualizarContador();
