@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Invitación a la cena de jubilación de Lily Ruiz Terrazas" />
   <title>Lily Ruiz Terrazas</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
@@ -16,13 +17,13 @@
       <!-- Imagen con texto encima -->
        <br>
        <br>
-    <div class="bloque-con-imagen" style="height: 100vh;">
+    <div class="bloque-con-imagen" style="height: 65vh;">
         <img src="assets/2.png" alt="Imagen 1">           
     </div>
 
-    <div class="texto-bloque" style="margin-top: -500px;">
+    <div class="texto-bloque" >
         <h2>Te invito a mi</h2>
-        <p>CENA / BAILE EN CONMEMORACION A MI <span>JUBILACIÓN</span></p>
+        <p style="font-family: 'Great Vibes', cursive; font-size: 3rem;">cena / baile celbrando mi <span><strong style="font-size: 3rem;">jubilación</strong></span></p>
     </div>
 
     <br>
@@ -35,10 +36,21 @@
   </div>
 
     <!-- Texto central -->
-    <div class="texto-bloque" style="font-family: 'Great Vibes', cursive;">
-        <p><strong>Sabado 21 de Junio  9:00 PM - 2:00 AM</strong></p>
-        <p><strong>En el Salon EMPORIUM</strong></p>
+      <div class="texto-bloque" style="font-family: 'Great Vibes', cursive;">
+        <p><strong>Sabado 21 de Junio  9:00 pm - 2:00 am</strong></p>
+        <p><strong>En el Salon </strong></p>
+        <p><strong style="font-size: 6rem;">Emporium</strong></p>
+        <div class="texto-bloque">
+          <a href="https://maps.app.goo.gl/SV1WXxwLfzUmabiW8" target="_blank" class="btn-ubicacion">Ver ubicación</a>
+        </div>
       </div>
+      <br>
+      <!-- Contador regresivo -->
+        <div class="texto-bloque">
+          <h2>Faltan</h2>
+          <div id="contador" class="contador"></div>
+        </div>
+
 
   <!-- Imágenes restantes -->
   <div class="imagen-full"><img src="assets/3.png" alt="Imagen 3"></div>
@@ -67,4 +79,6 @@
   <div class="imagen-full"><img src="assets/4.png" alt="Imagen 6"></div>
 
 </body>
+<script src="js/countdown.js"></script>
+
 </html>
