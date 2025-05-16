@@ -38,13 +38,13 @@
   }
   
   .texto-bloque h1 span {
-    color: #a76c1a;
+    color: #b48a00;
   }
   
   /* Subtítulos */
   .texto-bloque h2 {
     font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
+    font-size: 4rem;
     color: #b48a00;
     margin-bottom: 8px;
   }
@@ -53,7 +53,7 @@
   .texto-bloque p {
     font-size: 2rem;
     margin: 8px 0;
-    color: #a76c1a;
+    color: #b48a00;
   }
   
   /* Texto final */
@@ -84,7 +84,7 @@
   /* Imagen con texto encima */
   .bloque-con-imagen {
     position: relative;
-    width: 75%;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto ;
     border-radius: 16px;
@@ -120,7 +120,7 @@
   }
   
   .texto-sobre-imagen h1 span {
-    color: #a76c1a;
+    color: #b48a00;
   }
   
   /* Responsivo para móviles */
@@ -154,7 +154,7 @@
   /* Estilo para contador */
 .contador {
   font-size: 2rem;
-  color: #a76c1a;
+  color: #b48a00;
   margin-top: 10px;
   font-weight: bold;
 }
@@ -173,7 +173,7 @@
 }
 
 .btn-ubicacion:hover {
-  background-color: #a76c1a;
+  background-color: #b48a00;
 }
 .contador-esferas {
   display: flex;
@@ -207,7 +207,7 @@
 
 .esfera span {
   font-size: 2rem;
-  color: #a76c1a;
+  color: #b48a00;
   font-weight: bold;
 }
 
