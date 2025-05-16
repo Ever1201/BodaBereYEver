@@ -21,3 +21,4 @@ function actualizarContador() {
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
+// Inicializa el contador al cargar la página
