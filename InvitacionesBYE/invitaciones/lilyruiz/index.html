@@ -109,7 +109,7 @@
           const form = e.target;
           const formData = new FormData(form);
 
-          fetch('https://script.google.com/macros/s/AKfycbyMylRcXhWNaahPSrREY2x91aO420k0QLGl447e6C12cEpAAUCTiURYtimKx0oTBtmL/exec', {
+          fetch('https://script.google.com/macros/s/AKfycbwphu6tOmedL0YB3syR-uT6m90IiDP9VD6OWJA9XN0_Xl2tXdD9pRHcl0gL0gNejKcK/exec', {
             method: 'POST',
             body: formData
           })
@@ -119,10 +119,12 @@
             form.reset();
           })
           .catch(error => {
+            console.error(error);
             document.getElementById('respuesta').textContent = 'Ocurrió un error al enviar tu confirmación.';
           });
         });
       </script>
+
 
 
 
