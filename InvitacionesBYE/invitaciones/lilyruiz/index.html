@@ -77,6 +77,58 @@
           </div>
         </div>
 
+        <!-- Confirmación de asistencia -->
+<div class="texto-bloque" style="text-align: center; margin-top: 3rem;">
+  <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem;">Confirma tu asistencia</h2>
+  <form id="confirmacionForm" style="max-width: 400px; margin: auto; font-family: 'Playfair Display', serif;">
+    <input type="text" name="nombre" placeholder="Tu nombre" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px;">
+    
+    <select name="asistencia" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px;">
+      <option value="">¿Asistirás?</option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+
+    <input type="text" name="acompanante" placeholder="Acompañante (opcional)" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px;">
+
+    <textarea name="mensaje" placeholder="Escribe un mensaje (opcional)" rows="3" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+
+    <button type="submit" style="padding: 10px 20px; background-color: #d4af7f; border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer;">
+      Confirmar
+    </button>
+  </form>
+
+  <p id="respuesta" style="margin-top: 10px; font-weight: bold; font-family: 'Playfair Display', serif;"></p>
+</div>
+
+<!-- Script para enviar datos al Google Sheet -->
+<script>
+  document.getElementById('confirmacionForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const data = {
+      nombre: this.nombre.value,
+      asistencia: this.asistencia.value,
+      acompanante: this.acompanante.value,
+      mensaje: this.mensaje.value
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbyMylRcXhWNaahPSrREY2x91aO420k0QLGl447e6C12cEpAAUCTiURYtimKx0oTBtmL/exec', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.text())
+      .then(response => {
+        document.getElementById('respuesta').textContent = '¡Gracias por confirmar!';
+        this.reset();
+      })
+      .catch(error => {
+        document.getElementById('respuesta').textContent = 'Ocurrió un error al enviar tu confirmación.';
+      });
+  });
+</script>
 
 
     <!-- Imágenes restantes -->
@@ -116,6 +168,6 @@
       			musica.play();
     			}, 1000);
   		});
-		</script>
+    </script>
 
 </html>
