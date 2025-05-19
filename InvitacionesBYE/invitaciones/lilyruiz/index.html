@@ -102,32 +102,40 @@
         </div>
 
         <!-- Script para enviar datos al Google Sheet -->
-        <script>
-        document.getElementById('confirmacionForm').addEventListener('submit', function (e) {
-          e.preventDefault();
+            <script>
+      document.getElementById('confirmacionForm').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-          const form = e.target;
-          const formData = new FormData(form);
+        const form = e.target;
+        const formData = new FormData(form);
+        const respuestaEl = document.getElementById('respuesta');
+        const boton = form.querySelector('button[type="submit"]');
 
-          fetch('https://script.google.com/macros/s/AKfycbwphu6tOmedL0YB3syR-uT6m90IiDP9VD6OWJA9XN0_Xl2tXdD9pRHcl0gL0gNejKcK/exec', {
-            method: 'POST',
-            body: formData
-          })
-          .then(res => res.text())
-          .then(response => {
-            document.getElementById('respuesta').textContent = '¡Gracias por confirmar!';
-            form.reset();
-          })
-          .catch(error => {
-            console.error(error);
-            document.getElementById('respuesta').textContent = 'Ocurrió un error al enviar tu confirmación.';
-          });
+        // Mostrar mensaje de envío y deshabilitar botón
+        respuestaEl.textContent = 'Enviando confirmación...';
+        boton.disabled = true;
+        boton.textContent = 'Enviando...';
+
+        fetch('https://script.google.com/macros/s/AKfycbwphu6tOmedL0YB3syR-uT6m90IiDP9VD6OWJA9XN0_Xl2tXdD9pRHcl0gL0gNejKcK/exec', {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.text())
+        .then(response => {
+          respuestaEl.textContent = '¡Gracias por confirmar!';
+          form.reset();
+        })
+        .catch(error => {
+          console.error(error);
+          respuestaEl.textContent = 'Ocurrió un error al enviar tu confirmación.';
+        })
+        .finally(() => {
+          // Restaurar botón
+          boton.disabled = false;
+          boton.textContent = 'Confirmar';
         });
-      </script>
-
-
-
-
+      });
+    </script>
     <!-- Imágenes restantes -->
 <br>
     <div class="imagen-full"><img src="assets/2.png" alt="Imagen 4"></div>
