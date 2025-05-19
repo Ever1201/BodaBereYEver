@@ -297,3 +297,7 @@
         transform: scale(1.15);
       }
     }
+
+.gif-dorado {
+  filter: invert(55%) sepia(95%) saturate(700%) hue-rotate(15deg) brightness(75%) contrast(95%);
+}
