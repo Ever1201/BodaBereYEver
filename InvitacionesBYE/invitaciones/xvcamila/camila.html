@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Invitación XV Años - Camila Sánchez</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -22,7 +21,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('assets/wood-pattern.jpg') repeat;
+      background: url('assets/fondo.jpg') repeat;
       opacity: 0.07;
       z-index: -1;
       animation: scrollBackground 60s linear infinite;
@@ -34,23 +33,25 @@
     }
 
     main.invitation {
-      padding: 2rem;
       max-width: 800px;
       margin: auto;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 25px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .hero {
-      background: linear-gradient(to bottom, #e8b7b7, #f7e7ce);
-      padding: 3rem 2rem;
-      border-radius: 20px;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      color: #52270f;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
       margin: 0;
     }
 
@@ -65,12 +66,12 @@
     }
 
     section.details, section.events, section.dress-code, section.rsvp {
-      margin: 2rem 0;
       padding: 1rem;
-      border-left: 5px solid #e8b7b7;
-      background-color: rgba(255,255,255,0.8);
+      background-color: rgba(255,255,255,0.2);
       border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);      
+      align-items: center;
+      text-align: center;
     }
 
     .events .event {
@@ -78,9 +79,27 @@
     }
 
     .event h4 {
-      font-size: 1.3rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
       color: #b06d6d;
       margin-bottom: 0.3rem;
+    }
+
+    .event button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      border: none;
+      background-color: #e8b7b7;
+      color: #3e2c1c;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .event button:hover {
+      background-color: #d59d9d;
     }
 
     .dress-code p {
@@ -111,6 +130,62 @@
     .rsvp button:hover {
       background-color: #d59d9d;
     }
+    .countdown {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.countdown h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #3e2c1c;
+  font-style: italic;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.time-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 100%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  flex: 1 1 80px;
+  max-width: 100px;
+}
+
+.time-box span {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #b06d6d;
+}
+
+.time-box small {
+  font-size: 0.9rem;
+  color: #3e2c1c;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .time-box {
+    padding: 0.8rem;
+    max-width: 80px;
+  }
+
+  .time-box span {
+    font-size: 1.6rem;
+  }
+
+  .countdown h3 {
+    font-size: 1.5rem;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -119,38 +194,69 @@
   <main class="invitation">
     <section class="hero">
       <h1>Mis XV Años</h1>
+      <br>
       <h2>Camila Sánchez</h2>
-      <p>Octubre 4, 2025</p>
+      <br>
+      <p>4 de Octubre, 2025</p>
+    </section>
+    <br>
+    <section class="countdown">
+      <h1>Faltan para el gran día...</h1>
+      <div id="timer">
+        <div class="time-box"><span id="days">00</span><small>Días</small></div><br>
+        <div class="time-box"><span id="hours">00</span><small>Horas</small></div><br>
+        <div class="time-box"><span id="minutes">00</span><small>Minutos</small></div><br>
+        <div class="time-box"><span id="seconds">00</span><small>Segundos</small></div><br>
+      </div>
     </section>
 
+    <br>
+    <section class="details">
+      <h3>Te espero para celebrar juntos</h3>
+      <p>Con alegría y amor en mi corazón</p>
     <section class="details">
       <h3>Con amor de parte de mis padres:</h3>
       <p>Ángel y Patricia Sánchez</p>
     </section>
-
+    <br>
+    <section class="details">
+      <h3>Te invitan a celebrar mis XV años</h3>
+      <p>Con una misa y una fiesta en mi honor</p>
     <section class="events">
       <div class="event">
         <h4>Misa</h4>
         <p>1:00 PM</p>
         <p>611 Avenida De San Lorenzo, Clint, TX 79836</p>
+        <button onclick="window.open('https://www.google.com/maps?q=611+Avenida+De+San+Lorenzo,+Clint,+TX+79836')">Ver ubicación</button>
       </div>
+      <br>
+
       <div class="event">
         <h4>Comida</h4>
         <p>6:00 - 8:00 PM</p>
         <p>1275 Higuera St., San Elizario, TX 79849</p>
+        <button onclick="window.open('https://www.google.com/maps?q=1275+Higuera+St.,+San+Elizario,+TX+79849')">Ver ubicación</button>
       </div>
+      br
       <div class="event">
         <h4>Recepción</h4>
         <p>8:30 PM</p>
         <p>1275 Higuera St., San Elizario, TX 79849</p>
+        <button onclick="window.open('https://www.google.com/maps?q=1275+Higuera+St.,+San+Elizario,+TX+79849')">Ver ubicación</button>
       </div>
     </section>
-
+    <br>
     <section class="dress-code">
       <h3>Código de vestimenta:</h3>
       <p>Semiformal o Western</p>
       <p><strong>No tenis</strong> / No colores blanco, beige, ivory</p>
     </section>
+    <br>
+    <section class="dress-code">
+      <h3>Regalos</h3>
+      <p>Si deseas regalarme algo, puedes hacerlo a través de:</p>
+      <p><a href="https://www.amazon.com/hz/wishlist/ls/1G2X8Q4Z5J0KX?ref_=wl_share">Mi lista de deseos en Amazon</a></p>
+      <br>
 
     <section class="rsvp">
       <h3>Confirma tu asistencia</h3>
@@ -161,8 +267,10 @@
         <button type="submit">Confirmar</button>
       </form>
     </section>
+    <br>
+    
   </main>
 
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
