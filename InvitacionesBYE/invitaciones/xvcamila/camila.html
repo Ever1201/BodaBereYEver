@@ -89,34 +89,28 @@
       <p>Si deseas tener un detalle conmigo, se agradecerán las contribuciones en efectivo o puedes depositarlo en el buzón de regalos que estará disponible el día del evento.</p>
       <p>¡Gracias por ser parte de este momento tan importante en mi vida!</p>
     </section>
-    <section class="rsvp">
-      <h1>Confirma tu asistencia</h1>
+    <!-- Confirmación de asistencia -->
+      <section class="rsvp">
+        <h1>Confirma tu asistencia</h1>
+        <form id="confirmacionForm">
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+          
+          <select name="asistencia" required>
+            <option value="">¿Asistirás?</option>
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+          </select>
+          
+          <input type="text" name="acompanante" placeholder="Acompañante (opcional)">
+          
+          <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
+          
+          <button type="submit">Confirmar</button>
+        </form>
+        <p id="respuesta" style="margin-top: 1rem; font-weight: bold;"></p>
+      </section>
 
-      <form id="rsvp-form">
-        <input type="text" name="Nombre" placeholder="Tu nombre completo" required>
-
-        <input type="number" name="Acompanantes" placeholder="Número de acompañantes" min="0" required>
-
-        <select name="Asistencia" required>
-          <option value="">¿A qué asistirás?</option>
-          <option value="Misa y Fiesta">Misa y Fiesta</option>
-          <option value="Solo Misa">Solo Misa</option>
-          <option value="Solo Fiesta">Solo Fiesta</option>
-          <option value="No podré asistir">No podré asistir</option>
-        </select>
-
-        <textarea name="Mensaje" rows="3" placeholder="Mensaje o buenos deseos (opcional)"></textarea>
-
-        <button type="submit" id="submit-btn">Confirmar</button>
-      </form>
-
-      <div id="success-message" style="display: none; margin-top: 1rem; color: #4CAF50; font-weight: bold;">
-        ¡Gracias por confirmar tu asistencia!
-      </div>
-    </section>
-
-    <br>
-    
+      <br>
     <section class="details">
       <h1>Te invitó con el corazón lleno de ilusión</h1>
       <p>

@@ -102,31 +102,67 @@
     .dress-code p {
       font-weight: 500;
     }
+    
+    .rsvp {
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      max-width: 500px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .rsvp h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #b06d6d;
+      margin-bottom: 1rem;
+    }
 
     .rsvp form {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
     }
 
-    .rsvp input, .rsvp textarea, .rsvp button {
-      padding: 0.6rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+    .rsvp input,
+    .rsvp select,
+    .rsvp textarea {
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid #d1b1a1;
       font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      background-color: #fff9f6;
+      color: #3e2c1c;
+      transition: border 0.3s ease;
+    }
+
+    .rsvp input:focus,
+    .rsvp select:focus,
+    .rsvp textarea:focus {
+      outline: none;
+      border-color: #b06d6d;
     }
 
     .rsvp button {
-      background-color: #e8b7b7;
-      color: #3e2c1c;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: none;
+      background-color: #d4af7f;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
       font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background-color 0.3s ease;
     }
 
     .rsvp button:hover {
-      background-color: #d59d9d;
+      background-color: #c2956b;
     }
+
+    
     .countdown {
       text-align: center;
       padding: 2rem 1rem;

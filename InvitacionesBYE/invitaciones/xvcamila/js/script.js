@@ -1,18 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Partículas simuladas (simple animación visual)
-    const bg = document.querySelector(".background-animation");
-    for (let i = 0; i < 40; i++) {
-      const particle = document.createElement("div");
-      particle.classList.add("particle");
-      particle.style.top = `${Math.random() * 100}%`;
-      particle.style.left = `${Math.random() * 100}%`;
-      particle.style.animationDuration = `${5 + Math.random() * 10}s`;
-      bg.appendChild(particle);
-    }
-  });
-  
-const eventDate = new Date("2025-10-04T13:00:00").getTime();
+  // 1. Partículas animadas de fondo
+  const bg = document.querySelector(".background-animation");
+  for (let i = 0; i < 40; i++) {
+    const particle = document.createElement("div");
+    particle.classList.add("particle");
+    particle.style.top = `${Math.random() * 100}%`;
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.animationDuration = `${5 + Math.random() * 10}s`;
+    bg.appendChild(particle);
+  }
 
+  // 2. Contador regresivo
+  const eventDate = new Date("2025-10-04T13:00:00").getTime();
   const countdown = setInterval(() => {
     const now = new Date().getTime();
     const distance = eventDate - now;
@@ -34,45 +33,33 @@ const eventDate = new Date("2025-10-04T13:00:00").getTime();
     document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
   }, 1000);
 
-document.getElementById("rsvp-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+});
+document.getElementById('confirmacionForm').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    const form = this;
-    const button = document.getElementById("submit-btn");
-    const message = document.getElementById("success-message");
+        const form = e.target;
+        const formData = new FormData(form);
+        const respuestaEl = document.getElementById('respuesta');
+        const boton = form.querySelector('button');
 
-    const formData = {
-      Nombre: form.Nombre.value,
-      Acompanantes: form.Acompanantes.value,
-      Asistencia: form.Asistencia.value,
-      Mensaje: form.Mensaje.value
-    };
+        respuestaEl.textContent = 'Enviando...';
+        boton.disabled = true;
 
-
-    button.disabled = true;
-    button.textContent = "Enviando...";
-
-    fetch("https://script.google.com/macros/s/AKfycbyElGbtyQ7-A_5pWgOAOIFyePm94Nat1wWSJ2hltc28mKVCQs_wPM2ofRiQIjjJUHEl/exec", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        form.reset();
-        message.style.display = "block";
-      } else {
-        alert("Hubo un problema al enviar el formulario. Intenta de nuevo.");
-      }
-      button.disabled = false;
-      button.textContent = "Confirmar";
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      alert("Ocurrió un error inesperado.");
-      button.disabled = false;
-      button.textContent = "Confirmar";
-    });
-  });
+        fetch('https://script.google.com/macros/s/AKfycbw7Gbehg1qpE2MnVwbUMENNhlqrQcnzdsRKHBnyx83XQgwizSNd7h9BbDpaXYjjG7gQrw/exec', {
+          method: 'POST',
+          body: formData
+        })
+        .then(res => res.text())
+        .then(response => {
+          respuestaEl.textContent = '¡Gracias por confirmar!';
+          form.reset();
+        })
+        .catch(error => {
+          console.error(error);
+          respuestaEl.textContent = 'Ocurrió un error al enviar tu confirmación.';
+        })
+        .finally(() => {
+          boton.disabled = false;
+          boton.textContent = 'Confirmar';
+        });
+      });
