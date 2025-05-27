@@ -35,31 +35,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 document.getElementById('confirmacionForm').addEventListener('submit', function (e) {
-        e.preventDefault();
+  e.preventDefault();
 
-        const form = e.target;
-        const formData = new FormData(form);
-        const respuestaEl = document.getElementById('respuesta');
-        const boton = form.querySelector('button');
+  const form = e.target;
+  const formData = new FormData(form);
+  const respuestaEl = document.getElementById('respuesta');
+  const boton = form.querySelector('button');
 
-        respuestaEl.textContent = 'Enviando...';
-        boton.disabled = true;
+  respuestaEl.textContent = '';
+  boton.disabled = true;
+  boton.innerHTML = `<span class="spinner"></span> Enviando...`;
 
-        fetch('https://script.google.com/macros/s/AKfycbw7Gbehg1qpE2MnVwbUMENNhlqrQcnzdsRKHBnyx83XQgwizSNd7h9BbDpaXYjjG7gQrw/exec', {
-          method: 'POST',
-          body: formData
-        })
-        .then(res => res.text())
-        .then(response => {
-          respuestaEl.textContent = '¡Gracias por confirmar!';
-          form.reset();
-        })
-        .catch(error => {
-          console.error(error);
-          respuestaEl.textContent = 'Ocurrió un error al enviar tu confirmación.';
-        })
-        .finally(() => {
-          boton.disabled = false;
-          boton.textContent = 'Confirmar';
-        });
-      });
+  fetch('https://script.google.com/macros/s/AKfycbw7Gbehg1qpE2MnVwbUMENNhlqrQcnzdsRKHBnyx83XQgwizSNd7h9BbDpaXYjjG7gQrw/exec', {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.text())
+  .then(response => {
+    form.reset();
+
+    respuestaEl.innerHTML = `
+      <div class="confirmacion-exitosa">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+        <span>¡Gracias por confirmar tu asistencia!</span>
+      </div>
+    `;
+
+    setTimeout(() => {
+      respuestaEl.innerHTML = '';
+    }, 5000);
+  })
+  .catch(error => {
+    console.error(error);
+    respuestaEl.textContent = 'Ocurrió un error al enviar tu confirmación.';
+  })
+  .finally(() => {
+    boton.disabled = false;
+    boton.textContent = 'Confirmar';
+  });
+});
+
+
+      

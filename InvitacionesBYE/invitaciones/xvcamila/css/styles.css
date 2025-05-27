@@ -236,3 +236,44 @@
       width: 50%;
       height: auto;
     }
+
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-top: 2px solid #b06d6d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.confirmacion-exitosa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background-color: #d4af7f;
+  color: #fff;
+  border-radius: 12px;
+  animation: fadeIn 0.6s ease;
+  font-family: 'Playfair Display', serif;
+  margin-top: 1rem;
+}
+
+.confirmacion-exitosa svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
