@@ -4,224 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Invitación XV Años - Camila Sánchez</title>
+  <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      background-color: #f7e7ce;
-      color: #3e2c1c;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    .background-animation {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('assets/fondo.jpg') repeat;
-      opacity: 0.07;
-      z-index: -1;
-      animation: scrollBackground 60s linear infinite;
-    }
-
-    @keyframes scrollBackground {
-      from { background-position: 0 0; }
-      to { background-position: 1000px 0; }
-    }
-
-    main.invitation {
-      max-width: 800px;
-      margin: auto;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .hero {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #52270f;
-    }
-
-    .hero h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      font-style: italic;
-    }
-
-    section.details, section.events, section.dress-code, section.rsvp {
-      padding: 1rem;
-      background-color: rgba(255,255,255,0.2);
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);      
-      align-items: center;
-      text-align: center;
-    }
-
-    .events .event {
-      margin-bottom: 1.5rem;
-    }
-
-    .event h4 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: #b06d6d;
-      margin-bottom: 0.3rem;
-    }
-
-    .event button {
-      margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
-      font-family: inherit;
-      font-size: 0.9rem;
-      border: none;
-      background-color: #e8b7b7;
-      color: #3e2c1c;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .event button:hover {
-      background-color: #d59d9d;
-    }
-
-    .dress-code p {
-      font-weight: 500;
-    }
-
-    .rsvp form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .rsvp input, .rsvp textarea, .rsvp button {
-      padding: 0.6rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .rsvp button {
-      background-color: #e8b7b7;
-      color: #3e2c1c;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .rsvp button:hover {
-      background-color: #d59d9d;
-    }
-    .countdown {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-family: 'Playfair Display', serif;
-}
-
-.countdown h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: #3e2c1c;
-  font-style: italic;
-}
-
-#timer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.time-box {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 100%;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  flex: 1 1 80px;
-  max-width: 100px;
-}
-
-.time-box span {
-  display: block;
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #b06d6d;
-}
-
-.time-box small {
-  font-size: 0.9rem;
-  color: #3e2c1c;
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-  .time-box {
-    padding: 0.8rem;
-    max-width: 80px;
-  }
-
-  .time-box span {
-    font-size: 1.6rem;
-  }
-
-  .countdown h3 {
-    font-size: 1.5rem;
-  }
-}
-
-  </style>
+  <link rel="icon" href="assets/icon.png" type="image/x-icon">
 </head>
 <body>
   <div class="background-animation"></div>
 
   <main class="invitation">
     <section class="hero">
-      <h1>Mis XV Años</h1>
+      <img src="assets/sobrero.png" alt="sobrero" >
       <br>
+      <h1>Mis XV Años</h1>
+      <br>      
       <h2>Camila Sánchez</h2>
       <br>
       <p>4 de Octubre, 2025</p>
+      <br>
+      <img src="assets/botas.png" alt="botas" >
     </section>
     <br>
+    <section class="details">
+      <h1>Quiero que seas parte de este momento tan especial</h1>
+      <p>Con alegría en el alma y amor en el corazón, te invito a celebrar mis XV años, un sueño que comienza a hacerse realidad.</p>
+      
+    </section>
     <section class="countdown">
       <h1>Faltan para el gran día...</h1>
       <div id="timer">
-        <div class="time-box"><span id="days">00</span><small>Días</small></div><br>
-        <div class="time-box"><span id="hours">00</span><small>Horas</small></div><br>
-        <div class="time-box"><span id="minutes">00</span><small>Minutos</small></div><br>
-        <div class="time-box"><span id="seconds">00</span><small>Segundos</small></div><br>
+        <div class="time-box">
+          <span id="days">00</span>
+          <br>
+          <small>Días</small>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <br>
+          <small>Horas</small>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <br>
+          <small>Minutos</small>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <br>
+          <small>Segundos</small>
+        </div>
       </div>
     </section>
 
-    <br>
-    <section class="details">
-      <h3>Te espero para celebrar juntos</h3>
-      <p>Con alegría y amor en mi corazón</p>
-    <section class="details">
-      <h3>Con amor de parte de mis padres:</h3>
-      <p>Ángel y Patricia Sánchez</p>
-    </section>
-    <br>
-    <section class="details">
-      <h3>Te invitan a celebrar mis XV años</h3>
-      <p>Con una misa y una fiesta en mi honor</p>
     <section class="events">
       <div class="event">
         <h4>Misa</h4>
@@ -229,15 +62,12 @@
         <p>611 Avenida De San Lorenzo, Clint, TX 79836</p>
         <button onclick="window.open('https://www.google.com/maps?q=611+Avenida+De+San+Lorenzo,+Clint,+TX+79836')">Ver ubicación</button>
       </div>
-      <br>
-
       <div class="event">
         <h4>Comida</h4>
         <p>6:00 - 8:00 PM</p>
         <p>1275 Higuera St., San Elizario, TX 79849</p>
         <button onclick="window.open('https://www.google.com/maps?q=1275+Higuera+St.,+San+Elizario,+TX+79849')">Ver ubicación</button>
       </div>
-      br
       <div class="event">
         <h4>Recepción</h4>
         <p>8:30 PM</p>
@@ -247,28 +77,61 @@
     </section>
     <br>
     <section class="dress-code">
-      <h3>Código de vestimenta:</h3>
+      <h1>Código de vestimenta:</h1>
+      <img src="assets/baile.png" alt="baile">
       <p>Semiformal o Western</p>
       <p><strong>No tenis</strong> / No colores blanco, beige, ivory</p>
     </section>
     <br>
     <section class="dress-code">
-      <h3>Regalos</h3>
-      <p>Si deseas regalarme algo, puedes hacerlo a través de:</p>
-      <p><a href="https://www.amazon.com/hz/wishlist/ls/1G2X8Q4Z5J0KX?ref_=wl_share">Mi lista de deseos en Amazon</a></p>
-      <br>
-
-    <section class="rsvp">
-      <h3>Confirma tu asistencia</h3>
-      <form action="https://formsubmit.co/tu-correo@ejemplo.com" method="POST">
-        <input type="text" name="nombre" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo electrónico" required>
-        <textarea name="mensaje" rows="3" placeholder="Mensaje opcional"></textarea>
-        <button type="submit">Confirmar</button>
-      </form>
+      <h1>Regalos</h1>
+      <p>Tu presencia en este día tan especial es el mejor regalo que puedo recibir.</p>
+      <p>Si deseas tener un detalle conmigo, se agradecerán las contribuciones en efectivo o puedes depositarlo en el buzón de regalos que estará disponible el día del evento.</p>
+      <p>¡Gracias por ser parte de este momento tan importante en mi vida!</p>
     </section>
+    <section class="rsvp">
+      <h1>Confirma tu asistencia</h1>
+
+      <form id="rsvp-form">
+        <input type="text" name="Nombre" placeholder="Tu nombre completo" required>
+
+        <input type="number" name="Acompañantes" placeholder="Número de acompañantes" min="0" required>
+
+        <select name="Asistencia" required>
+          <option value="">¿A qué asistirás?</option>
+          <option value="Misa y Fiesta">Misa y Fiesta</option>
+          <option value="Solo Misa">Solo Misa</option>
+          <option value="Solo Fiesta">Solo Fiesta</option>
+          <option value="No podré asistir">No podré asistir</option>
+        </select>
+
+        <textarea name="Mensaje" rows="3" placeholder="Mensaje o buenos deseos (opcional)"></textarea>
+
+        <button type="submit" id="submit-btn">Confirmar</button>
+      </form>
+
+      <div id="success-message" style="display: none; margin-top: 1rem; color: #4CAF50; font-weight: bold;">
+        ¡Gracias por confirmar tu asistencia!
+      </div>
+    </section>
+
     <br>
     
+    <section class="details">
+      <h1>Te invitó con el corazón lleno de ilusión</h1>
+      <p>
+        Ha llegado un día muy especial en nuestras vidas, un momento que hemos esperado con emoción y cariño:
+        los XV años de nuestra querida hija Camila.
+      </p>
+      <p>
+        Con profundo amor, queremos compartir contigo la dicha de verla crecer, soñar y convertirse en una hermosa
+        joven. Será un honor que nos acompañes en esta celebración tan significativa.
+      </p>
+      <p>
+        Te esperamos para dar gracias a Dios con una misa de acción de gracias y disfrutar juntos una fiesta llena de
+        alegría, familia y momentos inolvidables.
+      </p>
+    </section>
   </main>
 
   <script src="js/script.js"></script>

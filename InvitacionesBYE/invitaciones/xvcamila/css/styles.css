@@ -1,76 +1,202 @@
 
-  @keyframes scrollBackground {
-    from {
-      background-position: 0 0;
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background-color: #f7e7ce;
+      color: #3e2c1c;
+      overflow-x: hidden;
+      position: relative;
     }
-    to {
-      background-position: 1000px 0;
-    }
-  }
-  
-  .invitation {
-    text-align: center;
-    padding: 2rem;
-  }
-  
-  .hero {
-    background: linear-gradient(to bottom, #e8b7b7, #f7e7ce);
-    padding: 3rem 1rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .hero h2 {
-    font-size: 2.5rem;
-    color: #3e2c1c;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    font-style: italic;
-  }
-  
-  section {
-    margin: 2rem 0;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.7);
-    border-left: 5px solid #e8b7b7;
-    border-radius: 10px;
-  }
-  
-  .event h4 {
-    color: #e8b7b7;
-  }
-  
-  .dress-code p {
-    font-weight: bold;
-    color: #3e2c1c;
-  }
-  
-  .particle {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: #e8b7b7;
-    border-radius: 50%;
-    opacity: 0.4;
-    animation: float 15s infinite linear;
-  }
-  
-  @keyframes float {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-100vh);
-    }
-  }
 
-  
-  
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('../assets/fondo.jpg') repeat;
+      opacity: 0.1;
+      z-index: -1;
+      animation: scrollBackground 60s linear infinite;
+    }
+
+    @keyframes scrollBackground {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 0; }
+    }
+
+    main.invitation {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #b06d6d;
+    }
+
+    .hero h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    h1
+    {      
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin: 0.5rem 0;
+      color: #b06d6d;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    section.details, section.events, section.dress-code, section.rsvp {
+      padding: 1rem;
+      border-radius: 15px;    
+      align-items: center;
+      text-align: center;
+    }
+
+    .events .event {
+      margin-bottom: 1.5rem;
+    }
+
+    .event h4 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #b06d6d;
+      margin-bottom: 0.3rem;
+    }
+
+    .event button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      border: none;
+      background-color: #e8b7b7;
+      color: #3e2c1c;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .event button:hover {
+      background-color: #d59d9d;
+    }
+
+    .dress-code p {
+      font-weight: 500;
+    }
+
+    .rsvp form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .rsvp input, .rsvp textarea, .rsvp button {
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .rsvp button {
+      background-color: #e8b7b7;
+      color: #3e2c1c;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .rsvp button:hover {
+      background-color: #d59d9d;
+    }
+    .countdown {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .countdown {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    #timer {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .time-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      padding: 1rem;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      justify-content: center;
+      position: relative;
+    }
+
+    .time-box span {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b06d6d;
+    }
+
+    .time-box small {
+      font-size: 1rem;
+      color: #3e2c1c;
+      position: absolute;
+      bottom: -1.5rem;
+      background: transparent;
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .time-box {
+        width: 80px;
+        height: 80px;
+        padding: 0.5rem;
+      }
+
+      .time-box span {
+        font-size: 1.4rem;
+      }
+
+      .time-box small {
+        font-size: 0.75rem;
+        bottom: -1.2rem;
+      }
+
+      .countdown h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    img {
+      width: 50%;
+      height: auto;
+    }
