@@ -43,10 +43,11 @@ document.getElementById("rsvp-form").addEventListener("submit", function(e) {
 
     const formData = {
       Nombre: form.Nombre.value,
-      Acompañantes: form.Acompañantes.value,
+      Acompanantes: form.Acompanantes.value,
       Asistencia: form.Asistencia.value,
       Mensaje: form.Mensaje.value
     };
+
 
     button.disabled = true;
     button.textContent = "Enviando...";
