@@ -76,6 +76,124 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
     boton.textContent = 'Confirmar';
   });
 });
+// Traducciones para el botón de cambio de idioma y el contenido
+  const translations = {
+      es: {
+        title: "Invitación XV Años - Camila Sánchez",
+        hero: "Mis XV Años",
+        name: "Camila Sánchez",
+        date: "4 de Octubre, 2025",
+        inviteMessage: "Quiero que seas parte de este momento tan especial",
+        intro: "Con alegría en el alma y amor en el corazón, te invito a celebrar mis XV años, un sueño que comienza a hacerse realidad.",
+        countdownTitle: "Faltan para el gran día...",
+        days: "Días",
+        hours: "Horas",
+        minutes: "Minutos",
+        seconds: "Segundos",
+        mass: "Misa",
+        lunch: "Comida",
+        reception: "Recepción",
+        location: "Ver ubicación",
+        dressCodeTitle: "Código de vestimenta:",
+        dressCode: "Semiformal o Western",
+        noTennis: "No tenis / No colores blanco, beige, ivory",
+        giftsTitle: "Regalos",
+        giftsText: "Tu presencia en este día tan especial es el mejor regalo que puedo recibir. Si deseas tener un detalle conmigo, se agradecerán las contribuciones en efectivo o puedes depositarlo en el buzón de regalos que estará disponible el día del evento. ¡Gracias por ser parte de este momento tan importante en mi vida!",
+        rsvpTitle: "Confirma tu asistencia",
+        confirm: "Confirmar",
+        finalMessageTitle: "Te invitó con el corazón lleno de ilusión",
+        finalMessage: "Ha llegado un día muy especial en nuestras vidas, un momento que hemos esperado con emoción y cariño: los XV años de nuestra querida hija Camila..."
+      },
+      en: {
+        title: "Quinceañera Invitation - Camila Sánchez",
+        hero: "My Quinceañera",
+        name: "Camila Sánchez",
+        date: "October 4, 2025",
+        inviteMessage: "I want you to be part of this special moment",
+        intro: "With joy in my soul and love in my heart, I invite you to celebrate my 15th birthday, a dream beginning to come true.",
+        countdownTitle: "Countdown to the big day...",
+        days: "Days",
+        hours: "Hours",
+        minutes: "Minutes",
+        seconds: "Seconds",
+        mass: "Church Service",
+        lunch: "Dinner",
+        reception: "Reception",
+        location: "View Location",
+        dressCodeTitle: "Dress Code:",
+        dressCode: "Semi-formal or Western",
+        noTennis: "No sneakers / No white, beige, or ivory colors",
+        giftsTitle: "Gifts",
+        giftsParagraph1: "Your presence on this special day is the best gift I could receive.",
+        giftsParagraph2: "If you wish to give a gift, cash contributions are welcome or you can leave it in the gift box that will be available at the event.",
+        giftsParagraph3: "Thank you for being part of this important moment in my life!",
+        rsvpTitle: "Confirmation of Attendance",
+        confirm: "Confirm",
+        finalMessageTitle: "I invite you with a heart full of joy",
+        finalParagraph1: "A very special day has arrived in our lives, a moment we've awaited with joy and love: the 15th birthday of our dear daughter Camila.",
+        finalParagraph2: "With deep love, we want to share with you the joy of watching her grow, dream, and become a beautiful young woman. It will be an honor to have you with us at this meaningful celebration.",
+        finalParagraph3: "We look forward to giving thanks to God in a special mass and then enjoying a joyful party full of family and unforgettable moments."
+      }
+    };
 
+    let currentLang = 'es';
 
-      
+    document.getElementById('translateBtn').addEventListener('click', () => {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      const t = translations[currentLang];
+      document.getElementById('translateBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+      document.title = t.title;
+      document.querySelector('.hero h1').textContent = t.hero;
+      document.querySelector('.hero h2').textContent = t.name;
+      document.querySelector('.hero p').textContent = t.date;
+
+      const detailSections = document.querySelectorAll('.details');
+      if (detailSections[0]) {
+        detailSections[0].querySelector('h1').textContent = t.inviteMessage;
+        detailSections[0].querySelector('p').textContent = t.intro;
+      }
+      if (detailSections[1]) {
+        detailSections[1].querySelector('h1').textContent = t.finalMessageTitle;
+        detailSections[1].querySelectorAll('p')[0].textContent = t.finalMessage;
+      }
+
+      document.querySelector('.countdown h1').textContent = t.countdownTitle;
+      document.querySelector('#timer .time-box:nth-child(1) small').textContent = t.days;
+      document.querySelector('#timer .time-box:nth-child(2) small').textContent = t.hours;
+      document.querySelector('#timer .time-box:nth-child(3) small').textContent = t.minutes;
+      document.querySelector('#timer .time-box:nth-child(4) small').textContent = t.seconds;
+
+      document.querySelectorAll('.event h4')[0].textContent = t.mass;
+      document.querySelectorAll('.event h4')[1].textContent = t.lunch;
+      document.querySelectorAll('.event h4')[2].textContent = t.reception;
+      document.querySelectorAll('.event button').forEach(btn => btn.textContent = t.location);
+
+      const dressSections = document.querySelectorAll('.dress-code');
+      if (dressSections[0]) {
+        dressSections[0].querySelector('h1').textContent = t.dressCodeTitle;
+        dressSections[0].querySelectorAll('p')[0].textContent = t.dressCode;
+        dressSections[0].querySelectorAll('p')[1].textContent = t.noTennis;
+      }
+      if (dressSections[1]) {
+        dressSections[1].querySelector('h1').textContent = t.giftsTitle;
+        dressSections[1].querySelectorAll('p')[0].textContent = t.giftsText;
+      }
+      if (dressSections[1]) {
+        dressSections[1].querySelector('h1').textContent = t.giftsTitle;
+        dressSections[1].querySelectorAll('p')[0].textContent = t.giftsParagraph1;
+        dressSections[1].querySelectorAll('p')[1].textContent = t.giftsParagraph2;
+        dressSections[1].querySelectorAll('p')[2].textContent = t.giftsParagraph3;
+      }
+
+      // Mensaje final
+      if (detailSections[1]) {
+        detailSections[1].querySelector('h1').textContent = t.finalMessageTitle;
+        detailSections[1].querySelectorAll('p')[0].textContent = t.finalParagraph1;
+        detailSections[1].querySelectorAll('p')[1].textContent = t.finalParagraph2;
+        detailSections[1].querySelectorAll('p')[2].textContent = t.finalParagraph3;
+      }
+
+      document.querySelector('.rsvp h1').textContent = t.rsvpTitle;
+      document.querySelector('.rsvp button').textContent = t.confirm;
+    });

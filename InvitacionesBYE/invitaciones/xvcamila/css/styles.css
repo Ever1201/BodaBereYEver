@@ -277,3 +277,25 @@
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d4af7f; /* tono champagne */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+.floating-btn:hover {
+  background-color: #c49b6e;
+}
+
