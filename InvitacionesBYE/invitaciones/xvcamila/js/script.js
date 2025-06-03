@@ -102,7 +102,14 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
         rsvpTitle: "Confirma tu asistencia",
         confirm: "Confirmar",
         finalMessageTitle: "Te invitó con el corazón lleno de ilusión",
-        finalMessage: "Ha llegado un día muy especial en nuestras vidas, un momento que hemos esperado con emoción y cariño: los XV años de nuestra querida hija Camila..."
+        finalMessage: "Ha llegado un día muy especial en nuestras vidas, un momento que hemos esperado con emoción y cariño: los XV años de nuestra querida hija Camila...",
+        giftsParagraph1: "Tu presencia en este día tan especial es el mejor regalo que puedo recibir.",
+        giftsParagraph2: "Si deseas tener un detalle conmigo, se agradecerán las contribuciones en efectivo o puedes depositarlo en el buzón de regalos que estará disponible el día del evento.",
+        giftsParagraph3: "¡Gracias por ser parte de este momento tan importante en mi vida!",
+        finalParagraph1: "Ha llegado un día muy especial en nuestras vidas, un momento que hemos esperado con emoción y cariño: los XV años de nuestra querida hija Camila.",
+        finalParagraph2: "Con profundo amor, queremos compartir contigo la dicha de verla crecer, soñar y convertirse en una hermosa joven. Será un honor que nos acompañes en esta celebración tan significativa.",
+        finalParagraph3: "Te esperamos para dar gracias a Dios con una misa de acción de gracias y disfrutar juntos una fiesta llena de alegría, familia y momentos inolvidables.",
+
       },
       en: {
         title: "Quinceañera Invitation - Camila Sánchez",
@@ -155,8 +162,14 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
       }
       if (detailSections[1]) {
         detailSections[1].querySelector('h1').textContent = t.finalMessageTitle;
-        detailSections[1].querySelectorAll('p')[0].textContent = t.finalMessage;
+        const ps = detailSections[1].querySelectorAll('p');
+        if (ps.length >= 3) {
+          ps[0].textContent = t.finalParagraph1;
+          ps[1].textContent = t.finalParagraph2;
+          ps[2].textContent = t.finalParagraph3;
+        }
       }
+
 
       document.querySelector('.countdown h1').textContent = t.countdownTitle;
       document.querySelector('#timer .time-box:nth-child(1) small').textContent = t.days;
@@ -177,8 +190,14 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
       }
       if (dressSections[1]) {
         dressSections[1].querySelector('h1').textContent = t.giftsTitle;
-        dressSections[1].querySelectorAll('p')[0].textContent = t.giftsText;
+        const ps = dressSections[1].querySelectorAll('p');
+        if (ps.length >= 3) {
+          ps[0].textContent = t.giftsParagraph1;
+          ps[1].textContent = t.giftsParagraph2;
+          ps[2].textContent = t.giftsParagraph3;
+        }
       }
+
       if (dressSections[1]) {
         dressSections[1].querySelector('h1').textContent = t.giftsTitle;
         dressSections[1].querySelectorAll('p')[0].textContent = t.giftsParagraph1;
