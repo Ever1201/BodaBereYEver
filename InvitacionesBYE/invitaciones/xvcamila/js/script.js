@@ -90,6 +90,7 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
         hours: "Horas",
         minutes: "Minutos",
         seconds: "Segundos",
+        memoriesTitle: "Recuerdos especiales",
         mass: "Misa",
         lunch: "Comida",
         reception: "Recepción",
@@ -123,6 +124,7 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
         hours: "Hours",
         minutes: "Minutes",
         seconds: "Seconds",
+        memoriesTitle: "Special Memories",
         mass: "Church Service",
         lunch: "Dinner",
         reception: "Reception",
@@ -154,6 +156,7 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
       document.querySelector('.hero h1').textContent = t.hero;
       document.querySelector('.hero h2').textContent = t.name;
       document.querySelector('.hero p').textContent = t.date;
+      document.querySelector('.carrusel h1').textContent = t.memoriesTitle;
 
       const detailSections = document.querySelectorAll('.details');
       if (detailSections[0]) {
@@ -216,3 +219,31 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
       document.querySelector('.rsvp h1').textContent = t.rsvpTitle;
       document.querySelector('.rsvp button').textContent = t.confirm;
     });
+    
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const images = document.querySelectorAll('.carousel-track img');
+    const total = images.length;
+
+    let index = 0;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      index = (index + 1) % total;
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      index = (index - 1 + total) % total;
+      updateCarousel();
+    });
+
+    // Cambio automático cada 4 segundos
+    setInterval(() => {
+      index = (index + 1) % total;
+      updateCarousel();
+    }, 4000);
