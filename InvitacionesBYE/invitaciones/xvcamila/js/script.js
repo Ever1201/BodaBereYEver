@@ -90,7 +90,6 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
         hours: "Horas",
         minutes: "Minutos",
         seconds: "Segundos",
-        memoriesTitle: "Recuerdos especiales",
         mass: "Misa",
         lunch: "Comida",
         reception: "Recepción",
@@ -124,7 +123,6 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
         hours: "Hours",
         minutes: "Minutes",
         seconds: "Seconds",
-        memoriesTitle: "Special Memories",
         mass: "Church Service",
         lunch: "Dinner",
         reception: "Reception",
@@ -156,7 +154,6 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
       document.querySelector('.hero h1').textContent = t.hero;
       document.querySelector('.hero h2').textContent = t.name;
       document.querySelector('.hero p').textContent = t.date;
-      document.querySelector('.carrusel h1').textContent = t.memoriesTitle;
 
       const detailSections = document.querySelectorAll('.details');
       if (detailSections[0]) {
@@ -219,31 +216,50 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
       document.querySelector('.rsvp h1').textContent = t.rsvpTitle;
       document.querySelector('.rsvp button').textContent = t.confirm;
     });
-    
-    const track = document.querySelector('.carousel-track');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    const images = document.querySelectorAll('.carousel-track img');
-    const total = images.length;
+    document.querySelectorAll('.carousel-container').forEach(container => {
+    const track = container.querySelector('.carousel-track');
+    const prevBtn = container.querySelector('.carousel-btn.prev');
+    const nextBtn = container.querySelector('.carousel-btn.next');
+    const slides = Array.from(track.children);
 
-    let index = 0;
+    let currentIndex = 0;
 
     function updateCarousel() {
-      track.style.transform = `translateX(-${index * 100}%)`;
+      const slideWidth = slides[0].offsetWidth + 10; // 10px de margen entre imágenes
+      track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
     }
 
     nextBtn.addEventListener('click', () => {
-      index = (index + 1) % total;
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // volver al inicio
+      }
       updateCarousel();
     });
 
     prevBtn.addEventListener('click', () => {
-      index = (index - 1 + total) % total;
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = slides.length - 1; // ir al final
+      }
       updateCarousel();
     });
 
-    // Cambio automático cada 4 segundos
+    // Autoplay
     setInterval(() => {
-      index = (index + 1) % total;
+      currentIndex = (currentIndex + 1) % slides.length;
       updateCarousel();
     }, 4000);
+
+    // En caso de que cargue antes que las imágenes
+    window.addEventListener('resize', updateCarousel);
+  });
+    // Inicializar el carrusel al cargar la página
+    document.querySelectorAll('.carousel-container').forEach(container => {
+      const track = container.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const slideWidth = slides[0].offsetWidth + 10; // 10px de margen entre imágenes
+      track.style.transform = `translateX(-${slideWidth * 0}px)`; // Iniciar en el primer slide
+    });
