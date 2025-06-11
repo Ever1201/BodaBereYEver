@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación XV Años - Visctoría Mata Rivera</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/icon.png" type="image/x-icon">
+</head>
+<body>
+  <div class="background-animation"></div>
+
+  <main class="invitation">
+    <section class="hero">
+      <br>
+      <h1>Mis XV Años</h1>      
+      <img src="assets/principal.png" alt="principal" >
+      <h1>Victoria Mata Rivera</h1>
+      <p>05 de Septiembre, 2025</p>
+    </section>
+    <br>
+    <section class="details">
+      <h1>Quiero que seas parte de este momento tan especial</h1>
+      <p>Con alegría en el alma y amor en el corazón, te invito a celebrar mis XV años, un sueño que comienza a hacerse realidad.</p>
+      
+    </section>
+    <!--<section class="carrusel">
+        <div class="carousel-container">
+          <button class="carousel-btn prev">&#10094;</button>
+          <div class="carousel-track">
+             Las imágenes van aquí
+             Puedes automatizar en tu editor el insertado si son muchas -->
+            <!--<img src="assets/carrusel/1.jpg" alt="Foto 1">
+            <img src="assets/carrusel/2.jpg" alt="Foto 2">
+            <img src="assets/carrusel/3.jpg" alt="Foto 3">
+            <img src="assets/carrusel/4.jpg" alt="Foto 4">
+            <img src="assets/carrusel/5.jpg" alt="Foto 5">
+          </div>
+          <button class="carousel-btn next">&#10095;</button>
+        </div>
+      </section>-->
+    <section class="countdown">
+      <h1>Faltan para el gran día...</h1>
+      <div id="timer">
+        <div class="time-box">
+          <span id="days">00</span>
+          <br>
+          <small>Días</small>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <br>
+          <small>Horas</small>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <br>
+          <small>Minutos</small>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <br>
+          <small>Segundos</small>
+        </div>
+      </div>
+    </section>
+    
+    <section class="events">
+      <div class="event">
+        <h4>Misa</h4>
+        <p>7:00 PM</p>
+        <p>Nuestra Señora de la Paz<br>
+        Rancho el Retiro Sur 3517, Pradera Dorada, 32618</p>
+        <button onclick="window.open('https://www.google.com/maps?q=Rancho+el+Retiro+Sur+3517,+Pradera+Dorada,+32618')">Ver ubicación</button>
+      </div>
+      <div class="event">
+        <h4>Recepción</h4>
+        <p>9:00 PM a 2:00 AM</p>
+        <p>Quinta el Vergel<br>
+        Ramón Rayón 1058, 32590</p>
+        <button onclick="window.open('https://www.google.com/maps?q=Ramón+Rayón+1058,+32590')">Ver ubicación</button>
+      </div>
+    </section>
+
+
+    <br>
+    <section class="dress-code">
+      <h1>Código de vestimenta</h1>      
+      <img src="assets/vestimenta.png" alt="dresscode" >
+      <p>Formal</p>
+      <p><strong>No niños</strong></p>
+    </section>
+
+    <section class="details">
+      <h1>Coctel de Bienvenida</h1>
+      <p>Te pedimos llegar temprano, ya que habrá coctel de bienvenida a las 9:00 PM.</p>
+    </section>
+
+    <section class="details">
+      <h1>Colores sugeridos</h1>
+      <p>Rosa baby y Verde sage</p>
+    </section>   
+    
+
+    <section class="dress-code">
+      <h1>Regalos</h1>
+      <p>Tu presencia en este día tan especial es el mejor regalo que puedo recibir.</p>
+      <p>Si deseas tener un detalle conmigo, se agradecerán las contribuciones en efectivo o puedes depositarlo en el buzón de regalos que estará disponible el día del evento.</p>
+      <p>¡Gracias por ser parte de este momento tan importante en mi vida!</p>
+    </section>
+    <!-- Confirmación de asistencia -->
+      <section class="rsvp">
+        <h1>Confirma tu asistencia</h1>
+        <form id="confirmacionForm">
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+          
+          <select name="asistencia" required>
+            <option value="">¿Asistirás?</option>
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+          </select>
+          
+          <input type="text" name="acompanante" placeholder="Acompañante (opcional)">
+          
+          <textarea name="mensaje" placeholder="Mensaje (opcional)"></textarea>
+          
+          <button type="submit">Confirmar</button>
+        </form>
+        <p id="respuesta" style="margin-top: 1rem; font-weight: bold;"></p>
+      </section>
+      
+    <section class="details details-final">
+      <h1>Te invitó con el corazón lleno de ilusión</h1>
+      <p>
+        Ha llegado un día muy especial en nuestras vidas, un momento que hemos esperado con emoción y cariño:
+        los XV años de nuestra querida hija Victoria.
+      </p>
+      <p>
+        Con profundo amor, queremos compartir contigo la dicha de verla crecer, soñar y convertirse en una hermosa
+        joven. Será un honor que nos acompañes en esta celebración tan significativa.
+      </p>
+      <p>
+        Te esperamos para dar gracias a Dios con una misa de acción de gracias y disfrutar juntos una fiesta llena de
+        alegría, familia y momentos inolvidables.
+      </p>
+    </section>
+    
+  </main> 
+  
+  <script src="js/script.js"></script>
+
+</body>
+</html>

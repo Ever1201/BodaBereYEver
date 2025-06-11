@@ -1,0 +1,466 @@
+
+ body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background-color: #fce4ec; /* rosa baby claro */
+  color: #3e2c1c;
+  overflow-x: hidden;
+  position: relative;
+}
+
+    .background-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('../assets/fondo.jpg') repeat;
+      opacity: 0.4;
+      z-index: -1;
+      animation: scrollBackground 60s linear infinite;
+    }
+
+    @keyframes scrollBackground {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 0; }
+    }
+
+    main.invitation {
+      max-width: 800px;
+      margin: auto;
+      
+    }
+
+    .hero {
+      background: linear-gradient(to top, #fce4ec3b, #ffffff);
+      color: #8d6e63; /* tono marrón rosado suave */
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      color: #a96f85;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin: 0.5rem 0;
+      color: #a96f85; /* rosa quemado vintage */
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #6d4c41;
+    }
+
+    .hero p {
+      font-size: 1.8rem;
+      font-style: italic;
+      color: #a96f85;
+    }
+
+    section.details, section.dress-code, section.rsvp section, .derails-final, .rsvp{
+      padding: 1.5rem;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.103);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      margin-bottom: 1.5rem;
+    }
+    section.events {
+      background: #fff3f86b; /* rosa claro con opacidad */;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+    .events .event {
+      background: linear-gradient(to bottom, #fffdfc, #fce4ec);
+      border: 2px dashed #d4af7f;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .details-final {
+      background: linear-gradient(to bottom, #fce4ec3b, #ffffff);
+    }
+
+    .events .event:hover {
+      transform: translateY(-3px);
+    }
+
+    .event h4 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #a96f85;
+      margin-bottom: 0.3rem;
+    }
+    .events .event h4 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #a96f85;
+      margin-bottom: 0.5rem;
+    }
+
+    .event button {
+      background-color: #c5d7c0; /* verde sage */
+      color: #3e2c1c;
+    }
+
+    .event button:hover {
+      background-color: #b2c4ad;
+    }
+    .events .event p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #5d4037;
+      margin: 0.3rem 0;
+    }
+
+    .events .event button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      background-color: #c5d7c0; /* verde sage */
+      color: #3e2c1c;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .events .event button:hover {
+      background-color: #b2c4ad;
+    }
+
+    /* Responsive ajustes móviles */
+    @media (max-width: 500px) {
+      .events {
+        padding: 1rem;
+        
+      }
+
+      .events .event {
+        padding: 1rem;
+      }
+
+      .events .event h4 {
+        font-size: 2.2rem;
+      }
+
+      .events .event p {
+        font-size: 1rem;
+      }
+
+      .events .event button, .rsvp button{
+        width: 100%;
+        font-size: 0.95rem;
+      }
+    }
+
+    .dress-code p,
+    .details p
+    .details-final p {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #5d4037;
+    }
+
+    
+    .rsvp {
+      background-color: rgba(255, 255, 255, 0.295);
+      border: 2px dashed #d4af7f;
+    }
+
+    .rsvp h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #b06d6d;
+      margin-bottom: 1rem;
+    }
+
+    .rsvp form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .rsvp input,
+    .rsvp select,
+    .rsvp textarea {
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid #d1b1a1;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      background-color: #fff9f6;
+      color: #3e2c1c;
+      transition: border 0.3s ease;
+    }
+
+    .rsvp input:focus,
+    .rsvp select:focus,
+    .rsvp textarea:focus {
+      outline: none;
+      border-color: #b06d6d;
+    }
+
+    .rsvp button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      background-color: #c5d7c0; /* verde sage */
+      color: #3e2c1c;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .rsvp button:hover {
+      background-color: #b2c4ad;
+    }
+
+        .countdown {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .countdown {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: #fff3f86b;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      max-width: 800px;
+      margin: 3rem auto;
+    }
+
+    .countdown h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #a96f85;
+      margin-bottom: 2rem;
+    }
+
+    #timer {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .time-box {
+      background: linear-gradient(to top, #fffdfc, #fce4ec);
+      border: 3px dashed #d4af7f;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease;
+      flex: 1 1 120px; /* Para controlar el layout */
+    }
+
+    .time-box:hover {
+      transform: scale(1.05);
+    }
+
+    .time-box span {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #a96f85;
+    }
+
+    .time-box small {
+      margin-top: 0.3rem;
+      font-size: 1rem;
+      color: #6d4c41;
+      font-style: italic;
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 {
+        font-size: 5rem;
+      }
+      #timer {
+        gap: 1rem;
+      }
+
+      .time-box {
+        width: 45%;
+        height: 100px;
+        flex: 0 1 45%;
+      }
+
+      .time-box span {
+        font-size: 2rem;
+      }
+
+      .time-box small {
+        font-size: 0.9rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    img {
+      width: auto;
+      height: auto;
+    }
+
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #fff;
+  border-top: 2px solid #b06d6d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.confirmacion-exitosa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background-color: #d4af7f;
+  color: #fff;
+  border-radius: 12px;
+  animation: fadeIn 0.6s ease;
+  font-family: 'Playfair Display', serif;
+  margin-top: 1rem;
+}
+
+.confirmacion-exitosa svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d4af7f; /* tono champagne */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+.floating-btn:hover {
+  background-color: #c49b6e;
+}
+
+.carrusel {
+  padding: 2rem 1rem;
+  text-align: center;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.carousel-container {
+  height: 760px;
+  border-radius: 20px;
+  background-color: #fff3f8;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-track img {
+  border: 4px solid #f8cfd9;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d4af7f;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.3s;
+  opacity: 0.7;
+}
+.carousel-btn:hover {
+  background-color: #c2956b;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+@media (max-width: 600px) {
+  .carousel-container {
+    height: auto;
+  }
+
+  .carousel-track img {
+    height: auto;
+  }
+}
+
+.hero,
+.details,
+.events,
+.dress-code,
+.rsvp,
+.countdown,
+.carrusel {
+  text-align: center;
+}
+.event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rsvp form {
+  align-items: center;
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea {
+  width: 100%;
+  max-width: 400px;
+}
