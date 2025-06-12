@@ -46,7 +46,7 @@ document.getElementById('confirmacionForm').addEventListener('submit', function 
   boton.disabled = true;
   boton.innerHTML = `<span class="spinner"></span> Enviando...`;
 
-  fetch('https://script.google.com/macros/s/AKfycbw7Gbehg1qpE2MnVwbUMENNhlqrQcnzdsRKHBnyx83XQgwizSNd7h9BbDpaXYjjG7gQrw/exec', {
+  fetch('', {
     method: 'POST',
     body: formData
   })
