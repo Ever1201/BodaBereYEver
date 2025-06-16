@@ -14,7 +14,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('../assets/fondo.jpg') repeat;
+      background: url('../assets/5.png') repeat;
       opacity: 0.4;
       z-index: -1;
       animation: scrollBackground 60s linear infinite;
@@ -391,53 +391,69 @@
   max-width: 600px;
   margin: 2rem auto;
 }
-
 .carousel-container {
-  height: 760px;
+  height: auto;
   border-radius: 20px;
   background-color: #fff3f8;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.6s ease-in-out;
   width: 100%;
 }
 
 .carousel-track img {
-  border: 4px solid #f8cfd9;
+  width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 10px;
+  margin: 0 5px;
+  transition: transform 0.3s;
+  max-height: 750px;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.02);
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #d4af7f;
+  background: #c5d7c0;
   border: none;
   color: white;
   font-size: 2rem;
   padding: 0.5rem 1rem;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 1;
-  transition: background 0.3s;
-  opacity: 0.7;
+  z-index: 2;
+  transition: background 0.3s, transform 0.2s;
 }
+
 .carousel-btn:hover {
-  background-color: #c2956b;
+  background-color: #b2c4ad;
+  transform: scale(1.1);
 }
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
 
-@media (max-width: 600px) {
-  .carousel-container {
-    height: auto;
-  }
+.carousel-btn.prev {
+  left: 10px;
+}
+.carousel-btn.next {
+  right: 10px;
+}
 
-  .carousel-track img {
-    height: auto;
+@media (max-width: 768px) {
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
   }
 }
+
 
 .hero,
 .details,
@@ -463,4 +479,62 @@
 .rsvp textarea {
   width: 100%;
   max-width: 400px;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+  border: 5px solid #f3d1d1;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 45px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.lightbox-prev, .lightbox-next {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  user-select: none;
+  opacity: 0.8;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+  opacity: 1;
+}
+
+.lightbox-prev { left: 30px; }
+.lightbox-next { right: 30px; }
+
+@font-face {
+  font-family: 'Marchy';
+  src: url('../font/Marchy\ Script\ Demo.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
