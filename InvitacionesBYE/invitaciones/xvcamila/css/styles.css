@@ -557,10 +557,9 @@ body.lb-disable-scrolling {
   height: 100%;
   background-image: url('../assets/carrusel/24.jpg');
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: auto;
-  background-size: 100% 100%;
+  background-size: cover; /* ✅ esto es la clave */
   background-position: center;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -582,4 +581,10 @@ body.lb-disable-scrolling {
 
 #play-button:hover {
   background-color: #a07b40;
+}
+
+@media (max-width: 768px) {
+  #play-button-container {
+    background-attachment: scroll;
+  }
 }
