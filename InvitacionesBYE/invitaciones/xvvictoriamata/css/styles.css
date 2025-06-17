@@ -12,12 +12,10 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('../assets/5.png') repeat;
-      opacity: 0.4;
+      width: 100%; /* Cambiado a vh para cubrir toda la pantalla */
+      height: 100vh; /* Cambiado a vh para cubrir toda la pantalla */
+      background: url('../assets/6.jpg') no-repeat center center fixed;  
       z-index: -1;
-      animation: scrollBackground 60s linear infinite;
     }
 
     @keyframes scrollBackground {
@@ -32,12 +30,11 @@
     }
 
     .hero {
-      background: linear-gradient(to top, #fce4ec3b, #ffffff);
       color: #8d6e63; /* tono marrón rosado suave */
     }
 
     .hero h1 {
-      font-size: 4.5rem;
+      font-size: 3rem;
       color: #a96f85;
     }
 
@@ -62,14 +59,11 @@
       padding: 1.5rem;
       border-radius: 20px;
       background-color: rgba(255, 255, 255, 0.103);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
       margin-bottom: 1.5rem;
     }
     section.events {
-      background: #fff3f86b; /* rosa claro con opacidad */;
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
       margin: 2rem auto;
       max-width: 800px;
     }
@@ -80,7 +74,6 @@
       border-radius: 15px;
       padding: 1.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       text-align: center;
       transition: transform 0.3s ease;
     }
@@ -131,7 +124,6 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .events .event button:hover {
@@ -171,9 +163,16 @@
       color: #5d4037;
     }
 
-    
+    p {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #5d4037;
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+
     .rsvp {
-      background-color: rgba(255, 255, 255, 0.295);
+      background: linear-gradient(to bottom, #fffdfc, #fce4ec);
       border: 2px dashed #d4af7f;
     }
 
@@ -221,7 +220,6 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .rsvp button:hover {
@@ -237,9 +235,7 @@
     .countdown {
       text-align: center;
       padding: 3rem 1rem;
-      background: #fff3f86b;
       border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       max-width: 800px;
       margin: 3rem auto;
     }
@@ -259,15 +255,14 @@
     }
 
     .time-box {
-      background: linear-gradient(to top, #fffdfc, #fce4ec);
       border: 3px dashed #d4af7f;
-      width: 120px;
-      height: 120px;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.07);
       transition: transform 0.3s ease;
       flex: 1 1 120px; /* Para controlar el layout */
     }
@@ -291,15 +286,17 @@
 
     @media (max-width: 500px) {
       .hero h1 {
-        font-size: 5rem;
+        font-size: 3rem;
       }
       #timer {
         gap: 1rem;
       }
 
       .time-box {
-        width: 45%;
-        height: 100px;
+      background: linear-gradient(to bottom, #fffdfc, #fce4ec);
+        width: 100px;
+        height: 150px;
+        border-radius: 100%;
         flex: 0 1 45%;
       }
 
@@ -314,6 +311,8 @@
       img {
         max-width: 100%;
         height: auto;
+        border-radius: 15px;
+        margin: 1rem 0;
       }
     }
 
@@ -375,7 +374,6 @@
   height: 50px;
   font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   z-index: 9999;
   transition: background-color 0.3s;
@@ -397,7 +395,6 @@
   background-color: #fff3f8;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-track {
@@ -499,7 +496,6 @@
   max-height: 80%;
   border-radius: 12px;
   border: 5px solid #f3d1d1;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
 .lightbox .close {
