@@ -558,7 +558,8 @@ body.lb-disable-scrolling {
   background-image: url('../assets/carrusel/24.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: auto;
+  background-size: 100% 100%;
   background-position: center;
   display: flex;
   justify-content: center;
