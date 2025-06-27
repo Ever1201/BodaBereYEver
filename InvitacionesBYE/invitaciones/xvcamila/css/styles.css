@@ -13,16 +13,12 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background: url('../assets/fondo4.jpg');      
-      background-repeat: no-repeat;
-      background-size: auto; /* ✅ esto es la clave */
+      height: 100vh;
+      background: url('../assets/fondo4.jpg');     
+      background-size: cover; /* ✅ esto es la clave */
       background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       opacity: 0.4;
+      content: '';
       z-index: -2;
     }
     .background-superior {
@@ -30,16 +26,12 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       background: url('../assets/fondosup.png');      
-      background-repeat: no-repeat;
       background-size: cover; /* ✅ esto es la clave */
       background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       opacity: .6;
+      content: '';
       z-index: -1;
     }
 
