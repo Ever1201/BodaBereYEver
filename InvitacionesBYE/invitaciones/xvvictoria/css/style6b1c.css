@@ -665,6 +665,12 @@ border-radius: 20px;
   color: #fff;
 }
 
+.form-text {
+  color: #fff;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .btn-form {
 background: rgba(0,0,0,0.1);
 padding: 10px 60px 7px 60px;
@@ -1110,3 +1116,92 @@ font-size: 30px;
 .font-20 {
 font-size:20px;
 }
+
+.loader {
+    display: none;
+    margin: 20px auto;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #c39797; /* Color del reloj */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    font-size: 1.2em;
+    color: #fff;
+    margin-top: 20px;
+  }
+
+  .modal-sobre {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 233, 220, 0.96);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+  .contenido-sobre {
+    text-align: center;
+    animation: fadeIn 1s ease;
+  }
+
+  .imagen-sobre {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* para que el botón quede encima */
+  }
+  @keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.btn-abrir {
+  background-color: #c39797;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+  animation: heartbeat 2s infinite;
+  box-shadow: 0 0 15px rgba(195, 151, 151, 0.4);
+}
+
+.btn-abrir:hover {
+  background-color: #a67878;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(166, 120, 120, 0.6);
+}
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }

@@ -10,6 +10,7 @@
 
   gtag('config', 'UA-138434923-1');
 </script>
+
 <!-- HUBSPOT -->
 <!-- HUBSPOT -->
 
@@ -60,7 +61,12 @@
 	</section>
 	<!-- Foto -->
 	
-	
+	<div id="modal-sobre" class="modal-sobre">
+		<div class="contenido-sobre">
+			<img src="img/papelsobre.png" alt="Sobre" class="imagen-sobre wow fadeInLeft">
+			<button id="abrir-btn" class="btn-abrir">Abrir invitación</button>
+		</div>
+		</div>
 	
 	<!-- Info General -->
 	<section id="Info">
@@ -370,44 +376,41 @@
 		<div class="row" style="background: #e092b0;">
 			<div class="col-lg-5 col-11 col-center">
 				<div class="cuadro-info wow fadeInUp">
-					<h2 class="title-2 m-40 text-white wow fadeInDown" align="center">Enviar Buenos Deseos</h2>
+					<h2 class="title-2 m-40 text-white wow fadeInDown" align="center">Confirma tu asistencia</h2>
 					
-					<form role="form" action="https://miinvitaciondigital.com/disenos/bodas/bodas_469/enviar_contacto.php" method="post">
+					<form id="form-confirmacion">
 						<div class="m-20 wow fadeInLeft">
-							<input name="name" type="text" class="form-campo" placeholder="Nombre" required autocomplete="off">
+							<input name="name" type="text" class="form-campo" placeholder="Nombre de invitado" required autocomplete="off">
+						</div>
+
+						<div class="m-20 wow fadeInLeft">
+							<select name="cantidad" class="form-campo" required>
+							<option value="" disabled selected>¿Cuántos acompañantes llevarás?</option>
+							<option value="1">1 persona</option>
+							<option value="2">2 personas</option>
+							<option value="3">3 personas</option>
+							<option value="4">4 personas</option>
+							</select>
 						</div>
 
 						<div class="m-40 wow fadeInLeft">
-							<textarea name="comment" class="form-campo" rows="5" placeholder="Mensaje o comentario" required></textarea>
+							<textarea name="comment" class="form-campo" rows="5" placeholder="Mensaje para la festejada" required></textarea>
 						</div>
 
 						<div class="m-0 wow fadeInLeft" align="center">
 							<button type="submit" class="btn-form">Enviar</button>
 						</div>
-					</form>
+						</form>
+
+						<div class="loader" id="loader"></div>
+						<div class="form-success wow title-2" style="font-size: 3.5rem;" id="form-success">¡Gracias por confirmar tu asistencia!</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- Buenos Deseos -->
 
-	<!-- Sobre -->
-	<section id="Frase" style="padding: 0;">
-	<div class="row">
-	<div class="col-lg-5 col-11 col-center">
-	<div class="cuadro-info wow fadeInUp">
-	<div class="row">
-	<div class="col-12 col-center">
-	<h2 align="center" class="title-2 m-0 wow fadeInLeft sombra-texto">Te Espero</h2>
-	</div>
-	</div>
-	</div>
-	</div>
-	</section>
-	<!-- Sobre -->
-	
-	
-	
+		
 	<!-- Footer -->
 	<section id="contenido-8" style="padding: 0;">
 	<div class="row">
@@ -623,6 +626,72 @@ function pauseVid() {
 					}
 				});
 			</script>
+			<script>
+				const form = document.getElementById("form-confirmacion");
+				const loader = document.getElementById("loader");
+				const successMsg = document.getElementById("form-success");
+
+				form.addEventListener("submit", function (e) {
+					e.preventDefault(); // evita redirección
+
+					// Mostrar loader
+					loader.style.display = "block";
+
+					const formData = new FormData(form);
+
+					fetch("https://script.google.com/macros/s/AKfycbz3jT_cp-8Xv_9b5lYCEsKBoIT2yWry5fK6R0stgrL5GdWFldFMr-Dr5_GFqC0FXhznUg/exec", {
+					method: "POST",
+					body: formData,
+					})
+					.then(response => {
+					if (response.ok) {
+						// Oculta formulario y loader
+						form.style.display = "none";
+						loader.style.display = "none";
+						successMsg.style.display = "block";
+					} else {
+						alert("Hubo un error al enviar el formulario.");
+						loader.style.display = "none";
+					}
+					})
+					.catch(error => {
+					alert("Error de conexión: " + error.message);
+					loader.style.display = "none";
+					});
+				});
+				</script>
 </body>
+
+
+<audio id="musica-invitacion" preload="auto">
+  <source src="assets/Beginning_Middle_End_Leah Nobel.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modal-sobre");
+    const abrirBtn = document.getElementById("abrir-btn");
+
+    abrirBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modal-sobre");
+    const abrirBtn = document.getElementById("abrir-btn");
+    const audio = document.getElementById("musica-invitacion");
+
+    abrirBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+      audio.play().catch((e) => {
+        console.log("Autoplay bloqueado, interacción adicional requerida.");
+      });
+    });
+  });
+</script>
+
     <!-- End Body -->
 </html>
