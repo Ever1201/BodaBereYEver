@@ -248,7 +248,7 @@ font-family: "Titles";
 .title-2 {
   color:silver;
   font-family: Titles;
-  font-size: 42px;
+  font-size: 3.5rem;
   font-family: "Italiano";
   }
 
@@ -297,6 +297,10 @@ margin-bottom: 40px;
 .m-60 {
   margin-bottom: 60px;
   }
+
+.ml-40 {
+margin-left: 40px;
+}
       
 .linea {
   height: 50px;
