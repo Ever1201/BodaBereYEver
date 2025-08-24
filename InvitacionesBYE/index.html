@@ -1,102 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InvitacionesB&E</title>
-    <link rel="icon" type="image/png" href="content/img/sello3.png">
-    <link rel="stylesheet" href="content/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitaciones B&E Premium</title>
+<link rel="icon" type="image/png" href="content/img/sello3.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+#inicio { 
+  background: url('content/img/hero-bg.jpg') center/cover no-repeat; 
+  position: relative; 
+}
+#inicio::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 192, 203, 0.5); 
+  backdrop-filter: blur(6px);
+}
+#inicio > * { position: relative; z-index: 10; }
+
+.card { transition: transform 0.4s, box-shadow 0.4s; }
+.card:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+.btn-hover { transition: all 0.3s; }
+.btn-hover:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+@keyframes pulse { 0%,100%{ transform: scale(1); } 50% { transform: scale(1.15); } }
+.btn-pulse { animation: pulse 2s infinite; }
+
+.footer-link:hover { text-decoration: underline; color: #ffe4e6; }
+
+/* Animación lenta para íconos de contacto */
+@keyframes bounce-slow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.animate-bounce-slow { animation: bounce-slow 2s infinite; }
+</style>
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="content/img/sello.png" alt="Logo Sello">
-            <a href="https://wa.me/5216565721986?text=Hola%2C%20quiero%20más%20información%20sobre%20sus%20productos" class="whatsapp-float" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
-            </a>
+<body class="font-[Merriweather] text-gray-800">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-md z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+    <div class="flex items-center space-x-2">
+      <img src="content/img/sello.png" alt="Logo" class="h-10">
+      <span class="font-[Cinzel] text-lg font-bold">Invitaciones B&E</span>
+    </div>
+    <nav class="hidden md:flex space-x-5 font-medium text-gray-700">
+      <a href="#inicio" class="hover:text-pink-600 transition">Inicio</a>
+      <a href="#servicios" class="hover:text-pink-600 transition">Servicios</a>
+      <a href="#demos" class="hover:text-pink-600 transition">Ejemplos</a>
+      <a href="#cotizar" class="hover:text-pink-600 transition">Cotizar</a>
+      <a href="#acercade" class="hover:text-pink-600 transition">Acerca de</a>
+      <a href="#contacto" class="hover:text-pink-600 transition">Contacto</a>
+    </nav>
+    <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+      <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+    <nav class="flex flex-col space-y-3 p-4 text-gray-700">
+      <a href="#inicio" class="hover:text-pink-600 transition">Inicio</a>
+      <a href="#servicios" class="hover:text-pink-600 transition">Servicios</a>
+      <a href="#demos" class="hover:text-pink-600 transition">Ejemplos</a>
+      <a href="#cotizar" class="hover:text-pink-600 transition">Cotizar</a>
+      <a href="#acercade" class="hover:text-pink-600 transition">Acerca de</a>
+      <a href="#contacto" class="hover:text-pink-600 transition">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="inicio" class="h-screen flex flex-col items-center justify-center text-center px-6 pt-24 fade-in">
+  <h1 class="text-4xl md:text-6xl font-bold text-gray-800 font-[Cinzel] drop-shadow-md">Bienvenido a Invitaciones B&E</h1>
+  <p class="mt-4 text-lg md:text-xl text-gray-700">El lugar ideal para hacer tus sueños realidad</p>
+  <a href="#demos" class="mt-8 px-6 py-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transform btn-hover">Descubre nuestros ejemplos</a>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="py-16 bg-gray-50 fade-in">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 font-[Cinzel]">Invitaciones Digitales</h2>
+    <p class="text-gray-600 mb-12 max-w-3xl mx-auto">Las invitaciones digitales son tendencia y amigables con el medio ambiente. Conoce sus principales beneficios:</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl shadow-md p-6 card"> 
+        <img src="content/img/personalizado.png" alt="Diseño personalizado" class="mx-auto h-20 mb-4">
+        <h4 class="text-lg font-semibold mb-2">Diseño 100% personalizado</h4>
+        <p class="text-gray-600">Adaptamos tu invitación al estilo de tu boda.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-6 card">
+        <img src="content/img/envios-ilimitados.png" alt="Envíos ilimitados" class="mx-auto h-20 mb-4">
+        <h4 class="text-lg font-semibold mb-2">Envíos ilimitados</h4>
+        <p class="text-gray-600">Comparte tu invitación por WhatsApp, correo u otros medios digitales.</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-6 card">
+        <img src="content/img/control-invitados.png" alt="Control de invitados" class="mx-auto h-20 mb-4">
+        <h4 class="text-lg font-semibold mb-2">Control de invitados</h4>
+        <p class="text-gray-600">Sigue las confirmaciones y número de asistentes en tiempo real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Demos -->
+<section id="demos" class="py-16 bg-pink-50 fade-in">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800 font-[Cinzel]">Invitaciones Digitales</h2>
+    <h3 class="text-xl md:text-2xl mb-8 text-gray-600 font-[Merriweather]">Demos</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <a href="invitaciones/xv/muestra.html" class="block transform hover:scale-105 transition card">
+        <img src="content/img/phonexv.png" alt="XV" class="mx-auto rounded-xl shadow-md mb-2">
+        <h4 class="font-semibold text-gray-800">XV</h4>
+      </a>
+      <a href="invitaciones/boda/index.html" class="block transform hover:scale-105 transition card">
+        <img src="content/img/phoneboda.png" alt="Boda" class="mx-auto rounded-xl shadow-md mb-2">
+        <h4 class="font-semibold text-gray-800">Boda</h4>
+      </a>
+      <a href="invitaciones/sencilla/tornabodabye.html" class="block transform hover:scale-105 transition card">
+        <img src="content/img/phonesencilla.png" alt="Sencilla" class="mx-auto rounded-xl shadow-md mb-2">
+        <h4 class="font-semibold text-gray-800">Sencilla</h4>
+      </a>
+      <a href="invitaciones/charly.png" class="block transform hover:scale-105 transition card">
+        <img src="invitaciones/charly.png" alt="Infantil" class="mx-auto rounded-xl shadow-md mb-2">
+        <h4 class="font-semibold text-gray-800">Infantil</h4>
+      </a>
+      <a href="invitaciones/Imagen/hercules.html" class="block transform hover:scale-105 transition card">
+        <img src="content/img/hercules.png" alt="Sencilla con sonido" class="mx-auto rounded-xl shadow-md mb-2">
+        <h4 class="font-semibold text-gray-800">Sencilla con sonido</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Cotizar -->
+<section id="cotizar" class="py-16 bg-white fade-in">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800 font-[Cinzel]">Cotiza tu Invitación</h2>
+    <p class="text-gray-600 mb-12">Elige tu plan o arma tu propia invitación personalizada.</p>
+    <img src="content/img/paquetes1.jpeg" alt="Planes" class="mx-auto rounded-xl shadow-lg mb-8">
+    <div class="bg-pink-50 p-8 rounded-2xl shadow-md max-w-4xl mx-auto text-left">
+      <h3 class="text-2xl font-semibold mb-4">Beneficios de todos nuestros planes:</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Diseño 100% personalizado</li>
+        <li>Enlace personalizado</li>
+        <li>Compatible con todos los dispositivos</li>
+        <li>Atención personalizada hasta el día del evento</li>
+        <li>Cambios ilimitados sin costo adicional</li>
+      </ul>
+    </div>
+    <a href="https://wa.me/5216565721986?text=Hola,%20quiero%20cotizar%20mi%20invitación" target="_blank" class="mt-8 inline-block px-6 py-3 bg-pink-600 text-white font-semibold rounded-full btn-hover">Solicita tu invitación</a>
+  </div>
+</section>
+
+<!-- Acerca de -->
+<section id="acercade" class="py-16 bg-pink-50 fade-in">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 font-[Cinzel]">Acerca de Nosotros</h2>
+    <p class="text-gray-700 text-lg md:text-xl">
+      Combinamos <span class="font-semibold">belleza</span> y <span class="font-semibold">lujo</span> en invitaciones digitales únicas, haciendo de cada evento un recuerdo inolvidable.
+    </p>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-20 bg-gradient-to-b from-pink-100 via-white to-pink-200 fade-in">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800 font-[Cinzel]">Contáctanos</h2>
+    <p class="text-gray-700 mb-12 text-lg md:text-xl">Estamos felices de atenderte. Elige tu medio de contacto favorito:</p>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white rounded-3xl shadow-2xl p-8 card">
+        <div class="w-16 h-16 mx-auto bg-pink-600 rounded-full flex items-center justify-center mb-6 animate-bounce-slow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 4H8m8-8H8m-4 8h.01M4 6h16"/>
+          </svg>
         </div>
-        <!-- Botón de hamburguesa -->
-        <button class="menu-toggle" aria-label="Abrir menú">
-            <span class="hamburger"></span>
-        </button>
-        <!-- Menú de navegación -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="acercade.html">Acerca de</a></li>
-                <li><a href="cotizar.html">Cotiza tu invitacion</a></li>
-            </ul>
-        </nav>
-    </header>
+        <h3 class="text-xl font-semibold mb-3">Correo Electrónico</h3>
+        <p class="text-gray-600">Escríbenos a <a href="mailto:gerardo.egb@gmail.com" class="text-pink-600 font-semibold hover:underline">gerardo.egb@gmail.com</a></p>
+      </div>
 
-    <main>
-        <section class="hero">
-            <h1>Bienvenido</h1>
-            <p>El lugar ideal para hacer tus sueños realidad.</p>
-            <br><br><br><br><br><br><br><br><br><br>
-            <a href="listademos.html" class="btn">Descubre nuestros ejemplos</a>
-        </section>    
-    </main>
+      <div class="bg-white rounded-3xl shadow-2xl p-8 card flex flex-col items-center">
+        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6 animate-bounce-slow">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-8 h-8">
+        </div>
+        <h3 class="text-xl font-semibold mb-4">WhatsApp</h3>
+        <p class="text-gray-600 mb-4">Chatea con nosotros directamente para más información.</p>
+        <a href="https://wa.me/5216565721986" target="_blank" class="px-6 py-3 bg-green-500 text-white rounded-full font-semibold btn-hover">Chatea ahora</a>
+      </div>
 
-    <footer>
-        <p>&copy; 2025 Ever Garcia. Todos los derechos reservados.</p>
-    </footer>
-    <script>
-    // Ajustar el margen superior del main según la altura del header
-        document.addEventListener('DOMContentLoaded', () => {
-            const header = document.querySelector('header');
-            const main = document.querySelector('main');
-            const footer = document.querySelector('footer');
-            
-            // Ajustar margen superior
-            const adjustMainMargin = () => {
-                const headerHeight = header.offsetHeight;
-                main.style.marginTop = `${headerHeight}px`;
-            };
-            adjustMainMargin();
-            window.addEventListener('resize', adjustMainMargin);
+      <div class="bg-white rounded-3xl shadow-2xl p-8 card">
+        <div class="w-16 h-16 mx-auto bg-pink-600 rounded-full flex items-center justify-center mb-6 animate-bounce-slow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2h5"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12a5 5 0 100-10 5 5 0 000 10z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Asesoría Personalizada</h3>
+        <p class="text-gray-600 mb-4">Recibe atención directa de nuestras asesoras para consultas más detalladas.</p>
+        <a href="https://wa.me/5216565721986" target="_blank" class="px-6 py-3 bg-pink-600 text-white rounded-full font-semibold btn-hover">Solicita asesoría</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // Ajuste de pie de página si el contenido es pequeño
-            const adjustFooterPosition = () => {
-                const viewportHeight = window.innerHeight;
-                const contentHeight = document.body.offsetHeight;
+<!-- Botón flotante WhatsApp -->
+<a href="https://wa.me/5216565721986" target="_blank" aria-label="Chat WhatsApp" class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg btn-pulse">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-8 h-8">
+</a>
 
-                if (contentHeight < viewportHeight) {
-                    main.style.minHeight = `${viewportHeight - footer.offsetHeight - main.offsetTop}px`;
-                }
-            };
-            adjustFooterPosition();
-            window.addEventListener('resize', adjustFooterPosition);
+<!-- Footer -->
+<footer class="bg-pink-600 text-white shadow-md mt-12 fade-in">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-6 py-6">
+    <div class="text-center md:text-left text-sm">
+      © 2025 Invitaciones B&E. Todos los derechos reservados.
+    </div>
+    <div class="flex space-x-4 mt-4 md:mt-0">
+      <a href="#" class="footer-link">Instagram</a>
+      <a href="#" class="footer-link">Facebook</a>
+      <a href="#" class="footer-link">WhatsApp</a>
+    </div>
+  </div>
+</footer>
 
-            // Variables para sumar valores
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            const totalSumDisplay = document.getElementById('totalSum');
+<script>
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-            // Actualizar la suma total cuando se seleccionan opciones
-            checkboxes.forEach((checkbox) => {
-                checkbox.addEventListener('change', () => {
-                    let total = 0;
-                    checkboxes.forEach((box) => {
-                        if (box.checked) {
-                            total += parseFloat(box.value);
-                        }
-                    });
-                    totalSumDisplay.textContent = `Total: $${total.toFixed(2)}`;
-                });
-            });
-        });
-
-        // Función para alternar el menú
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    </script>
-
-    <script src="content/js/scripts.js"></script>
+// Scroll animations
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 </body>
 </html>
