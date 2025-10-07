@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply font-poppins text-primary hover:text-gold px-3 py-2 text-base font-medium transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-gold after:transition-all after:duration-300;
+  }
+  .nav-link:hover:after {
+    @apply w-full;
+  }
+
+  .nav-link-highlight {
+    @apply font-poppins text-gold-700 bg-gold-100 hover:bg-gold-200 px-5 py-2.5 text-base font-semibold border border-gold-200 rounded-full transition-all duration-300;
+  }
+
+  .mobile-nav-link {
+    @apply block px-4 py-3 text-lg font-medium text-primary hover:text-gold hover:bg-gold-50 rounded-lg transition-colors duration-200;
+  }
+
+  .mobile-nav-link-highlight {
+    @apply block px-4 py-3 text-lg font-semibold text-white bg-gold hover:bg-gold-600 rounded-lg transition-colors duration-200 text-center;
+  }
+  
+  .form-input {
+    @apply w-full px-5 py-3 text-base rounded-lg border-2 border-gold-100 bg-gold-50 focus:border-gold-300 focus:ring focus:ring-gold-200 focus:ring-opacity-50 transition-all duration-300;
+  }
+  
+  .error-message {
+    @apply text-red-500 text-sm;
+  }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f6f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d9bc74;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a47e;
+}
