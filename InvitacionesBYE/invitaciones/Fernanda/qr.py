@@ -7,6 +7,6 @@ url = "https://forms.gle/A5prPusEjJo75zXN9"
 img = qrcode.make(url)
 
 # Guardarlo como imagen
-img.save("qr_formulario.png")
+img.save("qr_formulario.svg")
 
-print("✅ QR generado con éxito: qr_formulario.png")
+print("✅ QR generado con éxito: qr_formulario.svg")
