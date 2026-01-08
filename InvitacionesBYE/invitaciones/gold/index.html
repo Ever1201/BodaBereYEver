@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Ana & Carlos | Invitación Premium</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#d66e85',
+                            light: '#fff0f3',
+                            dark: '#4a3f42',
+                            gold: '#C5A059'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Outfit', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@300;400;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d66e85' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .font-serif {
+            font-family: 'Cinzel', serif;
+        }
+
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 antialiased selection:bg-brand-pink selection:text-white pb-24">
+
+    <!-- Audio Player Floating -->
+    <button onclick="toggleAudio()"
+        class="fixed top-4 right-4 z-50 w-12 h-12 bg-white/90 glass rounded-full flex items-center justify-center shadow-lg text-brand-pink animate-spin-slow">
+        <i id="audioIcon" class="fa-solid fa-music"></i>
+    </button>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Hero Section -->
+    <header class="h-screen relative flex items-center justify-center text-center px-6 overflow-hidden">
+        <!-- Background Image (Placeholder) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Couple" class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 text-white" data-aos="zoom-in" data-aos-duration="1500">
+            <p class="font-sans tracking-[0.3em] uppercase text-sm md:text-lg mb-4 opacity-90">Nuestra Boda</p>
+            <h1 class="font-script text-7xl md:text-9xl mb-2 text-white drop-shadow-lg">Ana & Carlos</h1>
+            <div class="h-px w-24 bg-white/70 mx-auto my-6"></div>
+            <p class="font-serif text-2xl md:text-4xl tracking-widest mb-8">24 . OCT . 2026</p>
+
+            <!-- Countdown -->
+            <div id="countdown" class="flex justify-center gap-4 md:gap-8 text-center text-white/90">
+                <div class="glass bg-white/10 p-3 rounded-lg w-20 md:w-24 border-white/20">
+                    <span id="days" class="block text-2xl md:text-4xl font-bold font-serif">00</span>
+                    <span class="text-xs uppercase tracking-wider">Días</span>
+                </div>
+                <div class="glass bg-white/10 p-3 rounded-lg w-20 md:w-24 border-white/20">
+                    <span id="hours" class="block text-2xl md:text-4xl font-bold font-serif">00</span>
+                    <span class="text-xs uppercase tracking-wider">Hrs</span>
+                </div>
+                <div class="glass bg-white/10 p-3 rounded-lg w-20 md:w-24 border-white/20">
+                    <span id="minutes" class="block text-2xl md:text-4xl font-bold font-serif">00</span>
+                    <span class="text-xs uppercase tracking-wider">Min</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 animate-bounce text-white/70">
+            <i class="fa-solid fa-chevron-down text-3xl"></i>
+        </div>
+    </header>
+
+    <!-- Quote -->
+    <section class="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
+        <i class="fa-solid fa-quote-left text-3xl text-brand-pink/30 mb-6"></i>
+        <p class="font-serif text-xl md:text-3xl text-brand-dark leading-relaxed italic">
+            "El amor no se trata de mirar el uno al otro, sino de mirar juntos en la misma dirección."
+        </p>
+        <p class="mt-4 text-brand-pink font-script text-3xl">- Saint-Exupéry</p>
+    </section>
+
+    <!-- Parents Section -->
+    <section class="max-w-5xl mx-auto px-6 py-12 text-center" data-aos="fade-up">
+        <p class="text-gray-500 mb-8 font-serif uppercase tracking-widest text-sm">Con la bendición de nuestros padres
+        </p>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="font-serif text-2xl text-brand-dark mb-2">Novia</h3>
+                <p class="text-lg text-gray-600 font-script text-3xl">Maria Elena & José Luis</p>
+            </div>
+            <div>
+                <h3 class="font-serif text-2xl text-brand-dark mb-2">Novio</h3>
+                <p class="text-lg text-gray-600 font-script text-3xl">Rosa María & Pedro</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="max-w-6xl mx-auto px-4 md:px-6 py-12">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+            <!-- Ceremony -->
+            <div class="glass rounded-3xl p-8 md:p-12 text-center transform hover:-translate-y-2 transition-transform duration-300"
+                data-aos="fade-right">
+                <div
+                    class="w-20 h-20 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-4xl">
+                    <i class="fa-solid fa-church"></i>
+                </div>
+                <h3 class="font-serif text-3xl text-brand-dark mb-4">Ceremonia Religiosa</h3>
+                <p class="font-bold text-xl text-gray-800 mb-2">5:00 PM</p>
+                <p class="text-lg text-gray-600 mb-8">Parroquia de la Sagrada Familia<br>Av. Paseo Triunfo 450</p>
+
+                <div class="flex flex-col gap-3">
+                    <a href="https://www.google.com/maps" target="_blank"
+                        class="bg-brand-dark text-white py-3 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver en Maps
+                    </a>
+                    <a href="https://waze.com/ul" target="_blank"
+                        class="bg-blue-400 text-white py-3 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-brands fa-waze"></i> Ir con Waze
+                    </a>
+                </div>
+            </div>
+
+            <!-- Reception -->
+            <div class="glass rounded-3xl p-8 md:p-12 text-center transform hover:-translate-y-2 transition-transform duration-300"
+                data-aos="fade-left">
+                <div
+                    class="w-20 h-20 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-4xl">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h3 class="font-serif text-3xl text-brand-dark mb-4">Recepción</h3>
+                <p class="font-bold text-xl text-gray-800 mb-2">8:00 PM</p>
+                <p class="text-lg text-gray-600 mb-8">Hacienda Las Nubes<br>Carretera Nacional Km 25</p>
+
+                <div class="flex flex-col gap-3">
+                    <a href="https://www.google.com/maps" target="_blank"
+                        class="bg-brand-dark text-white py-3 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver en Maps
+                    </a>
+                    <a href="https://waze.com/ul" target="_blank"
+                        class="bg-blue-400 text-white py-3 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-brands fa-waze"></i> Ir con Waze
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodation Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20 bg-white/50">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Sugerencias de Hospedaje</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Hemos reservado tarifas especiales para nuestros invitados en los
+                siguientes hoteles.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Hotel 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-aos="fade-up"
+                data-aos-delay="0">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                    alt="Hotel 1" class="w-full h-48 object-cover">
+                <div class="p-6 text-center">
+                    <h4 class="font-serif text-xl font-bold text-brand-dark mb-2">Hotel Grand Plaza</h4>
+                    <p class="text-sm text-gray-500 mb-4">A 5 min de la recepción</p>
+                    <p class="text-brand-pink font-bold mb-4">Código: BODACARLOS</p>
+                    <a href="#"
+                        class="block w-full py-2 border border-brand-dark text-brand-dark rounded-lg hover:bg-brand-dark hover:text-white transition-colors">Reservar</a>
+                </div>
+            </div>
+            <!-- Hotel 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-aos="fade-up"
+                data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1025&q=80"
+                    alt="Hotel 1" class="w-full h-48 object-cover">
+                <div class="p-6 text-center">
+                    <h4 class="font-serif text-xl font-bold text-brand-dark mb-2">City Express</h4>
+                    <p class="text-sm text-gray-500 mb-4">A 10 min de la recepción</p>
+                    <p class="text-brand-pink font-bold mb-4">Código: BODACARLOS</p>
+                    <a href="#"
+                        class="block w-full py-2 border border-brand-dark text-brand-dark rounded-lg hover:bg-brand-dark hover:text-white transition-colors">Reservar</a>
+                </div>
+            </div>
+            <!-- Hotel 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100" data-aos="fade-up"
+                data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                    alt="Hotel 1" class="w-full h-48 object-cover">
+                <div class="p-6 text-center">
+                    <h4 class="font-serif text-xl font-bold text-brand-dark mb-2">Airbnb Collection</h4>
+                    <p class="text-sm text-gray-500 mb-4">Opciones cercanas</p>
+                    <p class="text-brand-pink font-bold mb-4">Varios Precios</p>
+                    <a href="#"
+                        class="block w-full py-2 border border-brand-dark text-brand-dark rounded-lg hover:bg-brand-dark hover:text-white transition-colors">Ver
+                        Lista</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="max-w-4xl mx-auto px-6 py-20" data-aos="fade-up">
+        <h2 class="text-center font-serif text-3xl md:text-4xl mb-12 text-brand-dark font-bold">Itinerario</h2>
+        <div class="relative border-l-2 border-brand-pink/30 ml-8 md:ml-1/2 md:-translate-x-px space-y-12">
+
+            <div class="relative pl-8 md:pl-0">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-pink ring-4 ring-white"></div>
+                <div class="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div class="md:text-right">
+                        <span class="text-brand-pink font-bold text-xl">5:00 PM</span>
+                        <h4 class="font-serif text-2xl text-brand-dark">Ceremonia</h4>
+                    </div>
+                    <div class="hidden md:block"></div>
+                </div>
+            </div>
+
+            <div class="relative pl-8 md:pl-0">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-pink ring-4 ring-white"></div>
+                <div class="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div class="md:hidden">
+                        <span class="text-brand-pink font-bold text-xl">7:00 PM</span>
+                        <h4 class="font-serif text-2xl text-brand-dark">Coctel de Bienvenida</h4>
+                    </div>
+                    <div class="hidden md:text-right md:block"></div>
+                    <div class="hidden md:block">
+                        <span class="text-brand-pink font-bold text-xl">7:00 PM</span>
+                        <h4 class="font-serif text-2xl text-brand-dark">Coctel de Bienvenida</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative pl-8 md:pl-0">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-pink ring-4 ring-white"></div>
+                <div class="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div class="md:text-right">
+                        <span class="text-brand-pink font-bold text-xl">9:00 PM</span>
+                        <h4 class="font-serif text-2xl text-brand-dark">Cena y Baile</h4>
+                    </div>
+                    <div class="hidden md:block"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gallery Swiper Section -->
+    <section class="max-w-7xl mx-auto px-4 py-12" data-aos="fade-up">
+        <div class="text-center mb-10">
+            <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Nuestra Historia</h2>
+            <p class="text-gray-500">Momentos inolvidables juntos.</p>
+        </div>
+        <div class="swiper mySwiper w-full md:w-4/5 mx-auto h-[400px] rounded-3xl shadow-xl">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
+                        class="w-full h-full object-cover" alt="Foto 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80"
+                        class="w-full h-full object-cover" alt="Foto 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                        class="w-full h-full object-cover" alt="Foto 3">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next text-white"></div>
+            <div class="swiper-button-prev text-white"></div>
+        </div>
+    </section>
+
+    <!-- Details Grid -->
+    <section class="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Dress Code -->
+            <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100" data-aos="fade-up"
+                data-aos-delay="0">
+                <i class="fa-solid fa-user-tie text-3xl text-brand-gold mb-3"></i>
+                <h4 class="font-serif text-lg font-bold mb-1">Dress Code</h4>
+                <p class="text-gray-500">Formal Riguroso</p>
+            </div>
+            <!-- Gifts -->
+            <div onclick="document.getElementById('giftModal').showModal()"
+                class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-all"
+                data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-gift text-3xl text-brand-gold mb-3"></i>
+                <h4 class="font-serif text-lg font-bold mb-1">Regalos</h4>
+                <p class="text-gray-500">Ver opciones</p>
+            </div>
+            <!-- Kids -->
+            <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100" data-aos="fade-up"
+                data-aos-delay="200">
+                <i class="fa-solid fa-ban text-3xl text-brand-gold mb-3"></i>
+                <h4 class="font-serif text-lg font-bold mb-1">No Niños</h4>
+                <p class="text-gray-500">Solo Adultos</p>
+            </div>
+            <!-- Hashtag -->
+            <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100" data-aos="fade-up"
+                data-aos-delay="300">
+                <i class="fa-solid fa-camera text-3xl text-brand-gold mb-3"></i>
+                <h4 class="font-serif text-lg font-bold mb-1">Hashtag</h4>
+                <p class="text-gray-500">#BodaAnaYCarlos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="max-w-5xl mx-auto px-6 py-20 bg-brand-light/30 rounded-[3rem] text-center" data-aos="zoom-in">
+        <h2 class="font-serif text-2xl md:text-3xl text-brand-dark mb-10">Recomendaciones</h2>
+        <div class="grid md:grid-cols-2 gap-8 text-left">
+            <div class="flex gap-4 items-start">
+                <i class="fa-solid fa-cloud-sun text-4xl text-brand-pink"></i>
+                <div>
+                    <h4 class="font-bold text-lg text-brand-dark">Clima</h4>
+                    <p class="text-gray-600">Se espera un clima templado por la noche. Recomendamos llevar un abrigo
+                        ligero.</p>
+                </div>
+            </div>
+            <div class="flex gap-4 items-start">
+                <i class="fa-solid fa-car text-4xl text-brand-pink"></i>
+                <div>
+                    <h4 class="font-bold text-lg text-brand-dark">Estacionamiento</h4>
+                    <p class="text-gray-600">El salón cuenta con valet parking sin costo. No olvides tu boleto.</p>
+                </div>
+            </div>
+            <div class="flex gap-4 items-start">
+                <i class="fa-solid fa-clock text-4xl text-brand-pink"></i>
+                <div>
+                    <h4 class="font-bold text-lg text-brand-dark">Puntualidad</h4>
+                    <p class="text-gray-600">Te solicitamos llegar 15 minutos antes de la ceremonia para comenzar a
+                        tiempo.</p>
+                </div>
+            </div>
+            <div class="flex gap-4 items-start">
+                <i class="fa-solid fa-mobile-screen text-4xl text-brand-pink"></i>
+                <div>
+                    <h4 class="font-bold text-lg text-brand-dark">Modo Avión</h4>
+                    <p class="text-gray-600">Durante la ceremonia, te invitamos a desconectarte y vivir el momento con
+                        nosotros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP CTA -->
+    <section class="max-w-3xl mx-auto px-6 py-24 text-center" data-aos="zoom-in">
+        <div class="bg-brand-pink text-white rounded-[3rem] p-10 md:p-16 shadow-2xl relative overflow-hidden">
+            <div
+                class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+            </div>
+
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6 relative z-10">¡Acompáñanos!</h2>
+            <p class="text-xl mb-8 opacity-90 relative z-10">Es muy importante para nosotros contar con tu presencia.
+            </p>
+
+            <a href="https://wa.me/?text=Hola%20Ana%20y%20Carlos,%20confirmo%20mi%20asistencia%20a%20su%20boda.%20Somos%20[NUMERO]%20personas."
+                target="_blank"
+                class="inline-flex items-center gap-3 bg-white text-brand-pink px-8 py-4 rounded-full font-bold text-xl hover:bg-gray-100 transition-colors shadow-lg transform hover:scale-105 active:scale-95 duration-200 relative z-10">
+                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                Confirmar Asistencia
+            </a>
+            <p class="mt-6 text-sm opacity-80 relative z-10">Fecha límite: 01 de Octubre</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-10 opacity-60">
+        <p class="font-serif text-sm">Invitación creada con amor por Invitaciones B&E</p>
+    </footer>
+
+    <!-- Modals -->
+    <dialog id="giftModal" class="modal p-0 rounded-2xl shadow-2xl backdrop:bg-black/50">
+        <div class="p-8 max-w-sm bg-white text-center">
+            <h3 class="font-serif text-2xl font-bold mb-4 text-brand-dark">Mesa de Regalos</h3>
+            <p class="mb-6 text-gray-600">Agradecemos tu detalle. Hemos registrado opciones en:</p>
+            <div class="space-y-3">
+                <button class="w-full bg-yellow-400 text-black py-3 rounded-lg font-bold hover:bg-yellow-500">Liverpool:
+                    123456789</button>
+                <button class="w-full bg-gray-800 text-white py-3 rounded-lg font-bold hover:bg-gray-900">Amazon
+                    Wishlist</button>
+                <div class="border-t pt-4 mt-4">
+                    <p class="text-sm font-bold text-brand-pink mb-2">Transferencia</p>
+                    <p class="text-xs font-mono bg-gray-100 p-2 rounded selectable">CLABE: 123456789012345678</p>
+                </div>
+            </div>
+            <button onclick="document.getElementById('giftModal').close()"
+                class="mt-6 text-sm text-gray-400 hover:text-gray-600 underline">Cerrar</button>
+        </div>
+    </dialog>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        AOS.init();
+
+        // Swiper Init
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        // Countdown Logic
+        const weddingDate = new Date('2026-10-24T17:00:00').getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+        }, 1000);
+
+        // Auido Toggle
+        const audio = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                document.getElementById('audioIcon').classList.remove('fa-spin');
+                document.getElementById('audioIcon').classList.replace('fa-music', 'fa-volume-xmark');
+            } else {
+                audio.play();
+                document.getElementById('audioIcon').classList.add('fa-spin');
+                document.getElementById('audioIcon').classList.replace('fa-volume-xmark', 'fa-music');
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+
+</html>
