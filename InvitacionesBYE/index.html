@@ -1,261 +1,598 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invitaciones B&E — 2026</title>
-    <link rel="icon" type="image/png" href="content/img/sello3.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- External libs: AOS (animations), Swiper (carousel), Font Awesome (icons) -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-      :root{--pink:#ea507a;--muted:#6b7280}
-      html{scroll-behavior:smooth}
-      body{font-family:'Merriweather',serif;background:linear-gradient(180deg,#fff 0%,#fffaf6 100%);}
-      .glass{background:rgba(255,255,255,0.6);backdrop-filter:blur(6px)}
-      header{transition:background .3s,backdrop-filter .3s}
-      .hero-gradient{background:linear-gradient(120deg, rgba(234,80,122,0.06), rgba(255,235,238,0.06));}
-      .feature-icon{width:64px;height:64px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(180deg,#fff,#ffeef3)}
-      .btn-primary{background:var(--pink);color:white;padding:.7rem 1.2rem;border-radius:999px;font-weight:600}
-      .btn-outline{border:1px solid rgba(234,80,122,0.15);padding:.6rem 1rem;border-radius:999px}
-      footer a{color:rgba(255,255,255,.9)}
-      @media (min-width:1024px){.hero-split{display:grid;grid-template-columns:1fr 520px;align-items:center;gap:48px}}
-    </style>
-  </head>
+<head>
+  <meta name="description"
+    content="Invitaciones digitales elegantes para Bodas y XV Años. Diseños personalizados, confirmación de asistencia y envíos ilimitados. ¡Empieza hoy!" />
+  <meta name="keywords"
+    content="invitaciones digitales, invitaciones boda, invitaciones xv años, invitaciones web, invitaciones elegantes" />
+  <meta name="author" content="Invitaciones B&E" />
 
-  <body class="text-gray-800">
-    <!-- Header -->
-    <header id="site-header" class="fixed w-full top-0 z-50 glass/80">
-      <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#inicio" class="flex items-center gap-3">
-          <img src="content/img/sello.png" alt="Invitaciones B&E" class="h-10" />
-          <span class="font-[Cinzel] text-lg font-bold">Invitaciones B&E</span>
-        </a>
-        <nav class="hidden md:flex gap-6 items-center text-sm text-gray-700">
-          <a href="#inicio" class="hover:text-pink-600">Inicio</a>
-          <a href="#servicios" class="hover:text-pink-600">Servicios</a>
-          <a href="#demos" class="hover:text-pink-600">Ejemplos</a>
-          <a href="#cotizar" class="hover:text-pink-600">Cotizar</a>
-          <a href="#contacto" class="hover:text-pink-600">Contacto</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <a href="https://wa.me/5216565721986" class="hidden md:inline-block btn-primary">Solicita tu invitación</a>
-          <button id="menu-btn" class="md:hidden p-2 rounded-md bg-white/60">
-            <i class="fa-solid fa-bars text-gray-800"></i>
-          </button>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ever1201.github.io/BodaBereYEver/InvitacionesBYE/index.html" />
+  <meta property="og:title" content="Invitaciones B&E — Elegancia Digital para tu Evento" />
+  <meta property="og:description"
+    content="Diseños premium, control de invitados y experiencia inolvidable. Cotiza tu invitación 100% personalizada." />
+  <meta property="og:image" content="https://bodabereyever.github.io/InvitacionesBYE/content/img/paquetes1.jpeg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://ever1201.github.io/BodaBereYEver/InvitacionesBYE/index.html" />
+  <meta property="twitter:title" content="Invitaciones B&E — Elegancia Digital" />
+  <meta property="twitter:description" content="Diseños premium, control de invitados y experiencia inolvidable." />
+  <meta property="twitter:image" content="https://bodabereyever.github.io/InvitacionesBYE/content/img/paquetes1.jpeg" />
+
+  <title>Invitaciones B&E — Eventos Inolvidables</title>
+  <link rel="icon" type="image/png" href="content/img/sello3.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#d66e85',
+              dark: '#8b4b5a',
+              light: '#fff0f3'
+            },
+            dark: '#1a1a1a',
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- External libs -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top right, #fff0f3 0%, #fff 40%, #fffaf6 100%);
+      color: #4a5568;
+    }
+
+    .font-serif {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Glassmorphism Premium */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    header {
+      transition: all .4s ease;
+    }
+
+    .hero-gradient {
+      background: radial-gradient(circle at 80% 20%, rgba(214, 110, 133, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(255, 235, 238, 0.15) 0%, transparent 40%);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 4px 20px rgba(214, 110, 133, 0.15);
+      transition: transform .3s ease;
+    }
+
+    .group:hover .feature-icon {
+      transform: translateY(-3px) scale(1.05);
+    }
+
+    /* Buttons with shine effect */
+    .btn-primary {
+      background: linear-gradient(135deg, #d66e85 0%, #c45d73 100%);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 20px rgba(214, 110, 133, 0.3);
+      transition: all .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(214, 110, 133, 0.45);
+    }
+
+    .btn-outline {
+      border: 1px solid #d66e85;
+      color: #d66e85;
+      padding: 0.75rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 500;
+      background: transparent;
+      transition: all .3s;
+    }
+
+    .btn-outline:hover {
+      background: #fff0f3;
+      transform: translateY(-1px);
+    }
+
+    /* Image Card Hover */
+    .card-hover {
+      transition: transform .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .card-hover:hover {
+      transform: scale(1.02);
+    }
+
+    @media (min-width: 1024px) {
+      .hero-split {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 60px;
+      }
+    }
+  </style>
+</head>
+
+<body class="text-gray-800">
+  <!-- Header -->
+  <header id="site-header" class="fixed w-full top-0 z-50 glass">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#inicio" class="flex items-center gap-3">
+        <img src="content/img/sello.png" alt="Invitaciones B&E" class="h-12 w-auto" />
+        <span class="font-serif text-2xl font-bold text-brand-dark tracking-wide">Invitaciones B&E</span>
+      </a>
+      <nav class="hidden md:flex gap-8 items-center text-sm font-medium text-gray-600">
+        <a href="#inicio" class="hover:text-brand-pink transition-colors">Inicio</a>
+        <a href="#servicios" class="hover:text-brand-pink transition-colors">Servicios</a>
+        <a href="#demos" class="hover:text-brand-pink transition-colors">Ejemplos</a>
+        <a href="#cotizar" class="hover:text-brand-pink transition-colors">Cotizar</a>
+        <a href="#contacto" class="hover:text-brand-pink transition-colors">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5216565721986"
+          class="hidden md:inline-block btn-primary text-sm shadow-lg shadow-brand-pink/20">Solicita tu invitación</a>
+        <button id="menu-btn" class="md:hidden p-2 rounded-md bg-white/60">
+          <i class="fa-solid fa-bars text-brand-dark"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 absolute w-full left-0 shadow-xl">
+      <nav class="flex flex-col p-6 gap-4 text-center">
+        <a href="#inicio" class="py-2 text-gray-800 hover:text-brand-pink">Inicio</a>
+        <a href="#servicios" class="py-2 text-gray-800 hover:text-brand-pink">Servicios</a>
+        <a href="#demos" class="py-2 text-gray-800 hover:text-brand-pink">Ejemplos</a>
+        <a href="#cotizar" class="py-2 text-gray-800 hover:text-brand-pink">Cotizar</a>
+        <a href="#contacto" class="py-2 text-gray-800 hover:text-brand-pink">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="pt-24">
+    <section id="inicio" class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 hero-gradient">
+      <div
+        class="hero-split bg-white/40 glass rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-14 border border-white/60 shadow-xl"
+        data-aos="fade-up">
+        <div>
+          <span
+            class="inline-block py-1 px-3 rounded-full bg-brand-light text-brand-dark text-xs font-semibold tracking-wider mb-4 border border-brand-pink/20">EDICIÓN
+            2026</span>
+          <h1 class="text-3xl md:text-6xl font-serif font-bold text-brand-dark leading-tight md:leading-[1.1] mb-6">
+            Invitaciones digitales <span class="text-brand-pink">que enamoran</span>
+          </h1>
+          <p class="text-lg text-gray-600 max-w-xl leading-relaxed">
+            Diseños exclusivos, confirmación de asistencia en tiempo real y una experiencia inolvidable para tus
+            invitados.
+          </p>
+
+          <div class="mt-8 flex gap-4 flex-wrap">
+            <a href="#demos" class="btn-primary">Ver colección</a>
+            <a href="https://wa.me/5216565721986" target="_blank" class="btn-outline">
+              <i class="fa-brands fa-whatsapp mr-2"></i> Cotizar ahora
+            </a>
+          </div>
+
+          <ul class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <li class="flex items-start gap-4 group cursor-default">
+              <div class="feature-icon text-2xl text-brand-pink"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div>
+                <strong class="block text-brand-dark font-serif text-lg">Diseño Premium</strong>
+                <span class="text-sm text-gray-500 leading-snug">Detalles cuidados y estética de lujo.</span>
+              </div>
+            </li>
+            <li class="flex items-start gap-4 group cursor-default">
+              <div class="feature-icon text-2xl text-brand-pink"><i class="fa-solid fa-share-nodes"></i></div>
+              <div>
+                <strong class="block text-brand-dark font-serif text-lg">Compartir Fácil</strong>
+                <span class="text-sm text-gray-500 leading-snug">Envío ilimitado por WhatsApp.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="rounded-3xl overflow-hidden bg-white/50 backdrop-blur-sm p-6 border border-white/50 shadow-inner"
+          data-aos="fade-left">
+          <h4 class="text-lg font-serif font-semibold mb-4 text-brand-dark">Explora nuestros estilos</h4>
+          <div class="grid grid-cols-1 gap-4">
+            <a href="invitaciones/boda/index.html"
+              class="card-hover flex items-center gap-4 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+              <img src="invitaciones/boda/img/principal.jpg" class="w-16 h-24 object-cover rounded-lg shadow-sm"
+                alt="Boda">
+              <div class="text-left">
+                <strong class="text-brand-dark font-serif">Boda Clásica</strong>
+                <div class="text-xs text-gray-500 mt-1">Romance & Elegancia</div>
+              </div>
+              <i class="fa-solid fa-chevron-right ml-auto text-gray-300 text-sm"></i>
+            </a>
+            <a href="invitaciones/xv/muestra.html"
+              class="card-hover flex items-center gap-4 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+              <img src="invitaciones/xv/img/xv10.jpg" class="w-16 h-24 object-cover rounded-lg shadow-sm" alt="XV">
+              <div class="text-left">
+                <strong class="text-brand-dark font-serif">XV Años</strong>
+                <div class="text-xs text-gray-500 mt-1">Brillo & Juventud</div>
+              </div>
+              <i class="fa-solid fa-chevron-right ml-auto text-gray-300 text-sm"></i>
+            </a>
+            <a href="invitaciones/Imagen/garfield/ivana.html"
+              class="card-hover flex items-center gap-4 p-3 bg-white rounded-xl shadow-sm border border-gray-100">
+              <img src="invitaciones/Imagen/garfield/img/ivana2.png" class="w-16 h-24 object-cover rounded-lg shadow-sm"
+                alt="Sencilla">
+              <div class="text-left">
+                <strong class="text-brand-dark font-serif">Infantil / Temática</strong>
+                <div class="text-xs text-gray-500 mt-1">Divertida & Única</div>
+              </div>
+              <i class="fa-solid fa-chevron-right ml-auto text-gray-300 text-sm"></i>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="servicios" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 relative overflow-hidden">
+      <!-- Floating shapes background -->
+      <div class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+        <div class="absolute top-10 right-10 w-64 h-64 bg-pink-100 rounded-full blur-3xl mix-blend-multiply"></div>
+        <div class="absolute bottom-10 left-10 w-64 h-64 bg-purple-100 rounded-full blur-3xl mix-blend-multiply"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8 relative z-10">
+        <div
+          class="group p-6 md:p-8 rounded-[2rem] bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up" data-aos-delay="100">
+          <div class="flex flex-col items-center text-center gap-4 md:gap-5">
+            <div class="feature-icon text-3xl text-brand-pink"><i class="fa-solid fa-pen-nib"></i></div>
+            <div>
+              <h3 class="font-serif font-bold text-lg md:text-xl text-brand-dark mb-2">Diseño Personalizado</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">No usamos plantillas genéricas. Cada invitación es
+                adaptada a tu estilo y colores.</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group p-6 md:p-8 rounded-[2rem] bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-col items-center text-center gap-4 md:gap-5">
+            <div class="feature-icon text-3xl text-brand-pink"><i class="fa-solid fa-paper-plane"></i></div>
+            <div>
+              <h3 class="font-serif font-bold text-lg md:text-xl text-brand-dark mb-2">Envío Digital Total</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">Olvídate de repartir. Comparte tu enlace y código QR por
+                WhatsApp en segundos.</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="group p-6 md:p-8 rounded-[2rem] bg-white border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up" data-aos-delay="300">
+          <div class="flex flex-col items-center text-center gap-4 md:gap-5">
+            <div class="feature-icon text-3xl text-brand-pink"><i class="fa-solid fa-check-double"></i></div>
+            <div>
+              <h3 class="font-serif font-bold text-lg md:text-xl text-brand-dark mb-2">Confirmación Real</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">Panel de administración para ver quién asistirá y
+                gestionar lugares.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="mobile-menu" class="hidden md:hidden bg-white/90 border-t">
-        <nav class="flex flex-col p-4 gap-3">
-          <a href="#inicio" class="py-2">Inicio</a>
-          <a href="#servicios" class="py-2">Servicios</a>
-          <a href="#demos" class="py-2">Ejemplos</a>
-          <a href="#cotizar" class="py-2">Cotizar</a>
-          <a href="#contacto" class="py-2">Contacto</a>
-        </nav>
+    </section>
+
+    <!-- Detailed Features Showcase -->
+    <section id="detalles" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 bg-white">
+      <div class="text-center mb-10 md:mb-16" data-aos="fade-up">
+        <span class="text-brand-pink font-semibold tracking-wider text-xs md:text-sm uppercase">Funcionalidades
+          Premium</span>
+        <h2 class="text-2xl md:text-4xl font-serif font-bold text-brand-dark mt-2">Todo incluido en tu invitación</h2>
+        <p class="text-gray-500 mt-4 max-w-2xl mx-auto text-sm md:text-base">Cada detalle cuenta. Nuestras invitaciones
+          incluyen herramientas
+          avanzadas para que tus invitados tengan toda la información al instante.</p>
       </div>
-    </header>
 
-    <!-- Hero -->
-    <main class="pt-24">
-      <section id="inicio" class="max-w-7xl mx-auto px-6 py-20 hero-gradient">
-        <div class="hero-split bg-white/60 glass rounded-3xl p-8 lg:p-12" data-aos="fade-up">
-          <div>
-            <h1 class="text-3xl md:text-5xl font-[Cinzel] font-bold text-gray-900 leading-tight">Invitaciones digitales elegantes — ahora 2026</h1>
-            <p class="mt-4 text-gray-600 max-w-xl">Diseños personalizados, envío ilimitado y control de invitados en una experiencia digital y profesional.</p>
-
-            <div class="mt-6 flex gap-4">
-              <a href="#demos" class="btn-primary hover:opacity-95">Ver demos</a>
-              <a href="https://wa.me/5216565721986" target="_blank" class="btn-outline">Cotizar por WhatsApp</a>
-            </div>
-
-            <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <li class="flex items-start gap-4">
-                <div class="feature-icon"><i class="fa-solid fa-palette text-pink-600 text-xl"></i></div>
-                <div>
-                  <strong class="block">Diseño premium</strong>
-                  <span class="text-sm text-gray-600">Tipografías y estética para un recuerdo inolvidable.</span>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <div class="feature-icon"><i class="fa-solid fa-share-nodes text-pink-600 text-xl"></i></div>
-                <div>
-                  <strong class="block">Compartir fácil</strong>
-                  <span class="text-sm text-gray-600">Enlaces, QR y envíos por WhatsApp.</span>
-                </div>
-              </li>
-            </ul>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Feature 1 -->
+        <div
+          class="p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-xl">
+            <i class="fa-solid fa-map-location-dot"></i>
           </div>
-
-          <aside class="rounded-2xl overflow-hidden bg-gradient-to-b from-white to-pink-50 p-6 shadow-md" data-aos="fade-left">
-            <h4 class="text-lg font-semibold mb-3">Elige un modelo</h4>
-            <div class="grid grid-cols-1 gap-3">
-              <a href="invitaciones/boda/index.html" class="flex items-center gap-3 p-3 bg-white rounded-lg hover:shadow"> 
-                <img src="invitaciones/boda/img/principal.jpg" class="w-14 h-24 object-cover rounded-md" alt="Boda">
-                <div class="text-left"><strong>Boda</strong><div class="text-xs text-gray-500">Clásico & romántico</div></div>
-              </a>
-              <a href="invitaciones/xv/muestra.html" class="flex items-center gap-3 p-3 bg-white rounded-lg hover:shadow">
-                <img src="invitaciones/xv/img/xv10.jpg" class="w-14 h-24 object-cover rounded-md" alt="XV">
-                <div class="text-left"><strong>XV</strong><div class="text-xs text-gray-500">Brillante & juvenil</div></div>
-              </a>
-              <a href="invitaciones/Imagen/garfield/ivana.html" class="flex items-center gap-3 p-3 bg-white rounded-lg hover:shadow">
-                <img src="invitaciones/Imagen/garfield/img/ivana2.png" class="w-14 h-24 object-cover rounded-md" alt="Sencilla">
-                <div class="text-left"><strong>Sencilla</strong><div class="text-xs text-gray-500">Minimal y elegante</div></div>
-              </a>
-            </div>
-          </aside>
+          <h4 class="font-bold text-brand-dark mb-1">Ubicación GPS</h4>
+          <p class="text-xs text-gray-500">Links directos a Waze y Google Maps para que nadie se pierda.</p>
         </div>
-      </section>
 
-      <!-- Features -->
-      <section id="servicios" class="max-w-7xl mx-auto px-6 py-14">
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="p-6 rounded-2xl bg-white shadow-md" data-aos="fade-up" data-aos-delay="100">
-            <div class="flex items-center gap-4">
-              <div class="feature-icon"><i class="fa-solid fa-pen-nib text-pink-600"></i></div>
-              <div>
-                <h3 class="font-semibold">Diseño 100% personalizado</h3>
-                <p class="text-sm text-gray-600">Propuestas únicas con retoques ilimitados.</p>
-              </div>
-            </div>
+        <!-- Feature 2 -->
+        <div
+          class="p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-xl">
+            <i class="fa-regular fa-images"></i>
           </div>
-          <div class="p-6 rounded-2xl bg-white shadow-md" data-aos="fade-up" data-aos-delay="200">
-            <div class="flex items-center gap-4">
-              <div class="feature-icon"><i class="fa-solid fa-paper-plane text-pink-600"></i></div>
-              <div>
-                <h3 class="font-semibold">Envíos y enlaces</h3>
-                <p class="text-sm text-gray-600">Enlace privado, QR y WhatsApp listos para compartir.</p>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 rounded-2xl bg-white shadow-md" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex items-center gap-4">
-              <div class="feature-icon"><i class="fa-solid fa-users-line text-pink-600"></i></div>
-              <div>
-                <h3 class="font-semibold">Control de invitados</h3>
-                <p class="text-sm text-gray-600">Lista y confirmaciones en tiempo real.</p>
-              </div>
-            </div>
-          </div>
+          <h4 class="font-bold text-brand-dark mb-1">Galería de Fotos</h4>
+          <p class="text-xs text-gray-500">Comparte tu sesión casual o historia de amor antes del evento.</p>
         </div>
-      </section>
 
-      <!-- Demos carousel (Swiper) -->
-      <section id="demos" class="max-w-7xl mx-auto px-6 py-12">
-        <h2 class="text-2xl font-[Cinzel] mb-6" data-aos="fade-up">Ejemplos destacados</h2>
-        <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide p-4">
-              <a href="invitaciones/boda/index.html" class="block rounded-xl overflow-hidden shadow">
-                <img src="invitaciones/boda/img/principal.jpg" alt="Boda" class="w-full aspect-[9/16] object-cover">
-                <div class="p-4 bg-white"><strong>Boda</strong></div>
-              </a>
-            </div>
-            <div class="swiper-slide p-4">
-              <a href="invitaciones/xv/muestra.html" class="block rounded-xl overflow-hidden shadow">
-                <img src="invitaciones/xv/img/xv10.jpg" alt="XV" class="w-full aspect-[9/16] object-cover">
-                <div class="p-4 bg-white"><strong>XV</strong></div>
-              </a>
-            </div>
-            <div class="swiper-slide p-4">
-              <a href="invitaciones/Imagen/garfield/ivana.html" class="block rounded-xl overflow-hidden shadow">
-                <img src="invitaciones/Imagen/garfield/img/ivana2.png" alt="Sencilla" class="w-full aspect-[9/16] object-cover">
-                <div class="p-4 bg-white"><strong>Sencilla</strong></div>
-              </a>
-            </div>
+        <!-- Feature 3 -->
+        <div
+          class="p-4 md:p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 text-lg md:text-xl">
+            <i class="fa-solid fa-gift"></i>
           </div>
-          <div class="swiper-pagination"></div>
+          <h4 class="font-bold text-sm md:text-base text-brand-dark mb-1">Mesa de Regalos</h4>
+          <p class="text-[10px] md:text-xs text-gray-500">Sugerencias, sobres de dinero o tiendas.</p>
         </div>
-      </section>
 
-      <!-- Cotizar / CTA -->
-      <section id="cotizar" class="max-w-7xl mx-auto px-6 py-12 bg-pink-50 rounded-2xl mx-6" data-aos="zoom-in">
-        <div class="flex flex-col items-center justify-center gap-6">
-          <div class="w-full text-center">
-            <h3 class="text-2xl font-semibold">¿Listo para empezar?</h3>
-            <p class="text-gray-600">Cotiza tu invitación y recibe asesoría para diseñar la tuya.</p>
+        <!-- Feature 4 -->
+        <div
+          class="p-4 md:p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="400">
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 text-lg md:text-xl">
+            <i class="fa-solid fa-shirt"></i>
           </div>
-
-          <div class="w-full flex flex-col items-center gap-4">
-            <!-- Imagen horizontal de paquetes (imagen grande, mostramos en tamaño completo y centrada) -->
-            <img src="content/img/paquetes1.jpeg" alt="Paquetes y precios" class="w-full max-w-4xl rounded-lg shadow-md object-contain">
-            <div class="flex gap-4 justify-center">
-              <a href="https://wa.me/5216565721986" target="_blank" class="btn-primary">Cotizar por WhatsApp</a>
-              <a href="#demos" class="btn-outline">Ver modelos</a>
-            </div>
-          </div>
+          <h4 class="font-bold text-sm md:text-base text-brand-dark mb-1">Dress Code</h4>
+          <p class="text-[10px] md:text-xs text-gray-500">Código de vestimenta con iconos claros.</p>
         </div>
-      </section>
 
-      <!-- Contacto -->
-      <section id="contacto" class="max-w-7xl mx-auto px-6 py-14">
-        <h2 class="text-2xl font-[Cinzel] mb-6" data-aos="fade-up">Contacto</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl bg-white shadow" data-aos="fade-up" data-aos-delay="100">
-            <i class="fa-regular fa-envelope text-pink-600 text-2xl"></i>
-            <h4 class="mt-3 font-semibold">Correo</h4>
-            <p class="text-sm text-gray-600"><a href="mailto:gerardo.egb@gmail.com" class="text-pink-600">gerardo.egb@gmail.com</a></p>
+        <!-- Feature 5 -->
+        <div
+          class="p-4 md:p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="500">
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 text-lg md:text-xl">
+            <i class="fa-brands fa-whatsapp"></i>
           </div>
-          <div class="p-6 rounded-2xl bg-white shadow" data-aos="fade-up" data-aos-delay="200">
-            <i class="fa-brands fa-whatsapp text-green-500 text-2xl"></i>
-            <h4 class="mt-3 font-semibold">WhatsApp</h4>
-            <p class="text-sm text-gray-600"><a href="https://wa.me/5216565721986" class="text-pink-600">Inicia chat</a></p>
-          </div>
-          <div class="p-6 rounded-2xl bg-white shadow" data-aos="fade-up" data-aos-delay="300">
-            <i class="fa-solid fa-headset text-pink-600 text-2xl"></i>
-            <h4 class="mt-3 font-semibold">Asesoría</h4>
-            <p class="text-sm text-gray-600">Agenda atención personalizada para tus dudas.</p>
-          </div>
+          <h4 class="font-bold text-sm md:text-base text-brand-dark mb-1">Confirmación</h4>
+          <p class="text-[10px] md:text-xs text-gray-500">Confirmación directa a tu WhatsApp.</p>
         </div>
-      </section>
-    </main>
 
-    <!-- Floating WhatsApp (always on top) -->
-    <a href="https://wa.me/5216565721986" target="_blank" aria-label="Chat WhatsApp" class="fixed bottom-6 right-6 z-50 bg-green-500 p-4 rounded-full shadow-lg">
-      <i class="fa-brands fa-whatsapp text-white text-xl"></i>
-    </a>
+        <!-- Feature 6 -->
+        <div
+          class="p-4 md:p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="600">
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 text-lg md:text-xl">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <h4 class="font-bold text-sm md:text-base text-brand-dark mb-1">Música de Fondo</h4>
+          <p class="text-[10px] md:text-xs text-gray-500">Tu canción favorita sonando al abrir.</p>
+        </div>
 
-    <!-- Footer -->
-    <footer class="mt-12 bg-gray-900 text-white py-6">
-      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="text-sm">© 2026 Invitaciones B&E. Todos los derechos reservados.</div>
-        <div class="flex gap-4">
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <!-- Feature 7 -->
+        <div
+          class="p-4 md:p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="700">
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 text-lg md:text-xl">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+          <h4 class="font-bold text-sm md:text-base text-brand-dark mb-1">Itinerario</h4>
+          <p class="text-[10px] md:text-xs text-gray-500">Línea de tiempo del evento.</p>
+        </div>
+
+        <!-- Feature 8 -->
+        <div
+          class="p-4 md:p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all border border-transparent hover:border-gray-100 text-center"
+          data-aos="fade-up" data-aos-delay="800">
+          <div
+            class="w-10 h-10 md:w-12 md:h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 text-lg md:text-xl">
+            <i class="fa-solid fa-hourglass-half"></i>
+          </div>
+          <h4 class="font-bold text-sm md:text-base text-brand-dark mb-1">Cuenta Regresiva</h4>
+          <p class="text-[10px] md:text-xs text-gray-500">Para generar emoción antes del día.</p>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-      // Init AOS
-      AOS.init({duration:700, once:true});
+    <!-- Demos carousel (Swiper) -->
+    <section id="demos" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 bg-brand-light/30">
+      <div class="text-center mb-10 md:mb-12" data-aos="fade-up">
+        <h2 class="text-2xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Ejemplos Destacados</h2>
+        <p class="text-gray-500 max-w-xl mx-auto text-sm md:text-base">Explora nuestra colección de invitaciones
+          interactivas.</p>
+      </div>
 
-      // Mobile menu
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      menuBtn && menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      <div class="swiper mySwiper pb-12" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide p-4">
+            <a href="invitaciones/boda/index.html"
+              class="block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+              <img src="invitaciones/boda/img/principal.jpg" alt="Boda" class="w-full aspect-[9/16] object-cover">
+              <div class="p-5 bg-white border-t border-gray-100">
+                <strong class="text-brand-dark font-serif text-lg">Boda Romántica</strong>
+                <p class="text-xs text-gray-500 mt-1">Ver demo en vivo <i class="fa-solid fa-arrow-right ml-1"></i></p>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide p-4">
+            <a href="invitaciones/xv/muestra.html"
+              class="block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+              <img src="invitaciones/xv/img/xv10.jpg" alt="XV" class="w-full aspect-[9/16] object-cover">
+              <div class="p-5 bg-white border-t border-gray-100">
+                <strong class="text-brand-dark font-serif text-lg">XV Años Modernos</strong>
+                <p class="text-xs text-gray-500 mt-1">Ver demo en vivo <i class="fa-solid fa-arrow-right ml-1"></i></p>
+              </div>
+            </a>
+          </div>
+          <div class="swiper-slide p-4">
+            <a href="invitaciones/Imagen/garfield/ivana.html"
+              class="block rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+              <img src="invitaciones/Imagen/garfield/img/ivana2.png" alt="Sencilla"
+                class="w-full aspect-[9/16] object-cover">
+              <div class="p-5 bg-white border-t border-gray-100">
+                <strong class="text-brand-dark font-serif text-lg">Infantil / Temática</strong>
+                <p class="text-xs text-gray-500 mt-1">Ver demo en vivo <i class="fa-solid fa-arrow-right ml-1"></i></p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
 
-      // Header style on scroll
-      const header = document.getElementById('site-header');
-      window.addEventListener('scroll', () => {
-        if(window.scrollY > 20) header.classList.add('backdrop-blur-md','bg-white/70'); else header.classList.remove('backdrop-blur-md','bg-white/70');
-      });
+    <!-- Cotizar / CTA -->
+    <section id="cotizar" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20" data-aos="zoom-in">
+      <div
+        class="bg-gradient-to-br from-brand-light to-white rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-12 shadow-inner border border-white/60">
+        <div class="flex flex-col items-center justify-center gap-6 md:gap-8">
+          <div class="w-full text-center max-w-2xl">
+            <h3 class="text-2xl md:text-3xl font-serif font-bold text-brand-dark mb-4">¿Listo para empezar?</h3>
+            <p class="text-gray-600 text-base md:text-lg">Cotiza tu invitación hoy mismo y recibe asesoría personalizada
+              para diseñar
+              el evento de tus sueños.</p>
+          </div>
 
-      // Swiper
-      const swiper = new Swiper('.mySwiper', {
-        slidesPerView: 1,
-        spaceBetween: 16,
-        pagination: { el: '.swiper-pagination', clickable: true },
-        breakpoints: { 640:{slidesPerView:2}, 1024:{slidesPerView:3} }
-      });
-    </script>
-  </body>
+          <div class="w-full flex flex-col items-center gap-8">
+            <img src="content/img/paquetes1.jpeg" alt="Paquetes y precios"
+              class="w-full max-w-4xl rounded-2xl shadow-xl hover:shadow-2xl transition-all object-contain bg-white">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center w-full">
+              <a href="https://wa.me/5216565721986" target="_blank" class="btn-primary text-center group">
+                <i class="fa-brands fa-whatsapp text-lg mr-2 group-hover:animate-bounce"></i> Cotizar por WhatsApp
+              </a>
+              <a href="#demos" class="btn-outline text-center">Ver más modelos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
+      <h2 class="text-2xl md:text-3xl font-serif font-bold text-brand-dark mb-8 md:mb-10 text-center"
+        data-aos="fade-up">Contáctanos</h2>
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div
+          class="p-8 rounded-[2rem] bg-white shadow-lg border border-gray-50 text-center group hover:-translate-y-2 transition-transform duration-300"
+          data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+          <h4 class="font-serif font-bold text-gray-800 mb-2">Correo</h4>
+          <p class="text-sm text-gray-500"><a href="mailto:gerardo.egb@gmail.com"
+              class="hover:text-brand-pink transition-colors">gerardo.egb@gmail.com</a></p>
+        </div>
+        <div
+          class="p-8 rounded-[2rem] bg-white shadow-lg border border-gray-50 text-center group hover:-translate-y-2 transition-transform duration-300"
+          data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500 text-3xl group-hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h4 class="font-serif font-bold text-gray-800 mb-2">WhatsApp</h4>
+          <p class="text-sm text-gray-500"><a href="https://wa.me/5216565721986"
+              class="hover:text-green-600 transition-colors font-semibold">Iniciar chat ahora</a></p>
+        </div>
+        <div
+          class="p-8 rounded-[2rem] bg-white shadow-lg border border-gray-50 text-center group hover:-translate-y-2 transition-transform duration-300"
+          data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="w-16 h-16 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-2xl group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h4 class="font-serif font-bold text-gray-800 mb-2">Asesoría</h4>
+          <p class="text-sm text-gray-500">Agenda atención personalizada para resolver tus dudas.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating WhatsApp (always on top) -->
+  <a href="https://wa.me/5216565721986" target="_blank" aria-label="Chat WhatsApp"
+    class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 animate-bounce cursor-pointer flex items-center justify-center w-16 h-16">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="mt-12 bg-gray-900 text-white py-6">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm">© 2026 Invitaciones B&E. Todos los derechos reservados.</div>
+      <div class="flex gap-4">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    // Init AOS
+    AOS.init({ duration: 700, once: true });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn && menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Header style on scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) header.classList.add('backdrop-blur-md', 'bg-white/70'); else header.classList.remove('backdrop-blur-md', 'bg-white/70');
+    });
+
+    // Swiper
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 16,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+  </script>
+</body>
+
 </html>
