@@ -100,18 +100,22 @@
             <p class="font-serif text-2xl md:text-4xl tracking-widest mb-8">24 . OCT . 2026</p>
 
             <!-- Countdown -->
-            <div id="countdown" class="flex justify-center gap-4 md:gap-8 text-center text-white/90">
-                <div class="glass bg-white/10 p-3 rounded-lg w-20 md:w-24 border-white/20">
-                    <span id="days" class="block text-2xl md:text-4xl font-bold font-serif">00</span>
+            <div id="countdown" class="flex justify-center gap-2 md:gap-6 text-center text-white/90">
+                <div class="glass bg-white/10 p-3 rounded-lg w-16 md:w-20 border-white/20">
+                    <span id="days" class="block text-xl md:text-3xl font-bold font-serif">00</span>
                     <span class="text-xs uppercase tracking-wider">Días</span>
                 </div>
-                <div class="glass bg-white/10 p-3 rounded-lg w-20 md:w-24 border-white/20">
-                    <span id="hours" class="block text-2xl md:text-4xl font-bold font-serif">00</span>
+                <div class="glass bg-white/10 p-3 rounded-lg w-16 md:w-20 border-white/20">
+                    <span id="hours" class="block text-xl md:text-3xl font-bold font-serif">00</span>
                     <span class="text-xs uppercase tracking-wider">Hrs</span>
                 </div>
-                <div class="glass bg-white/10 p-3 rounded-lg w-20 md:w-24 border-white/20">
-                    <span id="minutes" class="block text-2xl md:text-4xl font-bold font-serif">00</span>
+                <div class="glass bg-white/10 p-3 rounded-lg w-16 md:w-20 border-white/20">
+                    <span id="minutes" class="block text-xl md:text-3xl font-bold font-serif">00</span>
                     <span class="text-xs uppercase tracking-wider">Min</span>
+                </div>
+                <div class="glass bg-white/10 p-3 rounded-lg w-16 md:w-20 border-white/20">
+                    <span id="seconds" class="block text-xl md:text-3xl font-bold font-serif">00</span>
+                    <span class="text-xs uppercase tracking-wider">Seg</span>
                 </div>
             </div>
         </div>
@@ -404,22 +408,26 @@
             <p class="text-xl mb-8 opacity-90 relative z-10">Es muy importante para nosotros contar con tu presencia.
             </p>
 
-            <a href="https://wa.me/?text=Hola%20Ana%20y%20Carlos,%20confirmo%20mi%20asistencia%20a%20su%20boda.%20Somos%20[NUMERO]%20personas."
-                target="_blank"
+            <button onclick="document.getElementById('rsvpModal').showModal()"
                 class="inline-flex items-center gap-3 bg-white text-brand-pink px-8 py-4 rounded-full font-bold text-xl hover:bg-gray-100 transition-colors shadow-lg transform hover:scale-105 active:scale-95 duration-200 relative z-10">
-                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                <i class="fa-solid fa-check-circle text-2xl"></i>
                 Confirmar Asistencia
-            </a>
+            </button>
             <p class="mt-6 text-sm opacity-80 relative z-10">Fecha límite: 01 de Octubre</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center py-10 opacity-60">
-        <p class="font-serif text-sm">Invitación creada con amor por Invitaciones B&E</p>
+    <!-- Footer with Watermark -->
+    <footer class="text-center py-10 text-gray-400 relative">
+        <div class="fixed bottom-0 left-0 right-0 pointer-events-none z-0 opacity-5" style="transform: rotate(-45deg) translateY(50%); font-size: 120px; font-weight: bold; white-space: nowrap;">
+            MUESTRA - INVITACIÓN EN DEMO
+        </div>
+        <p class="font-serif text-sm relative z-10">Invitación creada con amor por Invitaciones B&E</p>
+        <p class="font-serif text-xs mt-2 text-yellow-600 relative z-10">⚠️ Esto es una invitación de muestra. Se requiere aprobación antes de compartir.</p>
     </footer>
 
     <!-- Modals -->
+    <!-- Gift Modal -->
     <dialog id="giftModal" class="modal p-0 rounded-2xl shadow-2xl backdrop:bg-black/50">
         <div class="p-8 max-w-sm bg-white text-center">
             <h3 class="font-serif text-2xl font-bold mb-4 text-brand-dark">Mesa de Regalos</h3>
@@ -436,6 +444,75 @@
             </div>
             <button onclick="document.getElementById('giftModal').close()"
                 class="mt-6 text-sm text-gray-400 hover:text-gray-600 underline">Cerrar</button>
+        </div>
+    </dialog>
+
+    <!-- RSVP Form Modal -->
+    <dialog id="rsvpModal" class="modal p-0 rounded-2xl shadow-2xl backdrop:bg-black/50 max-w-sm">
+        <div class="p-8 max-w-sm bg-white">
+            <h3 class="font-serif text-2xl font-bold mb-2 text-brand-dark text-center">Confirmar Asistencia</h3>
+            <p class="text-gray-600 text-center text-sm mb-6">Completa el formulario para confirmar tu asistencia</p>
+            
+            <form id="rsvpForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-brand-dark mb-2">Nombre Completo *</label>
+                    <input type="text" name="nombre" required placeholder="Tu nombre" 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-pink">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-bold text-brand-dark mb-2">Email *</label>
+                    <input type="email" name="email" required placeholder="tu@email.com"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-pink">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-bold text-brand-dark mb-2">Teléfono</label>
+                    <input type="tel" name="telefono" placeholder="Tu teléfono"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-pink">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-bold text-brand-dark mb-2">¿Cuántas personas asisten? *</label>
+                    <select name="personas" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-pink">
+                        <option value="">Selecciona</option>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 o más</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-brand-dark mb-2">¿Asistirás? *</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="asistencia" value="Sí confirmo" required class="mr-2">
+                            <span class="text-sm">Sí, confirmo mi asistencia</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="asistencia" value="No puedo asistir" class="mr-2">
+                            <span class="text-sm">No puedo asistir</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-brand-dark mb-2">Mensaje (Opcional)</label>
+                    <textarea name="mensaje" placeholder="Tu mensaje para los novios..." 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-pink h-20 resize-none"></textarea>
+                </div>
+                
+                <button type="submit"
+                    class="w-full bg-brand-pink text-white py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">
+                    Enviar Confirmación
+                </button>
+            </form>
+
+            <button onclick="document.getElementById('rsvpModal').close()"
+                class="mt-4 w-full text-sm text-gray-400 hover:text-gray-600 underline">Cerrar</button>
         </div>
     </dialog>
 
@@ -474,10 +551,12 @@
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('days').innerText = days;
-            document.getElementById('hours').innerText = hours;
-            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
         }, 1000);
 
         // Auido Toggle
@@ -496,6 +575,34 @@
             }
             isPlaying = !isPlaying;
         }
+
+        // RSVP Form Handler
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {
+                nombre: formData.get('nombre'),
+                email: formData.get('email'),
+                telefono: formData.get('telefono'),
+                personas: formData.get('personas'),
+                asistencia: formData.get('asistencia'),
+                mensaje: formData.get('mensaje'),
+                fecha: new Date().toLocaleString('es-MX')
+            };
+
+            // Log data for now (will be connected to Google Sheets later)
+            console.log('Datos del formulario:', data);
+
+            // Here you'll add the Google Sheets API integration later
+            // For now, just show a success message
+            alert('¡Gracias ' + data.nombre + '! Tu confirmación ha sido registrada. Te enviaremos detalles al correo.');
+            
+            // Close modal and reset form
+            document.getElementById('rsvpModal').close();
+            this.reset();
+        });
     </script>
 </body>
 
