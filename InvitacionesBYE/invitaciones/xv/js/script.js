@@ -2,7 +2,7 @@ window.onload = () => {
     const modal = document.getElementById('modalBienvenida');
     const content = document.getElementById('content');
     const btnIngresar = document.getElementById('btnIngresar');
-    const audio = document.getElementById('musica'); // Selecciona el elemento de audio
+    const audio = document.getElementById('musica');
 
     // Bloquear el contenido mientras el modal está activo
     content.classList.add('disabled');
@@ -11,54 +11,47 @@ window.onload = () => {
     btnIngresar.addEventListener('click', () => {
         modal.style.display = 'none';
         content.classList.remove('disabled');
-        document.body.style.overflow = 'auto'; // Reactivar el scroll
-
-        // Reproducir la música
+        document.body.style.overflow = 'auto';
         audio.play();
+        initNavDots();
     });
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('musica'); // Selecciona el elemento de audio
-    const musicaOff = document.getElementById('sonidomusicaOff'); // Botón de música "Off"
-    const musicaOn = document.getElementById('sonidoMusicaOn'); // Botón de música "On"
+    const audio = document.getElementById('musica');
+    const musicaOff = document.getElementById('sonidomusicaOff');
+    const musicaOn = document.getElementById('sonidoMusicaOn');
 
-    // Función para inicializar el estado de los botones
     const initializeMusicButton = () => {
         if (audio.paused) {
-            musicaOff.style.display = 'block'; // Mostrar botón Off
-            musicaOn.style.display = 'none'; // Ocultar botón On
+            musicaOff.style.display = 'block';
+            musicaOn.style.display = 'none';
         } else {
-            musicaOff.style.display = 'none'; // Ocultar botón Off
-            musicaOn.style.display = 'block'; // Mostrar botón On
+            musicaOff.style.display = 'none';
+            musicaOn.style.display = 'block';
         }
     };
 
-    // Función para alternar reproducción y pausa
     const toggleMusic = () => {
         if (audio.paused) {
             audio.play();
-            musicaOff.style.display = 'none'; // Oculta el botón Off
-            musicaOn.style.display = 'block'; // Muestra el botón On
+            musicaOff.style.display = 'none';
+            musicaOn.style.display = 'block';
         } else {
             audio.pause();
-            musicaOn.style.display = 'none'; // Oculta el botón On
-            musicaOff.style.display = 'block'; // Muestra el botón Off
+            musicaOn.style.display = 'none';
+            musicaOff.style.display = 'block';
         }
     };
 
-    // Agregar evento de clic a ambos botones
     musicaOff.addEventListener('click', toggleMusic);
     musicaOn.addEventListener('click', toggleMusic);
-
-    // Inicializar el estado de los botones al cargar la página
     initializeMusicButton();
 });
 
-// Fecha del evento
+// ===== COUNTDOWN =====
 const eventDate = new Date("2026-03-15T18:00:00").getTime();
 
-// Actualiza el contador cada segundo
 const countdownInterval = setInterval(() => {
     const now = new Date().getTime();
     const timeLeft = eventDate - now;
@@ -69,45 +62,55 @@ const countdownInterval = setInterval(() => {
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
+        const pad = (num) => String(num).padStart(2, '0');
+        document.getElementById("days").textContent = pad(days);
+        document.getElementById("hours").textContent = pad(hours);
+        document.getElementById("minutes").textContent = pad(minutes);
+        document.getElementById("seconds").textContent = pad(seconds);
     } else {
         clearInterval(countdownInterval);
         document.getElementById("countdown").innerHTML = "¡El evento ha comenzado!";
     }
 }, 1000);
 
+// ===== TIMELINE PROGRESS =====
 document.addEventListener("DOMContentLoaded", function () {
-    const timeline = document.querySelector(".progress"); // Selecciona la barra de progreso
-    const section4 = document.querySelectorAll(".section2")[1]; // Selecciona la 4ta sección (segundo .section2)
+    const timelines = document.querySelectorAll(".progress");
+    const timelineContainers = document.querySelectorAll(".timeline-container");
 
     function updateProgress() {
-        const rect = section4.getBoundingClientRect(); // Obtiene la posición de la sección
-        const windowHeight = window.innerHeight; // Altura de la ventana
-        const start = windowHeight / 5; // Punto medio de la pantalla
-        const end = rect.height + start; // Punto final de la sección
+        timelineContainers.forEach((container, index) => {
+            const timeline = timelines[index];
+            const rect = container.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            const start = windowHeight / 3;
+            const end = rect.height + start;
 
-        if (rect.top <= start && rect.bottom >= start) {
-            let progress = ((start - rect.top) / (end - start)) * 100;
-            progress = Math.max(0, Math.min(100, progress)); // Limita el valor entre 0 y 100
-            timeline.style.height = `${progress}%`;
-        }
+            if (rect.top <= start && rect.bottom >= start) {
+                let progress = ((start - rect.top) / (end - start)) * 100;
+                progress = Math.max(0, Math.min(100, progress));
+                timeline.style.height = `${progress}%`;
+            }
+        });
     }
 
-    window.addEventListener("scroll", updateProgress); // Detecta el scroll
-    updateProgress(); // Inicializa la barra si la sección ya está visible
+    window.addEventListener("scroll", updateProgress);
+    updateProgress();
 });
 
-
-
-// Script para animaciones de scroll en secciones
+// ===== SCROLL ANIMATIONS & PROGRESS BAR =====
 document.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('.section');
-    const timelineImages = document.querySelectorAll('.timeline-container .images img');
+    const sections = document.querySelectorAll('.section, .section2');
+    const timelineImages = document.querySelectorAll('.timeline-container .images div');
+    
+    // Actualizar barra de progreso
+    const scrollTop = document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    document.getElementById('progressBar').style.width = scrollPercent + '%';
 
-    // Aparecer las secciones cuando estén en el viewport
+    // Animaciones al scroll
     sections.forEach((section) => {
         let sectionTop = section.getBoundingClientRect().top;
         if (sectionTop < window.innerHeight * 0.8) {
@@ -115,7 +118,6 @@ document.addEventListener('scroll', function () {
         }
     });
 
-    // Aparecer imágenes del itinerario al hacer scroll
     timelineImages.forEach((image) => {
         let imageTop = image.getBoundingClientRect().top;
         if (imageTop < window.innerHeight * 0.8) {
@@ -124,6 +126,40 @@ document.addEventListener('scroll', function () {
     });
 });
 
+// ===== NAVIGATION DOTS =====
+function initNavDots() {
+    const sections = document.querySelectorAll('.section, .section2');
+    const navDotsContainer = document.getElementById('navDots');
+    
+    sections.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = 'nav-dot';
+        if (index === 0) dot.classList.add('active');
+        
+        dot.addEventListener('click', () => {
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        navDotsContainer.appendChild(dot);
+    });
+
+    // Actualizar dots activos al hacer scroll
+    window.addEventListener('scroll', () => {
+        let currentSectionIndex = 0;
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2) {
+                currentSectionIndex = index;
+            }
+        });
+
+        document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSectionIndex);
+        });
+    });
+}
+
+// ===== FORM HANDLER =====
 document.getElementById("formulario").addEventListener("submit", function(e) {
     e.preventDefault();
     
@@ -133,44 +169,61 @@ document.getElementById("formulario").addEventListener("submit", function(e) {
         mensaje: document.getElementById("mensaje").value
     };
 
-    fetch("TU_URL_DEL_SCRIPT", { // Pega aquí la URL del Apps Script
+    fetch("TU_URL_DEL_SCRIPT", {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datos)
     }).then(() => {
-        document.getElementById("respuesta").innerText = "¡Enviado con éxito!";
+        const respuesta = document.getElementById("respuesta");
+        respuesta.innerText = "¡Gracias " + datos.nombre + "! Tu confirmación ha sido registrada.";
+        respuesta.style.color = "#b246f2";
+        respuesta.style.background = "rgba(178, 70, 242, 0.1)";
     }).catch(() => {
-        document.getElementById("respuesta").innerText = "Error al enviar.";
+        const respuesta = document.getElementById("respuesta");
+        respuesta.innerText = "Error al enviar. Por favor intenta de nuevo.";
+        respuesta.style.color = "#ff6b6b";
+        respuesta.style.background = "rgba(255, 107, 107, 0.1)";
     });
 
-    // Limpiar el formulario
     document.getElementById("formulario").reset();
 });
+
+// ===== CAROUSEL =====
 let currentIndex = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const totalSlides = slides.length;
-const container = document.querySelector('.carousel-container');
 
 function moveSlide(step) {
+    // Remover clase active del slide actual
+    slides[currentIndex].classList.remove('active');
+    
+    // Calcular nuevo índice
     currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-    updateCarousel();
+    
+    // Agregar clase active al nuevo slide
+    slides[currentIndex].classList.add('active');
 }
 
-function updateCarousel() {
-    const newTransform = -currentIndex * 100 + "%";
-    container.style.transform = `translateX(${newTransform})`;
+// Auto-slide cada 4 segundos
+let interval = setInterval(() => moveSlide(1), 4000);
+
+// Pausar cuando el usuario interactúa
+if (document.querySelector(".carousel")) {
+    document.querySelector(".carousel").addEventListener("mouseenter", () => {
+        clearInterval(interval);
+    });
+
+    document.querySelector(".carousel").addEventListener("mouseleave", () => {
+        interval = setInterval(() => moveSlide(1), 4000);
+    });
+
+    // Tambien para touch en mobile
+    document.querySelector(".carousel").addEventListener("touchstart", () => {
+        clearInterval(interval);
+    });
+
+    document.querySelector(".carousel").addEventListener("touchend", () => {
+        interval = setInterval(() => moveSlide(1), 4000);
+    });
 }
-
-// Auto-slide cada 3 segundos
-let interval = setInterval(() => moveSlide(1), 3000);
-
-// Pausar el autoplay cuando el usuario pase el mouse sobre el carrusel
-document.querySelector(".carousel").addEventListener("mouseenter", () => {
-    clearInterval(interval);
-});
-
-// Reanudar el autoplay cuando el usuario sale del carrusel
-document.querySelector(".carousel").addEventListener("mouseleave", () => {
-    interval = setInterval(() => moveSlide(1), 3000);
-});

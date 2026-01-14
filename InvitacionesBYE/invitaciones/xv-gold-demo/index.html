@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XV Años de Sofía | Invitación Premium</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Invitación digital elegante para los XV Años de Sofía. Celebra con nosotros esta noche mágica.">
+    <meta name="keywords" content="xv años, quinceañera, invitación digital, fiesta de 15">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#fdfbf7',
+                            100: '#f9f5eb',
+                            200: '#f0e6cc',
+                            300: '#e6d7ad',
+                            400: '#d4b86f',
+                            500: '#C5A059',
+                            600: '#a88644',
+                            700: '#8b6d38',
+                            800: '#6e542c',
+                            900: '#513e21'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        script: ['Great Vibes', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --gold: #C5A059;
+            --gold-light: #d4b86f;
+            --gold-dark: #a88644;
+            --black: #0a0a0a;
+            --black-soft: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Gold Gradient Text */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #C5A059 0%, #f0e6cc 50%, #C5A059 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glass Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Gold Border Animation */
+        .gold-border {
+            position: relative;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+        }
+
+        .gold-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, transparent, var(--gold-light), transparent);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: -1;
+        }
+
+        .gold-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Sparkle Animation */
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .sparkle {
+            animation: sparkle 2s infinite;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Hero Background */
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('img/principal.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-light);
+        }
+
+        /* Button Glow */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--black);
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(197, 160, 89, 0.6);
+        }
+
+        .btn-outline-gold {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-2px);
+        }
+
+        /* Modal Styles */
+        dialog {
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Timeline */
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Music Player -->
+    <button onclick="toggleAudio()" id="musicBtn"
+        class="fixed top-6 right-6 z-50 w-14 h-14 glass rounded-full flex items-center justify-center text-gold-400 hover:text-gold-300 transition-all hover:scale-110 group">
+        <i id="audioIcon" class="fa-solid fa-music text-xl"></i>
+    </button>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Hero Section -->
+    <header class="h-screen relative flex items-center justify-center text-center px-6 hero-bg">
+        <!-- Decorative Elements -->
+        <div class="absolute top-10 left-10 w-32 h-32 border-t-2 border-l-2 border-gold-500 opacity-30"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 border-b-2 border-r-2 border-gold-500 opacity-30"></div>
+
+        <div class="relative z-10 max-w-4xl" data-aos="zoom-in" data-aos-duration="1500">
+            <!-- Crown Icon -->
+            <div class="mb-6 float">
+                <i class="fa-solid fa-crown text-6xl text-gold-400"></i>
+            </div>
+
+            <p class="font-sans tracking-[0.5em] uppercase text-sm md:text-base mb-4 text-gold-300">Mis XV Años</p>
+            <h1 class="font-script text-7xl md:text-9xl mb-4 text-gold-gradient drop-shadow-2xl">Sofía</h1>
+            <div class="h-px w-32 bg-gold-400 mx-auto my-6"></div>
+            <p class="font-serif text-3xl md:text-5xl tracking-widest mb-4 text-white">15 . MARZO . 2026</p>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12">
+                Te invito a celebrar conmigo esta noche mágica donde los sueños se hacen realidad
+            </p>
+
+            <!-- Countdown -->
+            <div id="countdown" class="flex justify-center gap-4 md:gap-8 text-center">
+                <div class="glass gold-border p-4 rounded-2xl w-20 md:w-24">
+                    <span id="days" class="block text-3xl md:text-4xl font-bold font-serif text-gold-400">00</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-400">Días</span>
+                </div>
+                <div class="glass gold-border p-4 rounded-2xl w-20 md:w-24">
+                    <span id="hours" class="block text-3xl md:text-4xl font-bold font-serif text-gold-400">00</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-400">Hrs</span>
+                </div>
+                <div class="glass gold-border p-4 rounded-2xl w-20 md:w-24">
+                    <span id="minutes" class="block text-3xl md:text-4xl font-bold font-serif text-gold-400">00</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-400">Min</span>
+                </div>
+                <div class="glass gold-border p-4 rounded-2xl w-20 md:w-24">
+                    <span id="seconds" class="block text-3xl md:text-4xl font-bold font-serif text-gold-400">00</span>
+                    <span class="text-xs uppercase tracking-wider text-gray-400">Seg</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 animate-bounce text-gold-400">
+            <i class="fa-solid fa-chevron-down text-3xl"></i>
+        </div>
+    </header>
+
+    <!-- Quote Section -->
+    <section class="max-w-4xl mx-auto px-6 py-20 text-center" data-aos="fade-up">
+        <i class="fa-solid fa-quote-left text-4xl text-gold-400/30 mb-6"></i>
+        <p class="font-serif text-2xl md:text-4xl text-white leading-relaxed italic mb-4">
+            "Una princesa no espera a que llegue su príncipe, ella crea su propio reino"
+        </p>
+        <div class="h-px w-24 bg-gold-400 mx-auto mt-8"></div>
+    </section>
+
+    <!-- Parents Section -->
+    <section class="max-w-5xl mx-auto px-6 py-12 text-center" data-aos="fade-up">
+        <p class="text-gray-400 mb-8 font-serif uppercase tracking-widest text-sm">Con la bendición de mis padres</p>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="glass gold-border p-8 rounded-3xl">
+                <i class="fa-solid fa-heart text-3xl text-gold-400 mb-4"></i>
+                <h3 class="font-serif text-2xl text-gold-400 mb-2">Mamá</h3>
+                <p class="text-xl text-white font-script text-3xl">María Elena Rodríguez</p>
+            </div>
+            <div class="glass gold-border p-8 rounded-3xl">
+                <i class="fa-solid fa-heart text-3xl text-gold-400 mb-4"></i>
+                <h3 class="font-serif text-2xl text-gold-400 mb-2">Papá</h3>
+                <p class="text-xl text-white font-script text-3xl">Roberto García</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Padrinos Section -->
+    <section class="max-w-5xl mx-auto px-6 py-12 text-center" data-aos="fade-up">
+        <h2 class="font-serif text-3xl md:text-4xl mb-8 text-gold-gradient">Mis Padrinos</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                <i class="fa-solid fa-ring text-2xl text-gold-400 mb-3"></i>
+                <h4 class="font-bold text-lg text-gold-300 mb-1">Anillo</h4>
+                <p class="text-gray-300">Ana y Luis Martínez</p>
+            </div>
+            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                <i class="fa-solid fa-crown text-2xl text-gold-400 mb-3"></i>
+                <h4 class="font-bold text-lg text-gold-300 mb-1">Corona</h4>
+                <p class="text-gray-300">Carmen López</p>
+            </div>
+            <div class="glass p-6 rounded-2xl hover:scale-105 transition-transform">
+                <i class="fa-solid fa-shoe-prints text-2xl text-gold-400 mb-3"></i>
+                <h4 class="font-bold text-lg text-gold-300 mb-1">Vals</h4>
+                <p class="text-gray-300">Jorge Hernández</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations -->
+    <section class="max-w-6xl mx-auto px-4 md:px-6 py-16">
+        <h2 class="text-center font-serif text-3xl md:text-4xl mb-12 text-gold-gradient" data-aos="fade-up">
+            Celebración
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Church -->
+            <div class="glass gold-border rounded-3xl p-8 md:p-10 text-center transform hover:scale-105 transition-all duration-300"
+                data-aos="fade-right">
+                <div
+                    class="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-400 text-5xl">
+                    <i class="fa-solid fa-church"></i>
+                </div>
+                <h3 class="font-serif text-3xl text-gold-400 mb-4">Ceremonia Religiosa</h3>
+                <p class="font-bold text-2xl text-white mb-2">6:00 PM</p>
+                <p class="text-lg text-gray-300 mb-8">
+                    Parroquia San José<br>
+                    Av. Independencia 234
+                </p>
+
+                <div class="flex flex-col gap-3">
+                    <a href="https://www.google.com/maps" target="_blank"
+                        class="btn-gold flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver en Maps
+                    </a>
+                    <a href="https://waze.com/ul" target="_blank"
+                        class="btn-outline-gold flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-brands fa-waze"></i> Ir con Waze
+                    </a>
+                </div>
+            </div>
+
+            <!-- Reception -->
+            <div class="glass gold-border rounded-3xl p-8 md:p-10 text-center transform hover:scale-105 transition-all duration-300"
+                data-aos="fade-left">
+                <div
+                    class="w-24 h-24 bg-gold-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-400 text-5xl">
+                    <i class="fa-solid fa-champagne-glasses"></i>
+                </div>
+                <h3 class="font-serif text-3xl text-gold-400 mb-4">Recepción</h3>
+                <p class="font-bold text-2xl text-white mb-2">8:00 PM</p>
+                <p class="text-lg text-gray-300 mb-8">
+                    Salón Real Palace<br>
+                    Blvd. de las Estrellas 567
+                </p>
+
+                <div class="flex flex-col gap-3">
+                    <a href="https://www.google.com/maps" target="_blank"
+                        class="btn-gold flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-solid fa-map-location-dot"></i> Ver en Maps
+                    </a>
+                    <a href="https://waze.com/ul" target="_blank"
+                        class="btn-outline-gold flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-brands fa-waze"></i> Ir con Waze
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline/Itinerary -->
+    <section class="max-w-4xl mx-auto px-6 py-20" data-aos="fade-up">
+        <h2 class="text-center font-serif text-3xl md:text-4xl mb-16 text-gold-gradient">Itinerario</h2>
+        <div class="relative border-l-2 border-gold-500/30 ml-8 space-y-12">
+
+            <div class="relative pl-10">
+                <div class="absolute -left-[9px] top-0 timeline-dot"></div>
+                <div class="glass p-6 rounded-2xl">
+                    <span class="text-gold-400 font-bold text-xl">6:00 PM</span>
+                    <h4 class="font-serif text-2xl text-white mt-2">Ceremonia Religiosa</h4>
+                    <p class="text-gray-400 mt-2">Misa de acción de gracias</p>
+                </div>
+            </div>
+
+            <div class="relative pl-10">
+                <div class="absolute -left-[9px] top-0 timeline-dot"></div>
+                <div class="glass p-6 rounded-2xl">
+                    <span class="text-gold-400 font-bold text-xl">8:00 PM</span>
+                    <h4 class="font-serif text-2xl text-white mt-2">Recepción</h4>
+                    <p class="text-gray-400 mt-2">Bienvenida y cóctel</p>
+                </div>
+            </div>
+
+            <div class="relative pl-10">
+                <div class="absolute -left-[9px] top-0 timeline-dot"></div>
+                <div class="glass p-6 rounded-2xl">
+                    <span class="text-gold-400 font-bold text-xl">9:00 PM</span>
+                    <h4 class="font-serif text-2xl text-white mt-2">Vals y Baile Sorpresa</h4>
+                    <p class="text-gray-400 mt-2">Momento especial con mis seres queridos</p>
+                </div>
+            </div>
+
+            <div class="relative pl-10">
+                <div class="absolute -left-[9px] top-0 timeline-dot"></div>
+                <div class="glass p-6 rounded-2xl">
+                    <span class="text-gold-400 font-bold text-xl">10:00 PM</span>
+                    <h4 class="font-serif text-2xl text-white mt-2">Cena</h4>
+                    <p class="text-gray-400 mt-2">Menú gourmet</p>
+                </div>
+            </div>
+
+            <div class="relative pl-10">
+                <div class="absolute -left-[9px] top-0 timeline-dot"></div>
+                <div class="glass p-6 rounded-2xl">
+                    <span class="text-gold-400 font-bold text-xl">11:00 PM</span>
+                    <h4 class="font-serif text-2xl text-white mt-2">Fiesta</h4>
+                    <p class="text-gray-400 mt-2">¡A bailar toda la noche!</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gallery Swiper -->
+    <section class="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
+        <div class="text-center mb-12">
+            <h2 class="font-serif text-3xl md:text-4xl text-gold-gradient mb-4">Galería de Momentos</h2>
+            <p class="text-gray-400">Recuerdos especiales de mi vida</p>
+        </div>
+        <div
+            class="swiper mySwiper w-full md:w-4/5 mx-auto h-[500px] rounded-3xl shadow-2xl gold-border overflow-hidden">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/principal.png" class="w-full h-full object-cover" alt="Foto 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/venue.png" class="w-full h-full object-cover" alt="Foto 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/background.png" class="w-full h-full object-cover" alt="Foto 3">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next text-gold-400"></div>
+            <div class="swiper-button-prev text-gold-400"></div>
+        </div>
+    </section>
+
+    <!-- Details Grid -->
+    <section class="max-w-7xl mx-auto px-4 md:px-6 py-16">
+        <h2 class="text-center font-serif text-3xl md:text-4xl mb-12 text-gold-gradient" data-aos="fade-up">
+            Detalles Importantes
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- Dress Code -->
+            <div class="glass gold-border rounded-2xl p-6 text-center hover:scale-105 transition-transform"
+                data-aos="fade-up" data-aos-delay="0">
+                <i class="fa-solid fa-user-tie text-4xl text-gold-400 mb-4"></i>
+                <h4 class="font-serif text-xl font-bold mb-2 text-white">Dress Code</h4>
+                <p class="text-gray-300">Formal / Etiqueta</p>
+            </div>
+
+            <!-- Gifts -->
+            <div onclick="document.getElementById('giftModal').showModal()"
+                class="glass gold-border rounded-2xl p-6 text-center cursor-pointer hover:scale-105 transition-transform"
+                data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-solid fa-gift text-4xl text-gold-400 mb-4"></i>
+                <h4 class="font-serif text-xl font-bold mb-2 text-white">Mesa de Regalos</h4>
+                <p class="text-gray-300">Ver opciones</p>
+            </div>
+
+            <!-- No Kids -->
+            <div class="glass gold-border rounded-2xl p-6 text-center hover:scale-105 transition-transform"
+                data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-ban text-4xl text-gold-400 mb-4"></i>
+                <h4 class="font-serif text-xl font-bold mb-2 text-white">Solo Adultos</h4>
+                <p class="text-gray-300">Sin niños</p>
+            </div>
+
+            <!-- Hashtag -->
+            <div class="glass gold-border rounded-2xl p-6 text-center hover:scale-105 transition-transform"
+                data-aos="fade-up" data-aos-delay="300">
+                <i class="fa-solid fa-hashtag text-4xl text-gold-400 mb-4"></i>
+                <h4 class="font-serif text-xl font-bold mb-2 text-white">Hashtag</h4>
+                <p class="text-gray-300">#XVSofia2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP CTA -->
+    <section class="max-w-3xl mx-auto px-6 py-24 text-center" data-aos="zoom-in">
+        <div class="glass gold-border rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
+            <!-- Decorative corners -->
+            <div class="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold-400 opacity-50"></div>
+            <div class="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold-400 opacity-50"></div>
+
+            <i class="fa-solid fa-crown text-5xl text-gold-400 mb-6 float"></i>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-gold-gradient">¡Acompáñame!</h2>
+            <p class="text-xl mb-8 text-gray-300">
+                Tu presencia es el mejor regalo. Confirma tu asistencia para que podamos preparar todo con amor.
+            </p>
+
+            <button onclick="document.getElementById('rsvpModal').showModal()"
+                class="btn-gold inline-flex items-center gap-3 text-xl">
+                <i class="fa-solid fa-check-circle text-2xl"></i>
+                Confirmar Asistencia
+            </button>
+            <p class="mt-6 text-sm text-gray-400">Fecha límite: 01 de Marzo</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-12 text-gray-500 relative border-t border-gold-500/20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="mb-6">
+                <i class="fa-solid fa-crown text-3xl text-gold-400"></i>
+            </div>
+            <p class="font-serif text-lg mb-2">Invitación creada con amor por</p>
+            <p class="text-gold-400 font-bold text-xl mb-4">Invitaciones B&E</p>
+            <p class="text-sm text-yellow-600 bg-yellow-900/20 inline-block px-4 py-2 rounded-full">
+                ⚠️ Invitación de muestra - Requiere aprobación antes de compartir
+            </p>
+
+            <div class="mt-8 flex justify-center gap-6">
+                <a href="https://wa.me/5216565721986" class="text-gray-400 hover:text-gold-400 transition-colors">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gold-400 transition-colors">
+                    <i class="fa-brands fa-instagram text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Gift Modal -->
+    <dialog id="giftModal" class="modal p-0 rounded-3xl shadow-2xl backdrop:bg-black/80">
+        <div class="p-8 max-w-md glass gold-border text-center">
+            <i class="fa-solid fa-gift text-5xl text-gold-400 mb-4"></i>
+            <h3 class="font-serif text-3xl font-bold mb-4 text-gold-400">Mesa de Regalos</h3>
+            <p class="mb-6 text-gray-300">Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo:</p>
+            <div class="space-y-3">
+                <button
+                    class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors">
+                    Liverpool: 987654321
+                </button>
+                <button
+                    class="w-full bg-orange-500 text-white py-3 rounded-xl font-bold hover:bg-orange-600 transition-colors">
+                    Amazon Wishlist
+                </button>
+                <div class="border-t border-gold-500/30 pt-4 mt-4">
+                    <p class="text-sm font-bold text-gold-400 mb-2">Lluvia de Sobres</p>
+                    <p class="text-xs text-gray-400">También puedes traer tu regalo en sobre el día del evento</p>
+                </div>
+            </div>
+            <button onclick="document.getElementById('giftModal').close()"
+                class="mt-6 text-sm text-gray-400 hover:text-gold-400 underline">Cerrar</button>
+        </div>
+    </dialog>
+
+    <!-- RSVP Form Modal -->
+    <dialog id="rsvpModal" class="modal p-0 rounded-3xl shadow-2xl backdrop:bg-black/80 max-w-lg">
+        <div class="p-8 glass gold-border">
+            <div class="text-center mb-6">
+                <i class="fa-solid fa-crown text-4xl text-gold-400 mb-3"></i>
+                <h3 class="font-serif text-3xl font-bold text-gold-400">Confirmar Asistencia</h3>
+                <p class="text-gray-400 text-sm mt-2">Por favor completa el formulario</p>
+            </div>
+
+            <form id="rsvpForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gold-400 mb-2">Nombre Completo *</label>
+                    <input type="text" name="nombre" required placeholder="Tu nombre"
+                        class="w-full px-4 py-3 bg-black/50 border border-gold-500/30 rounded-xl focus:outline-none focus:border-gold-400 text-white">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gold-400 mb-2">Email *</label>
+                    <input type="email" name="email" required placeholder="tu@email.com"
+                        class="w-full px-4 py-3 bg-black/50 border border-gold-500/30 rounded-xl focus:outline-none focus:border-gold-400 text-white">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gold-400 mb-2">Teléfono</label>
+                    <input type="tel" name="telefono" placeholder="Tu teléfono"
+                        class="w-full px-4 py-3 bg-black/50 border border-gold-500/30 rounded-xl focus:outline-none focus:border-gold-400 text-white">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gold-400 mb-2">¿Cuántas personas asisten? *</label>
+                    <select name="personas" required
+                        class="w-full px-4 py-3 bg-black/50 border border-gold-500/30 rounded-xl focus:outline-none focus:border-gold-400 text-white">
+                        <option value="">Selecciona</option>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 o más</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gold-400 mb-2">¿Asistirás? *</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center text-white">
+                            <input type="radio" name="asistencia" value="Sí confirmo" required
+                                class="mr-3 accent-gold-500">
+                            <span>Sí, confirmo mi asistencia</span>
+                        </label>
+                        <label class="flex items-center text-white">
+                            <input type="radio" name="asistencia" value="No puedo asistir" class="mr-3 accent-gold-500">
+                            <span>No puedo asistir</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gold-400 mb-2">Mensaje (Opcional)</label>
+                    <textarea name="mensaje" placeholder="Tu mensaje para la quinceañera..."
+                        class="w-full px-4 py-3 bg-black/50 border border-gold-500/30 rounded-xl focus:outline-none focus:border-gold-400 h-24 resize-none text-white"></textarea>
+                </div>
+
+                <button type="submit" class="w-full btn-gold py-4 text-lg">
+                    <i class="fa-solid fa-paper-plane mr-2"></i>
+                    Enviar Confirmación
+                </button>
+            </form>
+
+            <button onclick="document.getElementById('rsvpModal').close()"
+                class="mt-4 w-full text-sm text-gray-400 hover:text-gold-400 underline">Cerrar</button>
+        </div>
+    </dialog>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Swiper Init
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        // Countdown Logic
+        const eventDate = new Date('2026-03-15T18:00:00').getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+
+        // Audio Toggle
+        const audio = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                document.getElementById('audioIcon').classList.remove('fa-spin');
+                document.getElementById('audioIcon').classList.replace('fa-music', 'fa-volume-xmark');
+                musicBtn.classList.remove('animate-pulse');
+            } else {
+                audio.play();
+                document.getElementById('audioIcon').classList.add('fa-spin');
+                document.getElementById('audioIcon').classList.replace('fa-volume-xmark', 'fa-music');
+                musicBtn.classList.add('animate-pulse');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // RSVP Form Handler
+        document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {
+                nombre: formData.get('nombre'),
+                email: formData.get('email'),
+                telefono: formData.get('telefono'),
+                personas: formData.get('personas'),
+                asistencia: formData.get('asistencia'),
+                mensaje: formData.get('mensaje'),
+                fecha: new Date().toLocaleString('es-MX')
+            };
+
+            // Create WhatsApp message
+            const whatsappMessage = `
+*CONFIRMACIÓN XV AÑOS - SOFÍA*
+━━━━━━━━━━━━━━━━━━━━
+👤 *Nombre:* ${data.nombre}
+📧 *Email:* ${data.email}
+📱 *Teléfono:* ${data.telefono || 'No proporcionado'}
+👥 *Personas:* ${data.personas}
+✅ *Asistencia:* ${data.asistencia}
+💌 *Mensaje:* ${data.mensaje || 'Sin mensaje'}
+📅 *Fecha confirmación:* ${data.fecha}
+            `.trim();
+
+            const whatsappUrl = `https://wa.me/5216565721986?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Show success message
+            alert('¡Gracias ' + data.nombre + '! Tu confirmación será enviada por WhatsApp.');
+
+            // Close modal and reset form
+            document.getElementById('rsvpModal').close();
+            this.reset();
+        });
+
+        // Add sparkle effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-bg');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+
+</html>
