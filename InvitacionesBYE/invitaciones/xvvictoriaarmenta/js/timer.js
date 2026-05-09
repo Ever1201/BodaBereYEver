@@ -4,7 +4,7 @@ const second = 1000,
   day = hour * 24,
   month = day * 30.44;
 
-let countDown = new Date("August 21, 2026 18:00:00").getTime();
+let countDown = new Date("August 21, 2026 16:00:00").getTime();
 
 function updateCounter() {
   let now = new Date().getTime(),
@@ -13,16 +13,18 @@ function updateCounter() {
   let months = Math.floor(distance / month),
     days = Math.floor((distance % month) / day),
     hours = Math.floor((distance % day) / hour),
-    minutes = Math.floor((distance % hour) / minute);
+    minutes = Math.floor((distance % hour) / minute),
+    seconds = Math.floor((distance % minute) / second);
 
   document.getElementById("months").innerText = months;
   document.getElementById("days").innerText = days;
   document.getElementById("hours").innerText = hours;
   document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
 }
 
 // Ejecutar inmediatamente para actualizar el contador al cargar la página
 updateCounter();
 
 // Luego, establecer el intervalo para que continúe actualizando
-let x = setInterval(updateCounter, minute);
+let x = setInterval(updateCounter, second);
