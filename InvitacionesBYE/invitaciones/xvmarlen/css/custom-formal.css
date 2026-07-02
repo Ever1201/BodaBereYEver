@@ -1,0 +1,402 @@
+/* Custom Formal Styles for Victoria Armenta XV */
+
+body {
+    background: #2b080b !important;
+    /* Deep dark wine red base */
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+@media (min-width: 992px) {
+    body::after {
+        background-image: none !important;
+        /* remove noisy backgrounds if any */
+        background-color: #2b080b !important;
+    }
+}
+
+@media (max-width: 991px) {
+    body::after {
+        /* Allow bg-mob.png to show on mobile devices */
+        background-image: url(../img/bg-mob.png) !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-color: transparent !important;
+    }
+}
+
+/* Typography */
+.title,
+.title-2,
+.nombres,
+h2,
+.festejado {
+    font-family: 'Playfair Display', serif !important;
+    color: #f7d794 !important;
+    /* Soft elegant gold */
+    letter-spacing: 1px;
+}
+
+.title-2 {
+    font-style: italic;
+    font-weight: 400;
+}
+
+p,
+li,
+a,
+span {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #fdfaf6;
+    /* Warm off-white for contrast on dark background */
+}
+
+.text-black {
+    color: #fdfaf6 !important;
+}
+
+.sombra-texto {
+    text-shadow: none !important;
+    /* Remove cheap-looking shadows */
+}
+
+/* Elegant Cards - Responsive & Symmetric */
+.cuadro-info {
+    padding: 40px 30px !important;
+    margin: 30px auto !important;
+    /* Centered symmetrically */
+    /* Subtle gold border */
+    max-width: 95%;
+    /* Prevents touching the edges */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease !important;
+}
+
+.cuadro-info:hover {
+    transform: translateY(-5px) !important;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .cuadro-info {
+        padding: 30px 20px !important;
+        margin: 20px auto !important;
+        border-radius: 15px !important;
+        max-width: 92%;
+    }
+
+    p,
+    li,
+    a,
+    span {
+        font-size: 16px !important;
+    }
+
+    .title-2 {
+        font-size: 32px !important;
+    }
+}
+
+/* Timers and Accents */
+ul.tiempo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tiempo li {
+    margin: 0 !important;
+    /* overriding old margin */
+    color: #f7d794 !important;
+    /* Gold text for MESES, DÍAS, etc. */
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px;
+}
+
+.tiempo li span {
+    background: rgba(43, 8, 11, 0.6) !important;
+    /* Glassmorphism background */
+    border: 1px solid rgba(247, 215, 148, 0.4) !important;
+    /* Gold border */
+    backdrop-filter: blur(5px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+    color: #f7d794 !important;
+    /* Gold numbers */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 24px !important;
+}
+
+@media (max-width: 768px) {
+    .tiempo li span {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 18px !important;
+    }
+}
+
+span.linea {
+    background-color: #ffffff !important;
+    height: 2px !important;
+    width: 60px !important;
+    margin: 20px auto !important;
+    opacity: 0.7;
+}
+
+.linea {
+    background-color: #ffffff !important; /* Make all divider lines (div and span) white */
+}
+
+#Info .d-flex.align-items-center p {
+    color: #f7d794 !important; /* Make date block text gold */
+}
+
+/* Buttons - Responsive */
+.btn-blue,
+.btn-form,
+.btn-abrir {
+    background: linear-gradient(135deg, #c21a30, #960f20) !important;
+    border: none !important;
+    border-radius: 30px !important;
+    box-shadow: 0 8px 20px rgba(194, 26, 48, 0.4) !important;
+    color: white !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 15px 35px !important;
+    transition: all 0.3s ease !important;
+    display: inline-block;
+    text-align: center;
+    max-width: 100%;
+}
+
+/* Move the open button down */
+.btn-abrir {
+    margin-top: 20vh !important;
+}
+
+@media (max-width: 768px) {
+
+    .btn-blue,
+    .btn-form,
+    .btn-abrir {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        letter-spacing: 1px;
+    }
+}
+
+.btn-blue:hover,
+.btn-form:hover,
+.btn-abrir:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 25px rgba(194, 26, 48, 0.6) !important;
+    background: linear-gradient(135deg, #960f20, #730713) !important;
+}
+
+/* WhatsApp Button specifics */
+a[href*="wa.me"] {
+    background: linear-gradient(135deg, #25D366, #128C7E) !important;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4) !important;
+    white-space: normal;
+    /* allow text wrapping if needed */
+}
+
+a[href*="wa.me"]:hover {
+    background: linear-gradient(135deg, #128C7E, #075E54) !important;
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6) !important;
+}
+
+
+/* Hero Section - Responsive Font Size & Overlay */
+.cuadro-foto {
+    position: relative;
+    background-position: center 15% !important;
+    /* Focuses on the face/upper section of vertical photo */
+    background-size: cover !important;
+    overflow: hidden;
+    /* Contains the glitter */
+}
+
+/* Base Overlay */
+.cuadro-foto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(74, 59, 61, 0.2), rgba(74, 59, 61, 0.5));
+    z-index: 1;
+}
+
+/* Asymmetric Glitter/Sparkle Effect */
+.cuadro-foto::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    right: -20%;
+    bottom: -20%;
+    /* Larger area for panning */
+    background-image:
+        /* Long vertical & horizontal sparkles (Stars) */
+        radial-gradient(ellipse 2px 15px at center, rgba(255, 255, 255, 0.9) 10%, transparent 70%),
+        radial-gradient(ellipse 15px 2px at center, rgba(255, 255, 255, 0.9) 10%, transparent 70%),
+        /* Long Rose Gold diagonal flares */
+        linear-gradient(45deg, transparent 48%, rgba(255, 215, 225, 0.4) 50%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.3) 50%, transparent 52%),
+        /* Random floating dust */
+        radial-gradient(circle, rgba(255, 215, 225, 0.8) 1px, transparent 2px);
+    background-size: 83px 113px, 83px 113px, 137px 167px, 191px 199px, 61px 71px;
+    /* Prime numbers break symmetry */
+    background-position: 0 0, 0 0, 20px 50px, 40px 10px, 15px 35px;
+    animation: glitterLong 8s ease-in-out infinite alternate;
+    z-index: 2;
+    pointer-events: none;
+    /* Allows clicking through */
+}
+
+@keyframes glitterLong {
+    0% {
+        opacity: 0.2;
+        transform: rotate(0deg) scale(1) translateY(0);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: rotate(2deg) scale(1.05) translateY(-15px) translateX(10px);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: rotate(-1deg) scale(1.1) translateY(-30px) translateX(-5px);
+    }
+}
+
+.cuadro-foto .texto-foto,
+.cuadro-foto .flecha {
+    z-index: 3;
+    position: relative;
+}
+
+.texto-foto h2.title {
+    color: #ffffff !important;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4) !important;
+    font-family: 'Alex Brush', cursive !important;
+    font-size: clamp(4rem, 12vw, 6.5rem) !important;
+    line-height: 1.1;
+    padding: 0 10px;
+}
+
+/* Gallery Symmetry & Uniformity */
+#Nosotros img {
+    border-radius: 15px !important;
+    aspect-ratio: 3 / 4 !important;
+    /* Fits vertical 1086x1448 format (3:4 aspect ratio) */
+    object-fit: cover !important;
+    /* Crops image cleanly without distorting */
+    border: 3px solid #c21a30 !important;
+    /* Red border */
+    box-shadow: 0 8px 20px rgba(194, 26, 48, 0.2) !important;
+    transition: transform 0.3s ease;
+    max-height: 550px !important;
+    /* Prevents vertical full-width images from being too tall on desktop */
+    width: 100% !important;
+}
+
+#Nosotros img:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    #Nosotros .col-6 {
+        padding: 8px !important;
+        /* Symmetrical padding on grid */
+    }
+
+    #Nosotros img {
+        border-width: 2px !important;
+        border-radius: 10px !important;
+    }
+}
+
+
+/* Miscellaneous Overrides */
+.modal-sobre {
+    background: #2b080b !important;
+}
+
+/* Smooth envelope fade out animation */
+.fade-out-up {
+    animation: fadeOutUp 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-40px) scale(1.05);
+        /* Smooth drift up and blur out */
+        filter: blur(5px);
+    }
+}
+
+.titulo-sobre,
+.titulo-sobre-02 {
+    font-family: 'Playfair Display', serif !important;
+    color: #f7d794 !important;
+}
+
+#Fotos .cuadro-info {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#Fotos .row {
+    background: transparent !important;
+}
+
+#Fotos p,
+#Fotos h2 {
+    color: #fdfaf6 !important;
+}
+
+/* Custom Uniform Form Styling for Dark Silk Theme */
+.form-campo {
+    background: rgba(43, 8, 11, 0.65) !important;
+    border: 1px solid rgba(247, 215, 148, 0.3) !important;
+    color: #fdfaf6 !important;
+    border-radius: 15px !important;
+    padding: 12px 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-campo:focus {
+    border-color: rgba(247, 215, 148, 0.8) !important;
+    box-shadow: 0 0 10px rgba(247, 215, 148, 0.2) !important;
+    background: rgba(43, 8, 11, 0.8) !important;
+    outline: none !important;
+}
+
+.form-campo::placeholder {
+    color: rgba(253, 250, 246, 0.5) !important;
+}
+
+.form-campo option {
+    background-color: #2b080b !important;
+    color: #fdfaf6 !important;
+}
+
+.filter-sage {
+    /* Adjusting icons to a beautiful elegant gold matching the titles */
+    filter: brightness(0) saturate(100%) invert(87%) sepia(24%) saturate(762%) hue-rotate(327deg) brightness(103%) contrast(94%) !important;
+}
